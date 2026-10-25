@@ -331,6 +331,20 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 .scen-down .scen-title{color:var(--green);text-shadow:0 0 5px rgba(0,255,136,.5)}
 .scen-line{font-size:11px;color:var(--txt);line-height:1.55}
 .scen-line b{color:var(--txt2)}
+/* 情景自动触发高亮 */
+.scen-hit{border-color:var(--gold);box-shadow:0 0 12px rgba(255,215,0,.35)}
+.scen-hit .scen-title{color:var(--gold);text-shadow:0 0 8px rgba(255,215,0,.6)}
+/* ===== 晋级率矩阵 ===== */
+.promo-row{margin:4px 0}
+.promo-label{display:inline-block;width:44px;color:var(--gold);font-weight:700;font-size:11px}
+.promo-nums{display:inline-block;width:56px;color:var(--txt2);font-size:11px;text-align:right;margin-right:6px}
+.promo-track{display:inline-block;width:calc(100% - 172px);height:10px;background:var(--panel2);border:1px solid var(--border2);border-radius:2px;vertical-align:middle}
+.promo-bar{height:100%;border-radius:1px}
+.promo-bar-hot{background:linear-gradient(90deg,#ff3333,#ff8f6b)}
+.promo-bar-mid{background:linear-gradient(90deg,#b388ff,#d9b8ff)}
+.promo-bar-cold{background:linear-gradient(90deg,#0f7a4d,#00ff88)}
+.promo-rate{display:inline-block;width:60px;font-size:11px;font-weight:700;text-align:right}
+.promo-names{font-size:10px;color:var(--txt3);margin:1px 0 3px 44px}
 </style>
 </head>
 <body>
@@ -423,6 +437,10 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
       <div class="card" id="ladder-card">
         <h3><span class="bar"></span>连板梯队（角色打标） <span class="cnt" id="ladder-cnt"></span></h3>
         <div id="ladder"></div>
+      </div>
+      <div class="card" id="promo-card">
+        <h3><span class="bar" style="background:var(--gold);box-shadow:0 0 6px var(--gold)"></span>连板晋级率矩阵 <span class="cnt" id="promo-cnt"></span></h3>
+        <div id="promotion"></div>
       </div>
       <div class="card" id="pk-card">
         <h3><span class="bar" style="background:var(--purple);box-shadow:0 0 6px var(--purple)"></span>同身位 PK 胜负对比</h3>
@@ -562,6 +580,9 @@ const initialData = {
     "label": "充裕"
   },
   "yidong_calc": {
+    "status": "accumulating",
+    "days": 1,
+    "note": "异动红线需 11 个交易日收盘价存档（当前 1/11）",
     "targets": [
       {
         "name": "澳弘电子",
@@ -575,7 +596,8 @@ const initialData = {
         "d10_gain": 48.0,
         "d20_gain": 45.5
       }
-    ]
+    ],
+    "keep_note": "targets 保留人工研判快照（自动计算待存档积累）"
   },
   "auction_metrics": {
     "lianban_red_green_ratio": 0.33,
@@ -1473,19 +1495,22 @@ const initialData = {
       "type": "超预期",
       "trigger": "大业6板晋级7板+机器人主线延续，涨停家数维持80家以上",
       "strategy": "修复延续，主线核心可打板，机器人产业链继续扩散",
-      "watch": "大业股份、埃斯顿、兆威机电"
+      "watch": "大业股份、埃斯顿、兆威机电",
+      "auto_match": { "lu_min": 80, "board_min": 7 }
     },
     {
       "type": "符合预期",
       "trigger": "大业6板分歧，机器人主线分化，涨停回落至50家左右",
       "strategy": "高位分歧，只留最强核心，低位首板可低吸",
-      "hold": "跟风减仓，核心持有"
+      "hold": "跟风减仓，核心持有",
+      "auto_match": { "lu_min": 30, "lu_max": 79 }
     },
     {
       "type": "不及预期",
       "trigger": "大业炸板+高位连板集体分歧，涨停回落至30家以下",
       "strategy": "修复证伪，防守为主，只出不进",
-      "risk": "破位清仓，优先处理高位断板持仓"
+      "risk": "破位清仓，优先处理高位断板持仓",
+      "auto_match": { "lu_max": 29 }
     }
   ],
   "weak_strong_check": {
@@ -1537,7 +1562,15 @@ const initialData = {
   },
   "fund_flow_one_line": "2026-10-23 16:01 收盘：冰点V型反转，午盘恐慌(19涨停vs47跌停)→尾盘爆发，创业板+4.16%领涨，涨停82家vs跌停7家普涨4239家；总龙大业6板晋级(16天8板)+海洋王地天板6板双高标，机器人产业链全面爆发(埃斯顿/雷赛/兆威/万向钱潮/歌尔20家)，但大业/海洋王主力均净流出(1.74亿/1.71亿)散户接盘需警惕，三峡新材天地板(主力出逃4.33亿)",
   "data_source": "全模块数据源统一为 easyquotation 新浪源（hq.sinajs.cn）：指数/个股行情/涨跌停家数/涨停池均由新浪实时快照计算；连板统计与资金流明细新浪源不提供，保留 2026-10-23 收盘快照值并标注。2026-10-25(周六)盘后复核：新浪全市场快照5402只/0失败，四大指数与内嵌快照一致，涨停池近似79家(官方82)、跌停近似10家(官方7，已剔除退市整理异常股)",
-  "note": "北向资金自2024-08-19起停止披露日度净买入额；新浪源无资金流/连板天数字段，相关明细以 2026-10-23 收盘快照为准，不跨源混用；2026-10-25(周六)用新浪全量快照复核指数与涨跌停口径，海选结果见 07_更新脚本/screen_result.csv"
+  "note": "北向资金自2024-08-19起停止披露日度净买入额；新浪源无资金流/连板天数字段，相关明细以 2026-10-23 收盘快照为准，不跨源混用；2026-10-25(周六)用新浪全量快照复核指数与涨跌停口径，海选结果见 07_更新脚本/screen_result.csv",
+  "promotion_matrix": {
+    "prev_date": "2026-10-23",
+    "date": null,
+    "status": "accumulating",
+    "days": 1,
+    "note": "晋级率矩阵需要两个交易日收盘快照，下一交易日收盘归档后自动生成",
+    "matrix": []
+  }
 };
 
 // ===== 状态 =====
@@ -1797,17 +1830,45 @@ function renderYidongCalc(d) {
   const y = d.yidong_calc || {};
   const list = y.targets || [];
   let html = "";
+  if (y.status === "accumulating") {
+    html += '<div class="gray-note">' + (y.note || "异动红线自动计算数据积累中") + (y.keep_note ? "；" + y.keep_note : "") + '</div>';
+  }
   list.forEach(function(it) {
     const g = it.d20_gain || 0;
     let warn = "", badge = "";
     if (g > 190) { warn = "逼近200%红线，禁止追高"; badge = '<span class="badge warn">逼近200%</span>'; }
     else if (g >= 100) { warn = "处于100%-200%异动区间，警惕监管降温"; badge = '<span class="badge warn">100%+异动</span>'; }
     html += '<div class="ml"><div class="top"><span class="mn">' + it.name + '</span><span class="cnt">' + it.pattern + '</span>' + badge + '</div>' +
-      '<div class="dt">10日 ' + it.d10_gain + '% · 20日 ' + it.d20_gain + '%</div>' +
+      '<div class="dt">10日 ' + it.d10_gain + '% · 20日 ' + (it.d20_gain != null ? it.d20_gain + '%' : "-") + '</div>' +
       (warn ? '<div class="warn-line">警示：' + warn + '</div>' : '') +
       '</div>';
   });
   document.getElementById("yidong").innerHTML = html || '<div class="fb-empty">暂无异动标的</div>';
+}
+
+// ===== 连板晋级率矩阵 =====
+function renderPromotionMatrix(d) {
+  const pm = d.promotion_matrix;
+  const el = document.getElementById("promotion");
+  if (!el) return;
+  const cnt = document.getElementById("promo-cnt");
+  if (!pm || !pm.matrix || !pm.matrix.length) {
+    el.innerHTML = '<div class="fb-empty">' + ((pm && pm.note) || "暂无晋级率数据") + '</div>';
+    if (cnt) cnt.textContent = pm && pm.days ? "已积累 " + pm.days + " 个交易日" : "";
+    return;
+  }
+  let html = "";
+  pm.matrix.forEach(function(r) {
+    const barCls = r.rate >= 40 ? "promo-bar-hot" : (r.rate >= 20 ? "promo-bar-mid" : "promo-bar-cold");
+    const rateCls = r.rate >= 40 ? "up-glow" : (r.rate >= 20 ? "" : "down-glow");
+    html += '<div class="promo-row"><span class="promo-label">' + r.from + '进' + r.to + '</span>' +
+      '<span class="promo-nums">' + r.pass + '/' + r.total + '</span>' +
+      '<div class="promo-track"><div class="promo-bar ' + barCls + '" style="width:' + Math.min(100, r.rate) + '%"></div></div>' +
+      '<span class="promo-rate ' + rateCls + '">' + r.rate + '%</span></div>' +
+      (r.promoted && r.promoted.length ? '<div class="promo-names">晋级：' + r.promoted.slice(0, 6).join('、') + '</div>' : '');
+  });
+  el.innerHTML = html;
+  if (cnt) cnt.textContent = (pm.prev_date || "") + " → " + (pm.date || "");
 }
 
 function renderSpaceHigh(d) {
@@ -2208,16 +2269,35 @@ function renderCycleClose(d) {
     '<div class="m-row"><span class="k">核心观察</span><span class="v">' + (cc.watch_direction || "") + '</span></div>' +
     '<div class="close-events">今日关键事件' + events + '</div>';
 }
+function matchScenario(d, s) {
+  const am = s.auto_match;
+  if (!am) return false;
+  const lu = d.breadth ? d.breadth.limit_up : null;
+  const mb = d.emotion ? d.emotion.max_lianban : null;
+  if (lu == null) return false;
+  if (am.lu_min != null && lu < am.lu_min) return false;
+  if (am.lu_max != null && lu > am.lu_max) return false;
+  if (am.board_min != null && (mb == null || mb < am.board_min)) return false;
+  if (am.board_max != null && mb != null && mb > am.board_max) return false;
+  return true;
+}
 function renderScenarios(d) {
   const card = document.getElementById("scenarios-card");
   const list = d.tomorrow_scenarios || [];
-  if (d.session !== "收盘" || list.length === 0) { if (card) card.style.display = "none"; return; }
+  if (list.length === 0) { if (card) card.style.display = "none"; return; }
   if (card) card.style.display = "";
+  const intraday = d.session !== "收盘";
   const typeCls = { "超预期": "scen-up", "符合预期": "scen-mid", "不及预期": "scen-down" };
   let html = "";
+  if (intraday) {
+    const lu = d.breadth ? d.breadth.limit_up : "--";
+    const mb = d.emotion ? d.emotion.max_lianban : "--";
+    html += '<div class="noon-banner alert-gold">情景自动触发器：当前 涨停' + lu + '家 / 最高' + mb + '板 → 命中情景高亮显示</div>';
+  }
   list.forEach(function(s) {
-    html += '<div class="scen ' + (typeCls[s.type] || "scen-mid") + '">' +
-      '<div class="scen-title">' + s.type + '</div>' +
+    const hit = intraday && matchScenario(d, s);
+    html += '<div class="scen ' + (typeCls[s.type] || "scen-mid") + (hit ? " scen-hit" : "") + '">' +
+      '<div class="scen-title">' + (hit ? "▶ 当前触发 · " : "") + s.type + '</div>' +
       '<div class="scen-line"><b>触发</b>：' + (s.trigger || "") + '</div>' +
       '<div class="scen-line"><b>策略</b>：' + (s.strategy || "") + '</div>' +
       (s.watch ? '<div class="scen-line"><b>观察标的</b>：' + s.watch + '</div>' : '') +
@@ -2269,6 +2349,7 @@ const SRC_MAP = {
   "mainlines": "数据来源：easyquotation 新浪",
   "riskMetrics": "数据来源：easyquotation 新浪",
   "ladder": "数据来源：easyquotation 新浪",
+  "promotion": "数据来源：easyquotation 新浪（每日快照自动计算）",
   "pk": "数据来源：easyquotation 新浪",
   "broken": "数据来源：easyquotation 新浪",
   "firstboards": "数据来源：easyquotation 新浪",
@@ -2426,6 +2507,7 @@ function refreshAll() {
   renderSpaceHigh(d);
   renderInnerOuter(d);
   renderCeiling(d);
+  renderPromotionMatrix(d);
   renderLadder(d);
   renderPkCompare(d);
   renderMainlines(d);
