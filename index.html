@@ -22,8 +22,8 @@ html,body{background:var(--bg);color:var(--txt);font-family:var(--mono);font-siz
 /* 涨跌发光 */
 .up-glow{color:var(--red);text-shadow:0 0 9px rgba(255,51,51,.65)}
 .down-glow{color:var(--green);text-shadow:0 0 9px rgba(0,255,136,.65)}
-/* 顶部状态条 */
-.topbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border2);border-radius:5px;padding:7px 12px;margin-bottom:7px;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+/* 顶部状态条（sticky 常驻） */
+.topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border2);border-radius:5px;padding:7px 12px;margin-bottom:7px;box-shadow:0 2px 8px rgba(0,0,0,.4)}
 .brand{color:var(--gold);font-weight:700;font-size:14px;letter-spacing:1px;text-shadow:0 0 8px rgba(255,215,0,.5);white-space:nowrap}
 .t-item{display:flex;align-items:center;gap:5px;font-size:12px;white-space:nowrap}
 .t-item .k{color:var(--txt3)}
@@ -68,7 +68,7 @@ html,body{background:var(--bg);color:var(--txt);font-family:var(--mono);font-siz
 .col .card{flex:none}
 .col .card:last-child{flex:1 1 auto}
 @media(max-width:1200px){.layout{grid-template-columns:1fr 1fr}.col-right{grid-column:1 / -1}}
-@media(max-width:768px){.layout{grid-template-columns:1fr}}
+@media(max-width:768px){.layout{grid-template-columns:1fr}.lights{position:static}#ladder,#pk,#firstboards,#fundflow{overflow-x:auto}}
 /* 卡片 */
 .card{background:var(--panel);border:1px solid var(--border2);border-radius:5px;padding:9px;box-shadow:0 2px 8px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.03)}
 .card h3{font-size:12.5px;color:var(--gold);font-weight:700;letter-spacing:1px;margin-bottom:6px;display:flex;align-items:center;gap:6px;text-shadow:0 0 6px rgba(255,215,0,.35)}
@@ -223,8 +223,8 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 .sync.ok .dot{background:var(--green);box-shadow:0 0 6px var(--green)}
 .sync.warn .dot{background:var(--gold);box-shadow:0 0 6px var(--gold)}
 .sync.err .dot{background:var(--red);box-shadow:0 0 6px var(--red)}
-/* ===== 7 灯结论条 ===== */
-.lights{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border2);border-radius:5px;padding:6px 12px;margin-bottom:7px;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+/* ===== 7 灯结论条（sticky 常驻） ===== */
+.lights{position:sticky;top:36px;z-index:59;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border2);border-radius:5px;padding:6px 12px;margin-bottom:7px;box-shadow:0 2px 8px rgba(0,0,0,.4)}
 .light{display:flex;align-items:center;gap:5px;font-size:12px;white-space:nowrap}
 .light .k{color:var(--txt3)}
 .light .dot{width:8px;height:8px;border-radius:50%;flex:none}
@@ -273,6 +273,9 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 /* ===== 首板展开按钮 ===== */
 .fb-more{display:block;width:100%;margin-top:6px;padding:4px;background:var(--panel2);border:1px dashed var(--border2);border-radius:3px;color:var(--txt2);font-size:11px;cursor:pointer;text-align:center}
 .fb-more:hover{color:var(--gold);border-color:var(--gold)}
+/* ===== 数据变更闪烁（diff 高亮） ===== */
+.flash{animation:valFlash 1.6s ease-out}
+@keyframes valFlash{0%{background:rgba(255,215,0,.42);box-shadow:0 0 10px rgba(255,215,0,.55)}60%{background:rgba(255,215,0,.12)}100%{background:transparent}}
 /* ===== 极淡灰小字 ===== */
 .gray-note{font-size:10px;color:var(--txt3);margin-top:2px;line-height:1.45}
 /* ===== 资金类型标签 ===== */
@@ -1722,12 +1725,12 @@ function renderIdx(d) {
     const it = d.indices[k];
     const cls = pctClass(it.pct);
     html += '<div class="idx"><div class="n">' + it.name + '</div>' +
-      '<div class="p ' + cls + '">' + it.price.toFixed(2) + '</div>' +
-      '<div class="c ' + cls + '">' + fmtPct(it.pct) + '</div></div>';
+      '<div class="p ' + cls + '" data-field="idx:' + k + ':p">' + it.price.toFixed(2) + '</div>' +
+      '<div class="c ' + cls + '" data-field="idx:' + k + ':c">' + fmtPct(it.pct) + '</div></div>';
   });
   const v = d.volume, b = d.breadth;
-  html += '<div class="idx"><div class="n">成交额</div><div class="p flat" style="font-size:14px">' + v.total + '</div><div class="c flat">' + v.compare + '</div></div>';
-  html += '<div class="idx"><div class="n">涨/跌家</div><div class="p"><span class="up-glow">' + b.up + '</span><span style="color:var(--txt3)">/</span><span class="down-glow">' + b.down + '</span></div><div class="c"><span class="up-glow">涨停' + b.limit_up + '</span> <span class="down-glow">跌停' + b.limit_down + '</span></div></div>';
+  html += '<div class="idx"><div class="n">成交额</div><div class="p flat" style="font-size:14px" data-field="vol:total">' + v.total + '</div><div class="c flat" data-field="vol:compare">' + v.compare + '</div></div>';
+  html += '<div class="idx"><div class="n">涨/跌家</div><div class="p"><span class="up-glow" data-field="brd:up">' + b.up + '</span><span style="color:var(--txt3)">/</span><span class="down-glow" data-field="brd:down">' + b.down + '</span></div><div class="c"><span class="up-glow" data-field="brd:lu">涨停' + b.limit_up + '</span> <span class="down-glow" data-field="brd:ld">跌停' + b.limit_down + '</span></div></div>';
   document.getElementById("idxrow").innerHTML = html;
 }
 
@@ -2163,8 +2166,8 @@ function renderEmotionScore(d) {
   if (s >= 80) { tier = "偏强，可正常操作"; cls = "green"; }
   else if (s >= 50) { tier = "分化，只做核心"; cls = "gold"; }
   else { tier = "偏弱，优先处理持仓"; cls = "red"; }
-  el.innerHTML = '<div class="score-num ' + cls + '">' + s + '<span class="score-unit">分</span></div>' +
-    '<div class="score-tier ' + cls + '">' + tier + '</div>' +
+  el.innerHTML = '<div class="score-num ' + cls + '" data-field="emo:score">' + s + '<span class="score-unit">分</span></div>' +
+    '<div class="score-tier ' + cls + '" data-field="emo:tier">' + tier + '</div>' +
     '<div class="gray-note">竞价情绪综合得分（四项合成，仅供参考）</div>';
 }
 function renderNoonAlert(d) {
@@ -2305,30 +2308,37 @@ function setStale(flag) {
 }
 
 // ===== 并发兜底（Promise.allSettled） =====
+let fetchInFlight = false;
 function fetchJson(url) {
-  return fetch(url, { cache: "no-store" }).then(function(r) {
+  return fetch(url, { cache: "no-cache" }).then(function(r) {
     if (!r.ok) { throw new Error("http " + r.status); }
     return r.json();
   });
 }
 async function loadFreshData() {
-  const results = await Promise.allSettled([fetchJson("market_data.json")]);
-  let got = null;
-  results.forEach(function(res) {
-    if (res.status === "fulfilled" && res.value && res.value.date) { got = res.value; }
-  });
-  if (got) {
-    // 若与当前数据同版本，跳过重渲染，避免无谓闪烁
-    const same = state.data && state.data.timestamp === got.timestamp && state.data.date === got.date;
-    state.everFetched = true;
-    if (!same) { useData(got); }
-    setStale(false);
-    return true;
-  } else {
-    // 从未成功拉取过外部数据 = 静态快照（内嵌 initialData 即最新），不算延迟
-    // 曾成功拉取后又失败 = 数据源中断，才标注延迟
-    setStale(!!state.everFetched);
-    return false;
+  if (fetchInFlight) return null; // 上一轮请求在途，跳过本轮，防止弱网下请求堆积
+  fetchInFlight = true;
+  try {
+    const results = await Promise.allSettled([fetchJson("market_data.json")]);
+    let got = null;
+    results.forEach(function(res) {
+      if (res.status === "fulfilled" && res.value && res.value.date) { got = res.value; }
+    });
+    if (got) {
+      // 若与当前数据同版本，跳过重渲染，避免无谓闪烁
+      const same = state.data && state.data.timestamp === got.timestamp && state.data.date === got.date;
+      state.everFetched = true;
+      if (!same) { useData(got); }
+      setStale(false);
+      return true;
+    } else {
+      // 从未成功拉取过外部数据 = 静态快照（内嵌 initialData 即最新），不算延迟
+      // 曾成功拉取后又失败 = 数据源中断，才标注延迟
+      setStale(!!state.everFetched);
+      return false;
+    }
+  } finally {
+    fetchInFlight = false;
   }
 }
 
@@ -2354,6 +2364,7 @@ function refreshNow() {
   };
   setBtn("刷新中…", "loading");
   loadFreshData().then(function(ok) {
+    if (ok === null) return; // 轮询请求在途，本轮手动刷新跳过（稍后轮询自动完成）
     const t = (state.data && state.data.timestamp) ? state.data.timestamp : "";
     setBtn(ok ? ("已刷新 " + t) : "静态快照·无数据源", ok ? "ok" : "fail");
     setTimeout(function() { setBtn("刷新", null); }, 2600);
@@ -2380,9 +2391,31 @@ function checkWsq() {
   else { el.className = "wsq-result fail"; el.textContent = "× 假弱转强，禁止接力"; }
 }
 
+// ===== 数据变更 diff 高亮（刷新后变化的数值闪烁金黄） =====
+let lastFieldSnap = {};
+function snapshotFields() {
+  const map = {};
+  document.querySelectorAll("[data-field]").forEach(function(n) {
+    map[n.getAttribute("data-field")] = n.textContent;
+  });
+  return map;
+}
+function diffFlash(prev) {
+  if (!prev || !Object.keys(prev).length) return;
+  document.querySelectorAll("[data-field]").forEach(function(n) {
+    const k = n.getAttribute("data-field");
+    if (k in prev && prev[k] !== n.textContent) {
+      n.classList.remove("flash");
+      void n.offsetWidth; // 强制重排以重启动画
+      n.classList.add("flash");
+    }
+  });
+}
+
 // ===== 统一刷新 =====
 function refreshAll() {
   const d = state.data;
+  const prev = snapshotFields();
   renderTop(d);
   renderLights(d);
   renderSrc(d);
@@ -2412,6 +2445,15 @@ function refreshAll() {
   renderCardHeads(d);
   applySrc();
   setStale(!!state.stale);
+  diffFlash(prev);
+}
+
+// ===== 仓位/资金局部刷新（仅重算受影响模块，避免全量重绘） =====
+function refreshPosSensitive() {
+  const d = state.data;
+  renderTop(d);
+  renderLights(d);
+  renderDragons(d);
 }
 
 function useData(d) {
@@ -2430,14 +2472,14 @@ function bindEvents() {
     if (isNaN(v) || v < 0) v = 0;
     if (v > 100) v = 100;
     state.basePos = v;
-    refreshAll();
+    refreshPosSensitive();
   });
   const capInput = document.getElementById("total-cap");
   capInput.addEventListener("input", function() {
     let v = parseFloat(this.value);
     if (isNaN(v) || v < 0) v = 0;
     state.totalCap = v;
-    refreshAll();
+    refreshPosSensitive();
   });
   document.getElementById("ladder").addEventListener("change", function(e) {
     const cb = e.target;
