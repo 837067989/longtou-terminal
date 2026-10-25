@@ -356,6 +356,12 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 .py-b2{background:linear-gradient(90deg,#4da3ff,#2196f3)}
 .py-b1{background:linear-gradient(90deg,#5c6675,#8a93a5)}
 .py-cnt{width:40px;color:var(--txt2);font-size:11px;flex:none}
+/* ===== 盘中买点提示 ===== */
+.buy-sig{margin:3px 0;padding:4px 6px;border-radius:3px;border:1px solid var(--gold);background:rgba(255,215,0,.08);animation:buyPulse 2s ease-in-out infinite;font-size:11.5px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.buy-sig .name{font-weight:700}
+.buy-sig .rsn{margin-left:auto;color:var(--txt2);font-size:10.5px;text-align:right}
+.buy-tag{display:inline-block;font-size:10px;font-weight:700;color:#0B0F19;background:var(--gold);border-radius:2px;padding:0 5px;white-space:nowrap}
+@keyframes buyPulse{0%,100%{box-shadow:0 0 4px rgba(255,215,0,.15)}50%{box-shadow:0 0 14px rgba(255,215,0,.7)}}
 </style>
 </head>
 <body>
@@ -445,6 +451,10 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 
     <!-- 中栏：选股与海选池 -->
     <div class="col col-mid">
+      <div class="card" id="mainline-card">
+        <h3><span class="bar" style="background:var(--gold);box-shadow:0 0 6px var(--gold)"></span>主线题材捕捉 · 盘中买点提示 <span class="cnt" id="mainline-cnt"></span></h3>
+        <div id="mainline"></div>
+      </div>
       <div class="card" id="core-card">
         <h3><span class="bar" style="background:var(--blue);box-shadow:0 0 6px var(--blue)"></span>盘中核心池 · 炸板监控 <span class="cnt" id="core-cnt"></span></h3>
         <div id="core"></div>
@@ -1589,7 +1599,7 @@ const initialData = {
 };
 
 // ===== 状态 =====
-let state = { data: initialData, basePos: 50, totalCap: 100, watchlist: {}, fbAll: [], fbExpanded: false, stale: false, everFetched: false, coreData: null };
+let state = { data: initialData, basePos: 50, totalCap: 100, watchlist: {}, fbAll: [], fbExpanded: false, stale: false, everFetched: false, coreData: null, mainlineData: null };
 
 // ===== 工具函数 =====
 function pctClass(v) {
@@ -2641,6 +2651,62 @@ function loadCoreQuotes() {
   });
 }
 
+// ===== 主线题材捕捉 · 盘中买点提示（独立 15s 轮询） =====
+function renderMainlineSignals() {
+  const el = document.getElementById("mainline");
+  if (!el) return;
+  const cnt = document.getElementById("mainline-cnt");
+  const d = state.mainlineData;
+  if (!d || !d.mainlines || !d.mainlines.length) {
+    el.innerHTML = '<div class="fb-empty">主线捕捉未启动（盘中运行 mainline_capture.py 后自动出现）</div>';
+    if (cnt) cnt.textContent = "离线";
+    return;
+  }
+  let html = "";
+  const sigs = d.signals || [];
+  if (sigs.length) {
+    html += '<div class="fb-title">盘中买点提示 <span class="cnt">' + sigs.length + ' 条</span></div>';
+    sigs.slice(0, 8).forEach(function(s) {
+      html += '<div class="buy-sig"><span class="buy-tag">' + s.type + '</span>' +
+        '<span class="name">' + (s.name || "") + '</span> <span class="code">' + (s.code || "") + '</span>' +
+        '<span class="up-glow">' + (s.pct != null ? (s.pct >= 0 ? "+" : "") + s.pct + "%" : "") + '</span>' +
+        '<span class="rsn">' + (s.advice || "") + '</span></div>';
+    });
+  }
+  d.mainlines.forEach(function(ml) {
+    html += '<div class="fb-title">' + ml.name + ' <span class="cnt">龙头 ' + ml.leader + '</span></div>';
+    if (!ml.candidates || !ml.candidates.length) {
+      html += '<div class="fb-empty">无匹配候选</div>';
+      return;
+    }
+    html += '<table class="fb-table"><thead><tr><th>个股</th><th class="num">现价</th><th class="num">涨跌</th><th class="num">量比</th><th class="num">换手</th><th>状态</th></tr></thead><tbody>';
+    ml.candidates.forEach(function(c) {
+      const st = c.sealed ? '<span class="fb-tag healthy">封板</span>' : '<span class="fb-tag heavy">未封</span>';
+      html += '<tr><td><span class="name">' + c.name + '</span> <span class="code">' + c.code + '</span></td>' +
+        '<td class="num">' + (c.now != null ? c.now : "-") + '</td>' +
+        '<td class="num ' + (c.pct >= 0 ? "up-glow" : "down-glow") + '">' + (c.pct != null ? (c.pct >= 0 ? "+" : "") + c.pct + "%" : "-") + '</td>' +
+        '<td class="num">' + (c.vol_ratio != null ? c.vol_ratio : "-") + '</td>' +
+        '<td class="num">' + (c.turnover != null ? c.turnover : "-") + '</td>' +
+        '<td>' + st + '</td></tr>';
+    });
+    html += '</tbody></table>';
+  });
+  if (cnt) cnt.textContent = "更新于 " + (d.updated_at || "--");
+  el.innerHTML = html;
+}
+function loadMainlineSignals() {
+  fetch("mainline_signals.json", { cache: "no-cache" }).then(function(r) {
+    if (!r.ok) throw new Error("http " + r.status);
+    return r.json();
+  }).then(function(d) {
+    state.mainlineData = d;
+    renderMainlineSignals();
+  }).catch(function() {
+    state.mainlineData = null;
+    renderMainlineSignals();
+  });
+}
+
 function useData(d) {
   state.data = d;
   state.stale = false;
@@ -2697,6 +2763,8 @@ function init() {
   startPolling(15000);
   loadCoreQuotes();
   setInterval(loadCoreQuotes, 10000);
+  loadMainlineSignals();
+  setInterval(loadMainlineSignals, 15000);
 }
 
 window.addEventListener("DOMContentLoaded", init);
