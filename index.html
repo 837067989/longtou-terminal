@@ -345,6 +345,17 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 .promo-bar-cold{background:linear-gradient(90deg,#0f7a4d,#00ff88)}
 .promo-rate{display:inline-block;width:60px;font-size:11px;font-weight:700;text-align:right}
 .promo-names{font-size:10px;color:var(--txt3);margin:1px 0 3px 44px}
+/* ===== 连板梯队金字塔 ===== */
+.pyramid{margin-bottom:6px;padding:4px 0;border-bottom:1px dashed var(--border)}
+.py-row{display:flex;align-items:center;gap:6px;margin:2px 0}
+.py-lbl{width:34px;color:var(--gold);font-weight:700;font-size:11px;text-align:right;flex:none}
+.py-track{flex:1;height:10px;background:var(--panel2);border:1px solid var(--border2);border-radius:2px}
+.py-bar{height:100%;border-radius:1px}
+.py-b6,.py-b5{background:linear-gradient(90deg,#ffd700,#ff9f1a)}
+.py-b4,.py-b3{background:linear-gradient(90deg,#b388ff,#7c4dff)}
+.py-b2{background:linear-gradient(90deg,#4da3ff,#2196f3)}
+.py-b1{background:linear-gradient(90deg,#5c6675,#8a93a5)}
+.py-cnt{width:40px;color:var(--txt2);font-size:11px;flex:none}
 </style>
 </head>
 <body>
@@ -434,6 +445,10 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 
     <!-- 中栏：选股与海选池 -->
     <div class="col col-mid">
+      <div class="card" id="core-card">
+        <h3><span class="bar" style="background:var(--blue);box-shadow:0 0 6px var(--blue)"></span>盘中核心池 · 炸板监控 <span class="cnt" id="core-cnt"></span></h3>
+        <div id="core"></div>
+      </div>
       <div class="card" id="ladder-card">
         <h3><span class="bar"></span>连板梯队（角色打标） <span class="cnt" id="ladder-cnt"></span></h3>
         <div id="ladder"></div>
@@ -1574,7 +1589,7 @@ const initialData = {
 };
 
 // ===== 状态 =====
-let state = { data: initialData, basePos: 50, totalCap: 100, watchlist: {}, fbAll: [], fbExpanded: false, stale: false, everFetched: false };
+let state = { data: initialData, basePos: 50, totalCap: 100, watchlist: {}, fbAll: [], fbExpanded: false, stale: false, everFetched: false, coreData: null };
 
 // ===== 工具函数 =====
 function pctClass(v) {
@@ -1930,10 +1945,28 @@ function renderCeiling(d) {
 
 function openCountClass(oc) { return oc <= 1 ? "oc-low" : (oc <= 3 ? "oc-mid" : "oc-high"); }
 
+// ===== 连板梯队金字塔（一眼看梯队断层） =====
+function ladderPyramidHtml(d) {
+  const list = (d.ladder || []).filter(isMainBoard);
+  if (!list.length) return "";
+  const groups = {};
+  list.forEach(function(it) { (groups[it.board] = groups[it.board] || []).push(it); });
+  const boards = Object.keys(groups).map(Number).sort(function(a, b) { return b - a; });
+  const maxCount = Math.max.apply(null, boards.map(function(b) { return groups[b].length; }));
+  let html = '<div class="pyramid">';
+  boards.forEach(function(b) {
+    const w = Math.max(8, Math.round(groups[b].length / maxCount * 100));
+    html += '<div class="py-row"><span class="py-lbl">' + b + '板</span>' +
+      '<div class="py-track"><div class="py-bar py-b' + Math.min(b, 6) + '" style="width:' + w + '%"></div></div>' +
+      '<span class="py-cnt">' + groups[b].length + '只</span></div>';
+  });
+  html += '</div>';
+  return html;
+}
 function renderLadder(d) {
   const list = (d.ladder || []).filter(isMainBoard);
   document.getElementById("ladder-cnt").textContent = list.length + "只 · 最高" + d.emotion.max_lianban + "板";
-  let html = '<table><thead><tr><th style="width:24px">盯</th><th style="width:38px">板</th><th>名称</th><th>题材</th><th>角色</th><th>强度</th><th style="text-align:right">成交额</th><th style="text-align:right">开板次数</th></tr></thead><tbody>';
+  let html = ladderPyramidHtml(d) + '<table><thead><tr><th style="width:24px">盯</th><th style="width:38px">板</th><th>名称</th><th>题材</th><th>角色</th><th>强度</th><th style="text-align:right">成交额</th><th style="text-align:right">开板次数</th></tr></thead><tbody>';
   list.forEach(function(it) {
     const checked = state.watchlist[it.code] ? "checked" : "";
     const oc = it.open_count > 0 ? it.open_count + "次" : "-";
@@ -2219,6 +2252,23 @@ function renderBottom(d) {
 }
 
 // ===== 三时点决策闭环 =====
+// ===== 情绪分 V 型折线（内联 SVG） =====
+function emotionChartSvg(d) {
+  const es = d.emotion_score || {};
+  const vals = [["竞价", es.auction], ["午盘", es.noon], ["收盘", es.close]].filter(function(p) { return p[1] != null; });
+  if (vals.length < 2) return "";
+  const w = 200, h = 64, pad = 12;
+  const step = (w - pad * 2) / (vals.length - 1);
+  const xy = vals.map(function(p, i) { return [pad + i * step, h - pad - (p[1] / 100) * (h - pad * 2)]; });
+  let line = "", dots = "", labels = "";
+  xy.forEach(function(pt, i) {
+    line += (i === 0 ? "M" : "L") + pt[0].toFixed(1) + "," + pt[1].toFixed(1);
+    dots += '<circle cx="' + pt[0].toFixed(1) + '" cy="' + pt[1].toFixed(1) + '" r="2.5" fill="#ffd700"/>';
+    labels += '<text x="' + pt[0].toFixed(1) + '" y="' + (h - 3) + '" fill="#5c6675" font-size="7" text-anchor="middle">' + vals[i][0] + '</text>' +
+      '<text x="' + pt[0].toFixed(1) + '" y="' + (pt[1] - 4).toFixed(1) + '" fill="#e6e8ef" font-size="7" text-anchor="middle">' + vals[i][1] + '</text>';
+  });
+  return '<svg viewBox="0 0 ' + w + ' ' + h + '" style="width:100%;max-width:240px;margin-top:4px"><path d="' + line + '" fill="none" stroke="#ffd700" stroke-width="1.5"/>' + dots + labels + '</svg>';
+}
 function renderEmotionScore(d) {
   const el = document.getElementById("emotionScore");
   if (!el) return;
@@ -2229,7 +2279,8 @@ function renderEmotionScore(d) {
   else { tier = "偏弱，优先处理持仓"; cls = "red"; }
   el.innerHTML = '<div class="score-num ' + cls + '" data-field="emo:score">' + s + '<span class="score-unit">分</span></div>' +
     '<div class="score-tier ' + cls + '" data-field="emo:tier">' + tier + '</div>' +
-    '<div class="gray-note">竞价情绪综合得分（四项合成，仅供参考）</div>';
+    '<div class="gray-note">竞价情绪综合得分（四项合成，仅供参考）</div>' +
+    emotionChartSvg(d);
 }
 function renderNoonAlert(d) {
   const el = document.getElementById("noonAlert");
@@ -2538,6 +2589,58 @@ function refreshPosSensitive() {
   renderDragons(d);
 }
 
+// ===== 盘中核心池 · 炸板监控（独立 10s 轮询，与 15s 数据轮询解耦） =====
+function renderCoreWatch() {
+  const el = document.getElementById("core");
+  if (!el) return;
+  const cnt = document.getElementById("core-cnt");
+  const d = state.coreData;
+  if (!d || !d.quotes || !Object.keys(d.quotes).length) {
+    el.innerHTML = '<div class="fb-empty">盘中监控未启动（交易日运行 watch_core.py --loop 5 后自动出现）</div>';
+    if (cnt) cnt.textContent = "离线";
+    return;
+  }
+  const q = d.quotes;
+  const order = { "封板": 0, "开板": 1, "无报价": 2 };
+  const codes = Object.keys(q).sort(function(a, b) { return (order[q[a].state] || 3) - (order[q[b].state] || 3); });
+  let html = '<table class="fb-table"><thead><tr><th>标的</th><th>板</th><th class="num">现价</th><th class="num">涨跌</th><th>状态</th></tr></thead><tbody>';
+  codes.forEach(function(c) {
+    const it = q[c];
+    const stCls = it.state === "封板" ? "fb-tag healthy" : (it.state === "开板" ? "fb-tag heavy" : "code");
+    html += '<tr><td><span class="name">' + it.name + '</span> <span class="code">' + c + '</span></td>' +
+      '<td>' + (it.board != null ? it.board + "板" : "-") + '</td>' +
+      '<td class="num" data-field="core:' + c + ':now">' + (it.now != null ? it.now : "-") + '</td>' +
+      '<td class="num ' + (it.pct >= 0 ? "up-glow" : "down-glow") + '" data-field="core:' + c + ':pct">' + (it.pct != null ? (it.pct >= 0 ? "+" : "") + it.pct + "%" : "-") + '</td>' +
+      '<td><span class="' + stCls + '">' + it.state + '</span></td></tr>';
+  });
+  html += '</tbody></table>';
+  const evs = d.events || [];
+  if (evs.length) {
+    html += '<div class="fb-title">盘中事件日志 <span class="cnt">' + evs.length + ' 条</span></div>';
+    evs.slice(-12).reverse().forEach(function(e) {
+      const cls = e.type === "炸板" ? "fb-tag heavy" : "fb-tag healthy";
+      html += '<div class="broken-item"><span class="nm">' + e.time + ' ' + e.name + '</span>' +
+        '<span class="code">' + (e.board != null ? e.board + "板" : "") + '</span>' +
+        '<span class="' + cls + '">' + e.type + '</span>' +
+        '<span class="rsn">' + (e.pct != null ? (e.pct >= 0 ? "+" : "") + e.pct + "%" : "") + '</span></div>';
+    });
+  }
+  if (cnt) cnt.textContent = "更新于 " + (d.updated_at || "--");
+  el.innerHTML = html;
+}
+function loadCoreQuotes() {
+  fetch("core_quotes.json", { cache: "no-cache" }).then(function(r) {
+    if (!r.ok) throw new Error("http " + r.status);
+    return r.json();
+  }).then(function(d) {
+    state.coreData = d;
+    renderCoreWatch();
+  }).catch(function() {
+    state.coreData = null;
+    renderCoreWatch();
+  });
+}
+
 function useData(d) {
   state.data = d;
   state.stale = false;
@@ -2592,6 +2695,8 @@ function init() {
   useData(d);
   loadFreshData();
   startPolling(15000);
+  loadCoreQuotes();
+  setInterval(loadCoreQuotes, 10000);
 }
 
 window.addEventListener("DOMContentLoaded", init);
