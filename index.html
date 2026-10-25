@@ -2401,25 +2401,25 @@ function renderCardHeads(d) {
   setCardHead("spaceHigh", "高标风向标", "purple", sh.absolute_high || "");
 }
 
-// ===== 数据源标注（全模块统一 easyquotation 新浪源）=====
+// ===== 数据源标注（按模块真实来源：收盘快照/人工研判 vs 盘中实时） =====
 const SRC_MAP = {
-  "auctionMetrics": "数据来源：easyquotation 新浪",
-  "auctionVerify": "数据来源：easyquotation 新浪",
-  "spaceHigh": "数据来源：easyquotation 新浪",
-  "innerOuter": "数据来源：easyquotation 新浪",
-  "mainlines": "数据来源：easyquotation 新浪",
-  "riskMetrics": "数据来源：easyquotation 新浪",
-  "ladder": "数据来源：easyquotation 新浪",
-  "promotion": "数据来源：easyquotation 新浪（每日快照自动计算）",
-  "pk": "数据来源：easyquotation 新浪",
-  "broken": "数据来源：easyquotation 新浪",
-  "firstboards": "数据来源：easyquotation 新浪",
-  "yidong": "数据来源：easyquotation 新浪",
-  "dragons": "数据来源：easyquotation 新浪",
-  "fundflow": "数据来源：easyquotation 新浪",
-  "sell": "数据来源：easyquotation 新浪（卖出纪律规则）",
-  "cycleCloseBody": "数据来源：easyquotation 新浪",
-  "scenariosBody": "数据来源：easyquotation 新浪"
+  "auctionMetrics": "数据源：收盘快照+人工研判",
+  "auctionVerify": "数据源：收盘快照+人工研判",
+  "spaceHigh": "数据源：收盘快照+人工研判",
+  "innerOuter": "数据源：收盘快照+人工研判",
+  "mainlines": "数据源：收盘快照+人工研判（盘中腾讯实时捕捉）",
+  "riskMetrics": "数据源：收盘快照+人工研判",
+  "ladder": "数据源：收盘快照+人工研判",
+  "promotion": "数据源：每日快照自动计算",
+  "pk": "数据源：收盘快照+人工研判",
+  "broken": "数据源：收盘快照+人工研判",
+  "firstboards": "数据源：收盘快照+人工研判",
+  "yidong": "数据源：每日快照自动计算",
+  "dragons": "数据源：收盘快照+人工研判",
+  "fundflow": "数据源：收盘快照值（无免费资金流源）",
+  "sell": "数据源：交易纪律规则",
+  "cycleCloseBody": "数据源：收盘快照+人工研判",
+  "scenariosBody": "数据源：收盘快照+盘中自动触发"
 };
 function applySrc() {
   Object.keys(SRC_MAP).forEach(function(id) {
@@ -2635,7 +2635,7 @@ function renderCoreWatch() {
         '<span class="rsn">' + (e.pct != null ? (e.pct >= 0 ? "+" : "") + e.pct + "%" : "") + '</span></div>';
     });
   }
-  if (cnt) cnt.textContent = "更新于 " + (d.updated_at || "--");
+  if (cnt) cnt.textContent = "腾讯实时 · " + (d.updated_at || "--");
   el.innerHTML = html;
 }
 function loadCoreQuotes() {
@@ -2691,7 +2691,7 @@ function renderMainlineSignals() {
     });
     html += '</tbody></table>';
   });
-  if (cnt) cnt.textContent = "更新于 " + (d.updated_at || "--");
+  if (cnt) cnt.textContent = "腾讯实时 · " + (d.updated_at || "--");
   el.innerHTML = html;
 }
 function loadMainlineSignals() {
