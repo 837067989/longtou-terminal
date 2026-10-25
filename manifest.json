@@ -1,0 +1,15 @@
+{
+  "name": "A股短线龙头战法监控终端",
+  "short_name": "龙头战法",
+  "description": "A股短线连板梯队、情绪周期、资金流向实时监控终端",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0B0F19",
+  "theme_color": "#0B0F19",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
