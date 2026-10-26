@@ -60,8 +60,9 @@
       "last_seen": "14:06:08",
       "status": "expired",
       "expired_time": "15:15:56",
-      "exit_reason": "条件破坏",
-      "exit_advice": "条件破坏，明日开盘按纪律离场"
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落（最高+9.66% → 现+4.83%，回落4.83个点），明日减仓止盈",
+      "day_high_pct": 9.66
     },
     {
       "type": "放量突破",
@@ -102,7 +103,8 @@
       "status": "expired",
       "expired_time": "13:15:47",
       "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损"
+      "exit_advice": "跌破均价，明日开盘止损",
+      "day_high_pct": 9.87
     },
     {
       "type": "放量突破",
@@ -122,7 +124,8 @@
       "status": "expired",
       "expired_time": "13:23:37",
       "exit_reason": "条件破坏",
-      "exit_advice": "条件破坏，明日开盘按纪律离场"
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
+      "day_high_pct": 7.26
     },
     {
       "type": "放量突破",
@@ -142,7 +145,8 @@
       "status": "expired",
       "expired_time": "11:00:12",
       "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损"
+      "exit_advice": "跌破均价，明日开盘止损",
+      "day_high_pct": 6.57
     },
     {
       "type": "放量突破",
@@ -161,8 +165,9 @@
       "last_seen": "14:06:08",
       "status": "expired",
       "expired_time": "15:15:56",
-      "exit_reason": "条件破坏",
-      "exit_advice": "条件破坏，明日开盘按纪律离场"
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落（最高+8.96% → 现+5.03%，回落3.93个点），明日减仓止盈",
+      "day_high_pct": 8.96
     },
     {
       "type": "放量突破",
@@ -254,7 +259,8 @@
       "status": "expired",
       "expired_time": "14:02:06",
       "exit_reason": "炸板",
-      "exit_advice": "炸板，明日开盘反抽即卖/破位清仓"
+      "exit_advice": "炸板，明日开盘反抽即卖/破位清仓",
+      "day_high_pct": 10.01
     }
   ]
 }
