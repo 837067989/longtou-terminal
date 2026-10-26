@@ -1,8 +1,8 @@
-/* A股短线龙头战法监控终端 · Service Worker
+﻿/* A股短线龙头战法监控终端 · Service Worker
  * 策略：HTML 与 JSON 一律 network-first（盘中数据必须实时），
  *       仅静态资源（图标/清单）走 cache-first，离线时回退。
  */
-const CACHE = "lstd-v4";
+const CACHE = "lstd-v5-ours";
 const ASSETS = ["./manifest.json", "./icon.svg"];
 
 self.addEventListener("install", (e) => {
