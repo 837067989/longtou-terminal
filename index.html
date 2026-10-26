@@ -1741,7 +1741,7 @@ const initialData = {
     ]
   },
   "realtime_boards": {
-    "updated_at": "00:28:32",
+    "updated_at": "00:32:51",
     "limit_up": 55,
     "max_board": 4,
     "ladder": [
@@ -2161,7 +2161,7 @@ const initialData = {
     "note": "今日实时：板数=昨日人工板数+1（今日新涨停记1板）；题材取自昨日名单，无则标 MISSING"
   },
   "node_detect": {
-    "type": "断板节点",
+    "type": "爆量断板节点",
     "broken": [
       {
         "name": "大业股份",
@@ -2172,9 +2172,9 @@ const initialData = {
         "board": 6
       }
     ],
-    "detail": "昨日最高 6 板 大业股份、海洋王 今日断板（情绪出清拐点）",
+    "detail": "昨日最高 6 板 大业股份、海洋王 今日断板（昨日最高标换手 30.8%，爆量分歧已提前释放）（情绪出清拐点）",
     "sub_high": [],
-    "advice": "修复拐点确认后再出手；次高标若扛伤害晋级，关注穿越机会"
+    "advice": "情绪冲击温和、修复概率高；断板次日确认修复即可出手（可偏积极）"
   }
 };
 
@@ -3438,7 +3438,8 @@ function renderMainlineSignals() {
         '<span class="buy-tag">' + s.type + '</span>' +
         '<span class="bc-pct ' + pctCls + '">' + (pctv != null ? (pctv >= 0 ? "+" : "") + pctv + "%" : "-") + '</span></div>' +
         '<div class="bc-mid">' + (s.mainline || "") + ' · <b>' + (s.action || "观察") + '</b></div>' +
-        '<div class="bc-bot">止损 <b>' + sl + '</b>（' + (s.stop_note || "破位止损") + '）</div></div>';
+        '<div class="bc-bot">止损 <b>' + sl + '</b>（' + (s.stop_note || "破位止损") + '）' +
+        (s.position ? ' · ' + s.position : '') + '</div></div>';
     });
   } else {
     html += '<div class="fb-empty">暂无买点（等待触发）</div>';
