@@ -134,7 +134,7 @@
   "space_high": {
     "absolute_high": "上海九百 4板(一般零售)",
     "cross_high": "-",
-    "note": "今日收盘实盘最高板（规则推断，非人工研判）"
+    "note": "收盘实盘最高板（规则推断）；穿越候选=最高标断板时次高标逆势晋级（字幕第7期）"
   },
   "inner_outer": {
     "old_leader": "大业股份",
@@ -858,16 +858,16 @@
     }
   ],
   "ceiling_calc": {
-    "last_supply_leader": "大业股份",
+    "last_supply_leader": "大业股份、海洋王",
     "last_supply_height": 6,
     "formula": "本轮补涨天花板 = 上一轮补涨龙高度 − 1 板",
     "result": 5,
     "current_supply": "上海九百",
-    "current_board": 3,
+    "current_board": 4,
     "near_ceiling": false,
-    "zone": "安全区",
-    "match_basis": "总龙6板晋级突破天花板",
-    "fallback_note": "总龙6板突破5板天花板，补涨空间同步打开"
+    "zone": "警戒区",
+    "match_basis": "自动计算：昨日最高 6 板 − 1 = 5 板天花板",
+    "fallback_note": "高度锚=昨日总龙；幅度锚=上一轮补涨龙（存档不足时用昨日总龙近似，字幕第2期）"
   },
   "dragon_cards": [
     {
@@ -1162,10 +1162,11 @@
           "海洋王"
         ]
       }
-    ]
+    ],
+    "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "00:32:51",
+    "updated_at": "00:37:24",
     "limit_up": 55,
     "max_board": 4,
     "ladder": [
@@ -1582,6 +1583,7 @@
         "pct": 8.08
       }
     ],
+    "cross_candidates": [],
     "note": "今日实时：板数=昨日人工板数+1（今日新涨停记1板）；题材取自昨日名单，无则标 MISSING"
   },
   "node_detect": {
