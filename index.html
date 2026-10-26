@@ -1511,10 +1511,10 @@ const initialData = {
     }
   ],
   "weak_strong_check": {
-    "turnover_threshold": 20,
+    "turnover_threshold": 50,
     "yesterday_burst_required": true,
     "same_board_premium_1m": "+0.5%",
-    "rule": "换手率≥20% 且 昨日爆量 且 竞价额≥昨日爆量额×3% → 真弱转强"
+    "rule": "前日烂板换手≥50%（充分换手）且 昨日爆量 且 竞价额≥昨日爆量额×3% 且 带量高开超预期 → 真弱转强"
   },
   "fund_flow": {
     "source": "easyquotation-新浪（2026-10-23 收盘快照；新浪源无资金流字段，明细保留快照值）",
@@ -1668,7 +1668,7 @@ const initialData = {
     ]
   },
   "realtime_boards": {
-    "updated_at": "15:03:06",
+    "updated_at": "00:25:03",
     "limit_up": 55,
     "max_board": 4,
     "ladder": [
@@ -2086,6 +2086,22 @@ const initialData = {
       }
     ],
     "note": "今日实时：板数=昨日人工板数+1（今日新涨停记1板）；题材取自昨日名单，无则标 MISSING"
+  },
+  "node_detect": {
+    "type": "断板节点",
+    "broken": [
+      {
+        "name": "大业股份",
+        "board": 6
+      },
+      {
+        "name": "海洋王",
+        "board": 6
+      }
+    ],
+    "detail": "昨日最高 6 板 大业股份、海洋王 今日断板（情绪出清拐点）",
+    "sub_high": [],
+    "advice": "修复拐点确认后再出手；次高标若扛伤害晋级，关注穿越机会"
   }
 };
 
@@ -2420,7 +2436,15 @@ function renderPromotionMatrix(d) {
 
 function renderSpaceHigh(d) {
   const s = d.space_high || {};
-  document.getElementById("spaceHigh").innerHTML =
+  const nd = d.node_detect;
+  let nodeHtml = "";
+  if (nd && nd.type) {
+    const ndCls = nd.type === "非节点" ? "fb-tag heavy" : (nd.type === "断板节点" ? "fb-tag heavy" : "fb-tag healthy");
+    nodeHtml = '<div class="m-row"><span class="k">节点检测</span><span class="' + ndCls + '">' + nd.type + '</span></div>' +
+      '<div class="gray-note">' + (nd.detail || "") + '</div>' +
+      '<div class="gray-note" style="color:var(--gold)">' + (nd.advice || "") + '</div>';
+  }
+  document.getElementById("spaceHigh").innerHTML = nodeHtml +
     '<div class="hm"><div class="n">' + s.absolute_high + '</div><div class="s">绝对空间高标（非连续板）</div></div>' +
     '<div class="hm"><div class="n">' + s.cross_high + '</div><div class="s">穿越高标</div></div>' +
     (s.note ? '<div style="font-size:10px;color:var(--txt3);margin-top:2px">' + s.note + '</div>' : '');
@@ -3144,7 +3168,7 @@ function refreshNow() {
 function checkWsq() {
   const d = state.data;
   const wsc = d.weak_strong_check || {};
-  const threshold = wsc.turnover_threshold || 20;
+  const threshold = wsc.turnover_threshold || 50;
   const el = document.getElementById("wsq-result");
   const turnover = parseFloat(document.getElementById("wsq-turnover").value);
   const burst = parseFloat(document.getElementById("wsq-burst").value);
@@ -3452,7 +3476,7 @@ function init() {
   bindEvents();
   const d = state.data;
   const wsc = d.weak_strong_check || {};
-  const rule = wsc.rule || ("换手率≥" + (wsc.turnover_threshold || 20) + "% 且 昨日爆量 且 竞价额≥昨日爆量额×3% → 真弱转强");
+  const rule = wsc.rule || ("前日烂板换手≥" + (wsc.turnover_threshold || 50) + "%（充分换手）且 昨日爆量 且 竞价额≥昨日爆量额×3% 且 带量高开超预期 → 真弱转强");
   document.getElementById("wsq-rule").textContent = "判定：" + rule;
   const sb = document.getElementById("wsq-sameboard");
   if (sb && wsc.same_board_premium_1m) {
