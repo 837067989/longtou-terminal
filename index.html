@@ -258,6 +258,31 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 /* ===== 数据源标注 ===== */
 .card{position:relative}
 .card-src{position:absolute;right:8px;bottom:5px;font-size:9.5px;color:var(--txt3);opacity:.55;pointer-events:none}
+/* ===== 数据来源对照表 ===== */
+.src-wrap{margin:0 0 10px;border:1px solid var(--border2);border-radius:4px;background:var(--panel);overflow:hidden}
+.src-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:6px 9px;border-bottom:1px solid var(--border2)}
+.src-badge{font-size:10.5px;font-family:var(--mono);color:var(--txt2);border:1px solid var(--border2);border-radius:2px;padding:1px 6px;white-space:nowrap}
+.src-badge b{color:var(--txt);font-weight:700}
+.src-badge.main{border-color:var(--blue);color:var(--blue)}
+.src-badge.main b{color:var(--blue)}
+.src-toggle{margin-left:auto;font-size:11px;color:var(--blue);border:1px solid var(--blue);border-radius:3px;padding:2px 10px;background:transparent;cursor:pointer;font-family:var(--mono);white-space:nowrap;transition:all .15s}
+.src-toggle:hover{background:rgba(77,163,255,.12);box-shadow:0 0 8px rgba(77,163,255,.35)}
+.srcpanel{display:none;padding:0}
+.srcpanel.open{display:block}
+.src-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.src-table th{text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;padding:5px 9px;border-bottom:1px solid var(--border2);background:var(--panel2);white-space:nowrap}
+.src-table td{padding:4px 9px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--txt2);vertical-align:top;line-height:1.5}
+.src-table tr:last-child td{border-bottom:none}
+.src-table td.mod{color:var(--txt);font-weight:700;white-space:nowrap}
+.src-table td.fld{font-family:var(--mono);font-size:10.5px;color:var(--gold);white-space:nowrap}
+.src-k{display:inline-block;font-size:9.5px;padding:0 5px;border-radius:2px;border:1px solid;white-space:nowrap}
+.src-k.k-native{color:var(--green);border-color:var(--green)}
+.src-k.k-derive{color:var(--blue);border-color:var(--blue)}
+.src-k.k-hist{color:var(--purple);border-color:var(--purple)}
+.src-k.k-alt{color:var(--gold);border-color:var(--gold)}
+.src-k.k-out{color:var(--red);border-color:var(--red)}
+.src-k.k-ext{color:var(--txt3);border-color:var(--border2)}
+.src-legend{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:6px 9px;font-size:10.5px;color:var(--txt3);border-top:1px solid var(--border2);background:var(--panel2)}
 /* ===== 开板次数分级 ===== */
 .oc-low{color:var(--green)}
 .oc-mid{color:var(--gold)}
@@ -400,6 +425,7 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
     <span class="t-item"><span class="k">昨连溢价</span><span class="v" id="t-lb">--</span></span>
     <span class="t-item"><span class="k">大面</span><span class="v down" id="t-dm">--</span></span>
     <span class="t-item"><span class="k">周期系数</span><span class="v" id="t-coef">--</span></span>
+    <span class="t-item" title="建议仓位 = 基准仓位 × 情绪系数 × 流动性系数"><span class="k">可用仓位</span><span class="v gold" id="t-allowed">--</span></span>
     <span class="sync" id="sync"><span class="dot"></span><span id="sync-txt">初始化</span></span>
     <span class="cmd" id="t-cmd">--</span>
     <span id="alarm-light" class="alarm-light green">情绪正常</span>
@@ -533,6 +559,11 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 
   <!-- 底部 -->
   <div class="bottom">
+    <!-- 数据来源对照表（默认折叠，点右侧按钮展开） -->
+    <div class="src-wrap">
+      <div class="src-head" id="srchead"></div>
+      <div class="srcpanel" id="srcpanel"></div>
+    </div>
     <div class="fund-line" id="fundline">--</div>
     <div class="disclaimer">
       本报告仅供研究参考，不构成个人投资建议；以上内容基于公开数据和量化分析，仅供参考，不构成投资建议。市场有风险，投资需谨慎。任何投资决策应结合个人风险承受能力、资金状况和投资目标独立判断，必要时咨询持牌专业机构。过往表现不预示未来收益。
@@ -1811,8 +1842,10 @@ function renderTop(d) {
   document.getElementById("t-coef").textContent = c.coefficient_label;
   document.getElementById("t-coef").className = "v " + (c.coefficient > 0 ? "gold" : "purple");
   const allowedEl = document.getElementById("t-allowed");
-  allowedEl.textContent = calcAllowedPos() + "%";
-  allowedEl.title = "建议仓位 = 基准" + state.basePos + "% × 情绪系数" + sentimentCoef().toFixed(1) + " × 流动性系数" + liquidityCoef().toFixed(1) + "（" + liquidityLabel() + "）";
+  if (allowedEl) {
+    allowedEl.textContent = calcAllowedPos() + "%";
+    allowedEl.title = "建议仓位 = 基准" + state.basePos + "% × 情绪系数" + sentimentCoef().toFixed(1) + " × 流动性系数" + liquidityCoef().toFixed(1) + "（" + liquidityLabel() + "）";
+  }
   const alarm = document.getElementById("alarm-light");
   if (e.big_face > 20) {
     alarm.className = "alarm-light red";
@@ -2960,21 +2993,27 @@ function useData(d) {
 
 // ===== 事件绑定 =====
 function bindEvents() {
+  // 这两个输入框可能不在骨架里（历史版本删过）。必须判空：
+  // 它们是 init 第一步要绑的，null 会直接中断整个初始化，导致所有卡片全空。
   const posInput = document.getElementById("base-pos");
-  posInput.addEventListener("input", function() {
-    let v = parseFloat(this.value);
-    if (isNaN(v) || v < 0) v = 0;
-    if (v > 100) v = 100;
-    state.basePos = v;
-    refreshPosSensitive();
-  });
+  if (posInput) {
+    posInput.addEventListener("input", function() {
+      let v = parseFloat(this.value);
+      if (isNaN(v) || v < 0) v = 0;
+      if (v > 100) v = 100;
+      state.basePos = v;
+      refreshPosSensitive();
+    });
+  }
   const capInput = document.getElementById("total-cap");
-  capInput.addEventListener("input", function() {
-    let v = parseFloat(this.value);
-    if (isNaN(v) || v < 0) v = 0;
-    state.totalCap = v;
-    refreshPosSensitive();
-  });
+  if (capInput) {
+    capInput.addEventListener("input", function() {
+      let v = parseFloat(this.value);
+      if (isNaN(v) || v < 0) v = 0;
+      state.totalCap = v;
+      refreshPosSensitive();
+    });
+  }
   document.getElementById("ladder").addEventListener("change", function(e) {
     const cb = e.target;
     if (cb && cb.tagName === "INPUT" && cb.type === "checkbox") {
@@ -2992,23 +3031,29 @@ function bindEvents() {
 
 // ===== 初始化 =====
 function init() {
-  bindEvents();
-  const d = state.data;
-  const wsc = d.weak_strong_check || {};
-  const rule = wsc.rule || ("换手率≥" + (wsc.turnover_threshold || 20) + "% 且 昨日爆量 且 竞价额≥昨日爆量额×3% → 真弱转强");
-  document.getElementById("wsq-rule").textContent = "判定：" + rule;
-  const sb = document.getElementById("wsq-sameboard");
-  if (sb && wsc.same_board_premium_1m) {
-    sb.textContent = "近1月同板数平均溢价：" + wsc.same_board_premium_1m + "（仅供参考）";
+  // 每个初始化步骤独立兜底：任何单点异常（例如骨架里少了个元素）都不该
+  // 连带整页空白 —— 之前 bindEvents 里一个 null.addEventListener 就把
+  // 后面所有渲染全掐断了，页面只剩卡片空壳。
+  function safe(label, fn) {
+    try { fn(); } catch (err) { console.error("[init] " + label + " 失败:", err); }
   }
-  useData(d);
-  loadFreshData();
-  startPolling(15000);
-  loadCoreQuotes();
-  setInterval(loadCoreQuotes, 10000);
-  loadMainlineSignals();
-  setInterval(loadMainlineSignals, 5000);
-  startBrowserLive();          // 浏览器直连行情兜底，不依赖本地进程
+  safe("事件绑定", bindEvents);
+  safe("弱转强规则", function() {
+    const d0 = state.data;
+    const wsc = d0.weak_strong_check || {};
+    const rule = wsc.rule || ("换手率≥" + (wsc.turnover_threshold || 20) + "% 且 昨日爆量 且 竞价额≥昨日爆量额×3% → 真弱转强");
+    document.getElementById("wsq-rule").textContent = "判定：" + rule;
+    const sb = document.getElementById("wsq-sameboard");
+    if (sb && wsc.same_board_premium_1m) {
+      sb.textContent = "近1月同板数平均溢价：" + wsc.same_board_premium_1m + "（仅供参考）";
+    }
+  });
+  safe("首屏渲染", function() { useData(state.data); });
+  safe("拉取热数据", loadFreshData);
+  safe("定时轮询", function() { startPolling(15000); });
+  safe("核心池", function() { loadCoreQuotes(); setInterval(loadCoreQuotes, 10000); });
+  safe("买点信号", function() { loadMainlineSignals(); setInterval(loadMainlineSignals, 5000); });
+  safe("浏览器直连行情", startBrowserLive);   // 不依赖本地进程的兜底行情
 }
 
 // ===== 浏览器直连行情（东财 push2，响应带 Access-Control-Allow-Origin: *）=====
