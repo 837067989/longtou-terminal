@@ -522,11 +522,11 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 <script>
 // ===== 内嵌数据（唯一数据源，与 market_data.json 同构）=====
 const initialData = {
-  "date": "2026-10-23",
-  "timestamp": "16:01:00",
+  "date": "2026-10-26",
+  "timestamp": "09:25:01",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
-  "session": "收盘",
+  "session": "竞价",
   "data_sources": {
     "sector_theme": "easyquotation-新浪",
     "ladder_board": "easyquotation-新浪",
@@ -537,8 +537,8 @@ const initialData = {
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3690.48,
-      "pct": 0.89
+      "price": 3689.34,
+      "pct": -0.03
     },
     "sz": {
       "name": "深证成指",
@@ -553,7 +553,7 @@ const initialData = {
     "kc50": {
       "name": "科创50",
       "price": 1345.51,
-      "pct": 3.04
+      "pct": 0.0
     }
   },
   "volume": {
@@ -561,10 +561,10 @@ const initialData = {
     "compare": "放量"
   },
   "breadth": {
-    "up": 4239,
-    "down": 911,
-    "limit_up": 82,
-    "limit_down": 7,
+    "up": 2,
+    "down": 5108,
+    "limit_up": 1,
+    "limit_down": 5106,
     "main_net_inflow": "收盘·尾盘资金大举回流（冰点V型反转）"
   },
   "emotion": {
@@ -636,7 +636,7 @@ const initialData = {
     },
     "sentiment_deviation": {
       "lianban_premium": -1.8,
-      "index_pct": 0.89,
+      "index_pct": -0.03,
       "deviation": -2.7,
       "warn": true,
       "text": "连板溢价-1.8%弱于指数+0.89%，高位连板分化(晋级率仅33%)"
@@ -1521,21 +1521,29 @@ const initialData = {
       "trigger": "大业6板晋级7板+机器人主线延续，涨停家数维持80家以上",
       "strategy": "修复延续，主线核心可打板，机器人产业链继续扩散",
       "watch": "大业股份、埃斯顿、兆威机电",
-      "auto_match": { "lu_min": 80, "board_min": 7 }
+      "auto_match": {
+        "lu_min": 80,
+        "board_min": 7
+      }
     },
     {
       "type": "符合预期",
       "trigger": "大业6板分歧，机器人主线分化，涨停回落至50家左右",
       "strategy": "高位分歧，只留最强核心，低位首板可低吸",
       "hold": "跟风减仓，核心持有",
-      "auto_match": { "lu_min": 30, "lu_max": 79 }
+      "auto_match": {
+        "lu_min": 30,
+        "lu_max": 79
+      }
     },
     {
       "type": "不及预期",
       "trigger": "大业炸板+高位连板集体分歧，涨停回落至30家以下",
       "strategy": "修复证伪，防守为主，只出不进",
       "risk": "破位清仓，优先处理高位断板持仓",
-      "auto_match": { "lu_max": 29 }
+      "auto_match": {
+        "lu_max": 29
+      }
     }
   ],
   "weak_strong_check": {
@@ -1586,7 +1594,7 @@ const initialData = {
     ]
   },
   "fund_flow_one_line": "2026-10-23 16:01 收盘：冰点V型反转，午盘恐慌(19涨停vs47跌停)→尾盘爆发，创业板+4.16%领涨，涨停82家vs跌停7家普涨4239家；总龙大业6板晋级(16天8板)+海洋王地天板6板双高标，机器人产业链全面爆发(埃斯顿/雷赛/兆威/万向钱潮/歌尔20家)，但大业/海洋王主力均净流出(1.74亿/1.71亿)散户接盘需警惕，三峡新材天地板(主力出逃4.33亿)",
-  "data_source": "数据源按模块自动适配 easyquotation 多源：全市场快照/涨跌家数/指数=新浪(800只/批)；盘中核心池/涨停池精确封板=腾讯(涨停价+量比+换手+流通市值)；连板统计与资金流无免费源，保留 2026-10-23 收盘快照值。2026-10-25(周六)复核：新浪全市场5402只/0失败，腾讯精确封板涨停池76家(官方82口径差异为ST/北交所已剔除)",
+  "data_source": "全模块数据源统一为 easyquotation 新浪源；竞价快照 2026-10-26 自动抓取（指数/涨跌停家数为近似口径）",
   "note": "北向资金自2024-08-19起停止披露日度净买入额；资金流/连板天数无免费源，相关明细以 2026-10-23 收盘快照为准；leverfun 十档 Level-2 已停止服务，盘中个股监控用腾讯五档(涨停价/量比/换手/委差/流通市值)",
   "promotion_matrix": {
     "prev_date": "2026-10-23",
@@ -2663,14 +2671,17 @@ function renderMainlineSignals() {
     return;
   }
   let html = "";
-  const sigs = d.signals || [];
+  const sigs = (d.signals || []).slice().sort(function(a, b) {
+    return (b.first_time || b.last_seen || "").localeCompare(a.first_time || a.last_seen || "");
+  });
   if (sigs.length) {
-    html += '<div class="fb-title">盘中买点提示 <span class="cnt">' + sigs.length + ' 条</span></div>';
+    html += '<div class="fb-title">今日买点记录 <span class="cnt">' + sigs.length + ' 条</span></div>';
     sigs.slice(0, 8).forEach(function(s) {
+      const pctv = s.last_pct != null ? s.last_pct : s.pct;
       html += '<div class="buy-sig"><span class="buy-tag">' + s.type + '</span>' +
         '<span class="name">' + (s.name || "") + '</span> <span class="code">' + (s.code || "") + '</span>' +
-        '<span class="up-glow">' + (s.pct != null ? (s.pct >= 0 ? "+" : "") + s.pct + "%" : "") + '</span>' +
-        '<span class="rsn">' + (s.advice || "") + '</span></div>';
+        '<span class="up-glow">' + (pctv != null ? (pctv >= 0 ? "+" : "") + pctv + "%" : "") + '</span>' +
+        '<span class="rsn">' + (s.first_time || s.last_seen || "") + " " + (s.advice || "") + '</span></div>';
     });
   }
   d.mainlines.forEach(function(ml) {
