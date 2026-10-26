@@ -56,9 +56,12 @@
       "board": null,
       "role": "",
       "first_time": "10:29:51",
-      "last_pct": 8.7,
-      "last_seen": "13:58:57",
-      "status": "active"
+      "last_pct": 4.83,
+      "last_seen": "14:06:08",
+      "status": "expired",
+      "expired_time": "15:15:56",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
     },
     {
       "type": "放量突破",
@@ -94,12 +97,12 @@
       "board": null,
       "role": "",
       "first_time": "10:33:55",
-      "last_pct": 6.7,
+      "last_pct": 3.44,
       "last_seen": "13:15:42",
       "status": "expired",
       "expired_time": "13:15:47",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "跌破均价",
+      "exit_advice": "跌破均价，明日开盘止损"
     },
     {
       "type": "放量突破",
@@ -114,7 +117,7 @@
       "board": null,
       "role": "",
       "first_time": "10:34:32",
-      "last_pct": 5.89,
+      "last_pct": 5.28,
       "last_seen": "13:23:35",
       "status": "expired",
       "expired_time": "13:23:37",
@@ -134,7 +137,7 @@
       "board": null,
       "role": "",
       "first_time": "10:36:24",
-      "last_pct": 3.4,
+      "last_pct": -2.94,
       "last_seen": "11:00:06",
       "status": "expired",
       "expired_time": "11:00:12",
@@ -154,10 +157,10 @@
       "board": null,
       "role": "",
       "first_time": "11:28:07",
-      "last_pct": 5.7,
-      "last_seen": "13:47:26",
+      "last_pct": 5.03,
+      "last_seen": "14:06:08",
       "status": "expired",
-      "expired_time": "13:47:31",
+      "expired_time": "15:15:56",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈"
     },
@@ -236,6 +239,22 @@
       "exit_reason": "已回封",
       "exit_advice": "已重新封板，原卖出建议作废",
       "superseded_time": "13:28:51"
+    },
+    {
+      "type": "回封",
+      "code": "603280",
+      "name": "南方路机",
+      "mainline": "",
+      "pct": 10.01,
+      "advice": "炸板后回封，打板买点",
+      "reason": "炸板后重新封板（回封）",
+      "first_time": "14:01:45",
+      "last_pct": 3.35,
+      "last_seen": "14:01:45",
+      "status": "expired",
+      "expired_time": "14:02:06",
+      "exit_reason": "炸板",
+      "exit_advice": "炸板，明日开盘反抽即卖/破位清仓"
     }
   ]
 }
