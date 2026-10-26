@@ -14,8 +14,8 @@
       "board": null,
       "role": "",
       "first_time": "13:04:47",
-      "last_pct": 4.87,
-      "last_seen": "13:04:47",
+      "last_pct": 4.35,
+      "last_seen": "13:11:39",
       "status": "active"
     },
     {
@@ -33,7 +33,10 @@
       "first_time": "13:04:47",
       "last_pct": 7.25,
       "last_seen": "13:04:47",
-      "status": "active"
+      "status": "expired",
+      "expired_time": "13:11:39",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场"
     },
     {
       "type": "放量突破",
@@ -48,8 +51,8 @@
       "board": null,
       "role": "",
       "first_time": "13:04:47",
-      "last_pct": 7.51,
-      "last_seen": "13:04:47",
+      "last_pct": 6.21,
+      "last_seen": "13:11:39",
       "status": "active"
     }
   ]

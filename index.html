@@ -552,10 +552,10 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 // ===== 内嵌数据（唯一数据源，与 market_data.json 同构）=====
 const initialData = {
   "date": "2026-10-26",
-  "timestamp": "12:45:00",
+  "timestamp": "13:10:54",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
-  "session": "午盘",
+  "session": "盘中",
   "data_sources": {
     "vendor": "easyquotation",
     "version": "0.7.7",
@@ -672,34 +672,34 @@ const initialData = {
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3683.92,
-      "pct": -0.18
+      "price": 3691.96,
+      "pct": 0.04
     },
     "sz": {
       "name": "深证成指",
-      "price": 11551.72,
-      "pct": -1.05
+      "price": 11606.48,
+      "pct": -0.58
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2639.85,
-      "pct": -1.65
+      "price": 2659.4,
+      "pct": -0.92
     },
     "kc50": {
       "name": "科创50",
-      "price": 1319.97,
-      "pct": -1.9
+      "price": 1325.38,
+      "pct": -1.5
     }
   },
   "volume": {
-    "total": "约1.01万亿(半日)",
-    "compare": "沪4541亿+深5520亿"
+    "total": "约1.08万亿(盘中)",
+    "compare": "沪4860亿+深5895亿"
   },
   "breadth": {
-    "up": 2183,
-    "down": 2737,
-    "limit_up": 42,
-    "limit_down": 13,
+    "up": 2806,
+    "down": 2141,
+    "limit_up": 47,
+    "limit_down": 11,
     "main_net_inflow": "午盘·指数普跌但题材链资金内切（大业主力净流入1.00亿）"
   },
   "emotion": {
@@ -717,7 +717,7 @@ const initialData = {
   },
   "emotion_score": {
     "auction": 20,
-    "noon": 67,
+    "noon": 70,
     "close": null
   },
   "cycle": {
@@ -1706,7 +1706,7 @@ const initialData = {
     ]
   },
   "fund_flow_one_line": "2026-10-26 12:45 午盘：修复中继但分化加剧，涨停82→42腰斩、跌停7→14翻倍，指数普跌(创业板-1.65%)；但昨涨停溢价+3.08%(红盘率77.8%)、昨连板溢价+4.24%，赚钱效应切向连板集中——旧龙大业6板断板仍+7.96%(主力净流入1.00亿)反包抵抗，上海九百4板接棒高度但主力净流出5772万，3板梯队扩至4只(赛福天/正裕/多伦/襄阳)，机器人链11家涨停最厚",
-  "data_source": "easyquotation 0.7.7(sina) 单一源 · 快照 2026-10-26 11:30:00 · 全市场 5117 只一次拉取：指数 3683.92(-0.18%)、成交 10061 亿、涨2183/跌2737、涨停42(封板46含ST/退市)/跌停13；封单=bid1_volume×now；连板/溢价需跨日名单累积",
+  "data_source": "easyquotation 0.7.7(sina) 单一源 · 实时快照 2026-10-26 13:10:54 · 全市场 5117 只：上证 3691.96(0.04%)、成交 10755 亿、涨2806/跌2141、涨停47/跌停11；封单=bid1_volume×now；连板/溢价沿用午盘名单",
   "note": "北向资金自2024-08-19起停止披露日度净买入额；资金流区间数据锁定NeoData单一源，禁止跨源混用",
   "promotion_matrix": {
     "prev_date": "2026-10-23",
@@ -1721,24 +1721,24 @@ const initialData = {
     "version": "0.7.7",
     "channel": "sina",
     "endpoint": "market_snapshot('sh') + real(indices)",
-    "snapshot": "2026-10-26 11:30:00",
+    "snapshot": "2026-10-26 13:10:54",
     "universe_total": 5583,
     "a_share_count": 5117,
-    "up": 2183,
-    "down": 2737,
-    "flat": 197,
-    "zt": 42,
-    "dt": 13,
-    "zt_sealed_raw": 46,
-    "dt_sealed_raw": 14,
+    "up": 2806,
+    "down": 2141,
+    "flat": 170,
+    "zt": 47,
+    "dt": 11,
+    "zt_sealed_raw": 51,
+    "dt_sealed_raw": 12,
     "zt_by_board": {
-      "主板": 42,
+      "主板": 47,
       "创业板": 3,
       "科创板": 1
     },
-    "amt_sh_yi": 4541.0,
-    "amt_sz_yi": 5520.0,
-    "amt_total_yi": 10061.0,
+    "amt_sh_yi": 4860.0,
+    "amt_sz_yi": 5895.0,
+    "amt_total_yi": 10755.0,
     "seal_top5": [
       {
         "name": "多伦科技",
@@ -2691,7 +2691,15 @@ function startPolling(intervalMs) {
   const ms = intervalMs || 15000;
   setInterval(function() {
     const btn = document.getElementById("refresh-btn");
-    if (btn && btn.classList.contains("loading")) return; // 手动刷新中，跳过本轮
+    if (btn && btn.classList.contains("loading")) {
+      // 防死锁自救：loading 态超过 12 秒视为异常（请求丢失/竞态），强制复位后继续轮询
+      const since = Number(btn.dataset.loadingSince || 0);
+      if (!since || Date.now() - since < 12000) return;
+      btn.classList.remove("loading");
+      btn.disabled = false;
+      btn.textContent = "刷新";
+      delete btn.dataset.loadingSince;
+    }
     loadFreshData();
   }, ms);
 }
@@ -2705,10 +2713,22 @@ function refreshNow() {
     btn.classList.remove("loading", "ok", "fail");
     if (cls) btn.classList.add(cls);
     btn.disabled = (cls === "loading");
+    // 记录 loading 起始时刻，供轮询做死锁自救
+    if (cls === "loading") { btn.dataset.loadingSince = String(Date.now()); }
+    else { delete btn.dataset.loadingSince; }
   };
   setBtn("刷新中…", "loading");
-  loadFreshData().then(function(ok) {
-    if (ok === null) return; // 轮询请求在途，本轮手动刷新跳过（稍后轮询自动完成）
+  // 三源同时重拉：主数据 + 核心池 + 买点（原先只拉主数据，实时卡片不跟手）
+  const main = loadFreshData();
+  loadCoreQuotes();
+  loadMainlineSignals();
+  main.then(function(ok) {
+    if (ok === null) {
+      // 上一轮请求在途：必须复位按钮，否则 loading 常驻会让轮询永久跳过，只能硬刷新
+      setBtn("刷新", null);
+      return;
+    }
+    refreshAll();                       // 数据同版本也强制重绘一次，保证所见即最新
     const t = (state.data && state.data.timestamp) ? state.data.timestamp : "";
     setBtn(ok ? ("已刷新 " + t) : "静态快照·无数据源", ok ? "ok" : "fail");
     setTimeout(function() { setBtn("刷新", null); }, 2600);
@@ -2994,7 +3014,26 @@ window.addEventListener("DOMContentLoaded", init);
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("sw.js").catch(function () {});
+    var hadController = !!navigator.serviceWorker.controller;
+    var reloaded = false;
+    navigator.serviceWorker.addEventListener("controllerchange", function () {
+      if (!hadController) { hadController = true; return; }  /* 首次接管不重载 */
+      if (reloaded) return;
+      reloaded = true;
+      location.reload();
+    });
+    navigator.serviceWorker.register("sw.js").then(function (reg) {
+      reg.addEventListener("updatefound", function () {
+        var nw = reg.installing;
+        if (!nw) return;
+        nw.addEventListener("statechange", function () {
+          if (nw.state === "installed" && navigator.serviceWorker.controller) {
+            nw.postMessage({ type: "SKIP_WAITING" });
+          }
+        });
+      });
+      if (reg.update) reg.update();   /* 每次进入主动查新，避免长期吃旧缓存 */
+    }).catch(function () {});
   });
 }
 </script>
