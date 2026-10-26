@@ -1,5 +1,5 @@
 {
-  "updated_at": "13:49:22",
+  "updated_at": "13:58:57",
   "source": "easyquotation-tencent + 主线题材(initialData.mainlines)",
   "mainlines": [
     {
@@ -16,8 +16,8 @@
           "role": "主线龙",
           "now": 14.55,
           "pct": 9.98,
-          "vol_ratio": 1.36,
-          "turnover": 19.09,
+          "vol_ratio": 1.3,
+          "turnover": 19.1,
           "avg": 14.39,
           "sealed": true
         },
@@ -29,8 +29,8 @@
           "role": "跟风",
           "now": 9.39,
           "pct": 9.95,
-          "vol_ratio": 1.01,
-          "turnover": 2.14,
+          "vol_ratio": 0.96,
+          "turnover": 2.15,
           "avg": 9.39,
           "sealed": true
         },
@@ -42,8 +42,8 @@
           "role": "跟风",
           "now": 13.08,
           "pct": 10.01,
-          "vol_ratio": 2.24,
-          "turnover": 6.76,
+          "vol_ratio": 2.13,
+          "turnover": 6.78,
           "avg": 13.08,
           "sealed": true
         },
@@ -55,8 +55,8 @@
           "role": "跟风",
           "now": 12.71,
           "pct": 10.04,
-          "vol_ratio": 3.64,
-          "turnover": 5.94,
+          "vol_ratio": 3.46,
+          "turnover": 5.95,
           "avg": 12.56,
           "sealed": true
         },
@@ -68,7 +68,7 @@
           "role": "跟风",
           "now": 43.19,
           "pct": 10.01,
-          "vol_ratio": 0.59,
+          "vol_ratio": 0.56,
           "turnover": 1.21,
           "avg": 43.18,
           "sealed": true
@@ -79,11 +79,11 @@
           "sector": "自动化设",
           "board": null,
           "role": "",
-          "now": 54.75,
-          "pct": 1.11,
-          "vol_ratio": 2.36,
-          "turnover": 10.12,
-          "avg": 55.22,
+          "now": 54.88,
+          "pct": 1.35,
+          "vol_ratio": 2.39,
+          "turnover": 10.79,
+          "avg": 55.21,
           "sealed": false
         },
         {
@@ -92,11 +92,11 @@
           "sector": "自动化设",
           "board": null,
           "role": "",
-          "now": 31.22,
-          "pct": 6.99,
+          "now": 31.72,
+          "pct": 8.7,
           "vol_ratio": 2.66,
-          "turnover": 14.04,
-          "avg": 30.45,
+          "turnover": 14.83,
+          "avg": 30.52,
           "sealed": false
         },
         {
@@ -105,10 +105,10 @@
           "sector": "通用设备",
           "board": null,
           "role": "",
-          "now": 11.11,
-          "pct": 0.63,
-          "vol_ratio": 2.77,
-          "turnover": 4.51,
+          "now": 11.12,
+          "pct": 0.72,
+          "vol_ratio": 2.68,
+          "turnover": 4.6,
           "avg": 11.04,
           "sealed": false
         },
@@ -120,9 +120,9 @@
           "role": "",
           "now": 13.07,
           "pct": 10.02,
-          "vol_ratio": 2.53,
-          "turnover": 12.74,
-          "avg": 12.43,
+          "vol_ratio": 2.41,
+          "turnover": 12.78,
+          "avg": 12.44,
           "sealed": true
         },
         {
@@ -131,10 +131,10 @@
           "sector": "专用设备",
           "board": null,
           "role": "",
-          "now": 18.3,
-          "pct": 5.78,
-          "vol_ratio": 3.77,
-          "turnover": 21.68,
+          "now": 18.04,
+          "pct": 4.28,
+          "vol_ratio": 3.63,
+          "turnover": 22.01,
           "avg": 18.44,
           "sealed": false
         },
@@ -146,9 +146,9 @@
           "role": "",
           "now": 10.63,
           "pct": 10.04,
-          "vol_ratio": 7.58,
-          "turnover": 9.7,
-          "avg": 10.29,
+          "vol_ratio": 7.25,
+          "turnover": 9.77,
+          "avg": 10.3,
           "sealed": true
         },
         {
@@ -157,11 +157,11 @@
           "sector": "汽车零部",
           "board": null,
           "role": "",
-          "now": 53.68,
-          "pct": 5.48,
-          "vol_ratio": 2.16,
-          "turnover": 8.4,
-          "avg": 51.7,
+          "now": 53.69,
+          "pct": 5.5,
+          "vol_ratio": 2.09,
+          "turnover": 8.54,
+          "avg": 51.73,
           "sealed": false
         },
         {
@@ -172,8 +172,8 @@
           "role": "",
           "now": 11.72,
           "pct": 10.05,
-          "vol_ratio": 6.88,
-          "turnover": 8.07,
+          "vol_ratio": 6.67,
+          "turnover": 8.25,
           "avg": 11.4,
           "sealed": true
         },
@@ -183,11 +183,11 @@
           "sector": "汽车零部",
           "board": null,
           "role": "",
-          "now": 55.1,
-          "pct": -2.03,
-          "vol_ratio": 2.09,
-          "turnover": 17.42,
-          "avg": 54.6,
+          "now": 55.16,
+          "pct": -1.92,
+          "vol_ratio": 2.05,
+          "turnover": 17.96,
+          "avg": 54.62,
           "sealed": false
         },
         {
@@ -198,8 +198,8 @@
           "role": "",
           "now": 42.37,
           "pct": 9.99,
-          "vol_ratio": 4.33,
-          "turnover": 10.45,
+          "vol_ratio": 4.12,
+          "turnover": 10.47,
           "avg": 40.65,
           "sealed": true
         },
@@ -209,11 +209,11 @@
           "sector": "自动化设",
           "board": null,
           "role": "",
-          "now": 6.15,
-          "pct": -3.0,
-          "vol_ratio": 2.87,
-          "turnover": 6.41,
-          "avg": 6.24,
+          "now": 6.13,
+          "pct": -3.31,
+          "vol_ratio": 2.82,
+          "turnover": 6.61,
+          "avg": 6.23,
           "sealed": false
         }
       ]
@@ -239,8 +239,8 @@
           "role": "跟风",
           "now": 4.83,
           "pct": 10.02,
-          "vol_ratio": 5.21,
-          "turnover": 3.73,
+          "vol_ratio": 4.97,
+          "turnover": 3.75,
           "avg": 4.7,
           "sealed": true
         }
@@ -303,8 +303,8 @@
       "board": null,
       "role": "",
       "first_time": "10:29:51",
-      "last_pct": 6.99,
-      "last_seen": "13:49:22",
+      "last_pct": 8.7,
+      "last_seen": "13:58:57",
       "status": "active"
     },
     {

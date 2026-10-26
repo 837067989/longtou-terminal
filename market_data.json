@@ -1,6 +1,6 @@
 {
   "date": "2026-10-26",
-  "timestamp": "13:49:01",
+  "timestamp": "13:58:36",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
   "session": "盘中",
@@ -120,23 +120,23 @@
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3687.81,
-      "pct": -0.07
+      "price": 3684.66,
+      "pct": -0.16
     },
     "sz": {
       "name": "深证成指",
-      "price": 11550.78,
-      "pct": -1.05
+      "price": 11529.74,
+      "pct": -1.23
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2644.11,
-      "pct": -1.49
+      "price": 2637.61,
+      "pct": -1.73
     },
     "kc50": {
       "name": "科创50",
-      "price": 1323.4,
-      "pct": -1.64
+      "price": 1315.47,
+      "pct": -2.23
     }
   },
   "volume": {
@@ -144,10 +144,10 @@
     "compare": "沪4860亿+深5895亿"
   },
   "breadth": {
-    "up": 2269,
-    "down": 2685,
-    "limit_up": 59,
-    "limit_down": 16,
+    "up": 2209,
+    "down": 2756,
+    "limit_up": 60,
+    "limit_down": 17,
     "main_net_inflow": "午盘·指数普跌但题材链资金内切（大业主力净流入1.00亿）"
   },
   "emotion": {
