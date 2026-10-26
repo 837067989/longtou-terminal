@@ -60,8 +60,8 @@
       "last_seen": "14:06:08",
       "status": "expired",
       "expired_time": "15:15:56",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场"
     },
     {
       "type": "放量突破",
@@ -121,8 +121,8 @@
       "last_seen": "13:23:35",
       "status": "expired",
       "expired_time": "13:23:37",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场"
     },
     {
       "type": "放量突破",
@@ -161,8 +161,8 @@
       "last_seen": "14:06:08",
       "status": "expired",
       "expired_time": "15:15:56",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场"
     },
     {
       "type": "放量突破",

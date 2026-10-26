@@ -1,5 +1,5 @@
 {
-  "updated_at": "15:16:40",
+  "updated_at": "15:29:16",
   "source": "easyquotation-tencent + 主线题材(initialData.mainlines)",
   "mainlines": [
     {
@@ -11,9 +11,9 @@
         {
           "code": "000678",
           "name": "襄阳轴承",
-          "sector": "汽车零部件",
+          "sector": "汽车零部",
           "board": 3,
-          "role": "主线龙",
+          "role": "高度接力",
           "now": 14.55,
           "pct": 9.98,
           "vol_ratio": 0.98,
@@ -22,11 +22,24 @@
           "sealed": true
         },
         {
+          "code": "002535",
+          "name": "林州重机",
+          "sector": "专用设备",
+          "board": 3,
+          "role": "高度接力",
+          "now": 3.33,
+          "pct": 9.9,
+          "vol_ratio": 3.02,
+          "turnover": 24.85,
+          "avg": 3.14,
+          "sealed": true
+        },
+        {
           "code": "603028",
           "name": "赛福天",
           "sector": "通用设备",
           "board": 3,
-          "role": "跟风",
+          "role": "高度接力",
           "now": 9.39,
           "pct": 9.95,
           "vol_ratio": 0.73,
@@ -37,9 +50,9 @@
         {
           "code": "603089",
           "name": "正裕工业",
-          "sector": "汽车零部件",
+          "sector": "汽车零部",
           "board": 3,
-          "role": "跟风",
+          "role": "高度接力",
           "now": 13.08,
           "pct": 10.01,
           "vol_ratio": 2.45,
@@ -48,11 +61,24 @@
           "sealed": true
         },
         {
+          "code": "301502",
+          "name": "华阳智能",
+          "sector": "电机Ⅱ",
+          "board": 3,
+          "role": "高度接力",
+          "now": 77.76,
+          "pct": 20.0,
+          "vol_ratio": 3.48,
+          "turnover": 34.94,
+          "avg": 75.3,
+          "sealed": true
+        },
+        {
           "code": "000559",
           "name": "万向钱潮",
-          "sector": "汽车零部件",
+          "sector": "汽车零部",
           "board": 2,
-          "role": "跟风",
+          "role": "跟风补涨",
           "now": 12.71,
           "pct": 10.04,
           "vol_ratio": 2.61,
@@ -61,63 +87,11 @@
           "sealed": true
         },
         {
-          "code": "603337",
-          "name": "杰克科技",
-          "sector": "专用设备",
-          "board": 2,
-          "role": "跟风",
-          "now": 43.19,
-          "pct": 10.01,
-          "vol_ratio": 0.47,
-          "turnover": 1.36,
-          "avg": 43.18,
-          "sealed": true
-        },
-        {
-          "code": "002979",
-          "name": "雷赛智能",
-          "sector": "自动化设",
-          "board": null,
-          "role": "",
-          "now": 54.16,
-          "pct": 0.02,
-          "vol_ratio": 2.14,
-          "turnover": 13.0,
-          "avg": 55.05,
-          "sealed": false
-        },
-        {
-          "code": "002747",
-          "name": "埃斯顿",
-          "sector": "自动化设",
-          "board": null,
-          "role": "",
-          "now": 30.59,
-          "pct": 4.83,
-          "vol_ratio": 2.28,
-          "turnover": 17.02,
-          "avg": 30.56,
-          "sealed": false
-        },
-        {
-          "code": "002026",
-          "name": "山东威达",
-          "sector": "通用设备",
-          "board": null,
-          "role": "",
-          "now": 11.09,
-          "pct": 0.45,
-          "vol_ratio": 2.37,
-          "turnover": 5.44,
-          "avg": 11.05,
-          "sealed": false
-        },
-        {
           "code": "000700",
           "name": "模塑科技",
           "sector": "汽车零部",
-          "board": null,
-          "role": "",
+          "board": 2,
+          "role": "跟风补涨",
           "now": 13.07,
           "pct": 10.02,
           "vol_ratio": 1.88,
@@ -126,76 +100,11 @@
           "sealed": true
         },
         {
-          "code": "002009",
-          "name": "天奇股份",
-          "sector": "专用设备",
-          "board": null,
-          "role": "",
-          "now": 17.17,
-          "pct": -0.75,
-          "vol_ratio": 3.04,
-          "turnover": 24.69,
-          "avg": 18.35,
-          "sealed": false
-        },
-        {
-          "code": "603901",
-          "name": "永创智能",
-          "sector": "专用设备",
-          "board": null,
-          "role": "",
-          "now": 10.63,
-          "pct": 10.04,
-          "vol_ratio": 5.54,
-          "turnover": 10.0,
-          "avg": 10.3,
-          "sealed": true
-        },
-        {
-          "code": "603286",
-          "name": "日盈电子",
-          "sector": "汽车零部",
-          "board": null,
-          "role": "",
-          "now": 53.45,
-          "pct": 5.03,
-          "vol_ratio": 1.81,
-          "turnover": 9.9,
-          "avg": 52.0,
-          "sealed": false
-        },
-        {
-          "code": "603081",
-          "name": "大丰实业",
-          "sector": "专用设备",
-          "board": null,
-          "role": "",
-          "now": 11.3,
-          "pct": 6.1,
-          "vol_ratio": 5.92,
-          "turnover": 9.81,
-          "avg": 11.43,
-          "sealed": false
-        },
-        {
-          "code": "603448",
-          "name": "天博智能",
-          "sector": "汽车零部",
-          "board": null,
-          "role": "",
-          "now": 54.93,
-          "pct": -2.33,
-          "vol_ratio": 1.75,
-          "turnover": 20.6,
-          "avg": 54.66,
-          "sealed": false
-        },
-        {
           "code": "002931",
           "name": "锋龙股份",
           "sector": "通用设备",
-          "board": null,
-          "role": "",
+          "board": 2,
+          "role": "跟风补涨",
           "now": 42.37,
           "pct": 9.99,
           "vol_ratio": 3.15,
@@ -204,17 +113,134 @@
           "sealed": true
         },
         {
-          "code": "600215",
-          "name": "派斯林",
-          "sector": "自动化设",
+          "code": "603337",
+          "name": "杰克科技",
+          "sector": "专用设备",
+          "board": 2,
+          "role": "跟风补涨",
+          "now": 43.19,
+          "pct": 10.01,
+          "vol_ratio": 0.47,
+          "turnover": 1.36,
+          "avg": 43.18,
+          "sealed": true
+        },
+        {
+          "code": "603901",
+          "name": "永创智能",
+          "sector": "专用设备",
+          "board": 2,
+          "role": "跟风补涨",
+          "now": 10.63,
+          "pct": 10.04,
+          "vol_ratio": 5.54,
+          "turnover": 10.0,
+          "avg": 10.3,
+          "sealed": true
+        },
+        {
+          "code": "002708",
+          "name": "光洋股份",
+          "sector": "汽车零部",
           "board": null,
           "role": "",
-          "now": 6.09,
-          "pct": -3.94,
-          "vol_ratio": 2.51,
-          "turnover": 7.89,
-          "avg": 6.21,
-          "sealed": false
+          "now": 15.65,
+          "pct": 9.98,
+          "vol_ratio": 1.41,
+          "turnover": 9.14,
+          "avg": 15.49,
+          "sealed": true
+        },
+        {
+          "code": "603331",
+          "name": "百达精工",
+          "sector": "通用设备",
+          "board": null,
+          "role": "",
+          "now": 12.91,
+          "pct": 9.97,
+          "vol_ratio": 7.18,
+          "turnover": 14.5,
+          "avg": 12.79,
+          "sealed": true
+        },
+        {
+          "code": "688648",
+          "name": "中邮科技",
+          "sector": "专用设备",
+          "board": null,
+          "role": "",
+          "now": 34.66,
+          "pct": 20.01,
+          "vol_ratio": 2.77,
+          "turnover": 14.15,
+          "avg": 33.55,
+          "sealed": true
+        },
+        {
+          "code": "600558",
+          "name": "大西洋",
+          "sector": "通用设备",
+          "board": null,
+          "role": "",
+          "now": 5.56,
+          "pct": 10.1,
+          "vol_ratio": 0.99,
+          "turnover": 4.52,
+          "avg": 5.48,
+          "sealed": true
+        },
+        {
+          "code": "605333",
+          "name": "沪光股份",
+          "sector": "汽车零部",
+          "board": null,
+          "role": "",
+          "now": 18.1,
+          "pct": 10.03,
+          "vol_ratio": 3.77,
+          "turnover": 1.61,
+          "avg": 17.5,
+          "sealed": true
+        },
+        {
+          "code": "002795",
+          "name": "永和智控",
+          "sector": "通用设备",
+          "board": null,
+          "role": "",
+          "now": 6.9,
+          "pct": 10.05,
+          "vol_ratio": 1.85,
+          "turnover": 4.21,
+          "avg": 6.73,
+          "sealed": true
+        },
+        {
+          "code": "001225",
+          "name": "和泰机电",
+          "sector": "专用设备",
+          "board": null,
+          "role": "",
+          "now": 31.08,
+          "pct": 10.02,
+          "vol_ratio": 1.15,
+          "turnover": 4.39,
+          "avg": 30.1,
+          "sealed": true
+        },
+        {
+          "code": "600980",
+          "name": "北矿科技",
+          "sector": "专用设备",
+          "board": null,
+          "role": "",
+          "now": 18.95,
+          "pct": 9.98,
+          "vol_ratio": 1.78,
+          "turnover": 2.02,
+          "avg": 18.71,
+          "sealed": true
         }
       ]
     },
@@ -223,7 +249,21 @@
       "leader": "良品铺子(首板)",
       "tag": "低位扩散",
       "hint": "观察持续性",
-      "candidates": []
+      "candidates": [
+        {
+          "code": "603719",
+          "name": "良品铺子",
+          "sector": "休闲食品",
+          "board": null,
+          "role": "",
+          "now": 9.39,
+          "pct": 9.95,
+          "vol_ratio": 3.9,
+          "turnover": 3.4,
+          "avg": 9.18,
+          "sealed": true
+        }
+      ]
     },
     {
       "name": "房地产/基建",
@@ -234,9 +274,9 @@
         {
           "code": "600094",
           "name": "大名城",
-          "sector": "房地产开发",
+          "sector": "房地产开",
           "board": 2,
-          "role": "跟风",
+          "role": "跟风补涨",
           "now": 4.83,
           "pct": 10.02,
           "vol_ratio": 4.38,
@@ -307,8 +347,8 @@
       "last_seen": "14:06:08",
       "status": "expired",
       "expired_time": "15:15:56",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场"
     },
     {
       "type": "放量突破",
@@ -368,8 +408,8 @@
       "last_seen": "13:23:35",
       "status": "expired",
       "expired_time": "13:23:37",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场"
     },
     {
       "type": "放量突破",
@@ -408,8 +448,8 @@
       "last_seen": "14:06:08",
       "status": "expired",
       "expired_time": "15:15:56",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场"
     },
     {
       "type": "放量突破",
