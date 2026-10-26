@@ -56,8 +56,8 @@
       "board": null,
       "role": "",
       "first_time": "10:29:51",
-      "last_pct": 6.27,
-      "last_seen": "13:32:40",
+      "last_pct": 6.17,
+      "last_seen": "13:34:17",
       "status": "active"
     },
     {
@@ -98,8 +98,8 @@
       "last_seen": "13:15:42",
       "status": "expired",
       "expired_time": "13:15:47",
-      "exit_reason": "条件破坏",
-      "exit_advice": "条件破坏，明日开盘按纪律离场"
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
     },
     {
       "type": "放量突破",
@@ -156,7 +156,10 @@
       "first_time": "11:28:07",
       "last_pct": 6.41,
       "last_seen": "13:32:40",
-      "status": "active"
+      "status": "expired",
+      "expired_time": "13:34:17",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
     },
     {
       "type": "放量突破",
