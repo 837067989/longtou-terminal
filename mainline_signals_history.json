@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-26",
+  "signals": [
+    {
+      "type": "放量突破",
+      "advice": "放量突破，半路上车",
+      "reason": "量比3.2+涨幅4.9%+站上均价+近高点",
+      "code": "002747",
+      "name": "埃斯顿",
+      "mainline": "汽车零部件/机器人设备链",
+      "pct": 4.87,
+      "vol_ratio": 3.2,
+      "turnover": 12.44,
+      "board": null,
+      "role": "",
+      "first_time": "13:04:47",
+      "last_pct": 4.87,
+      "last_seen": "13:04:47",
+      "status": "active"
+    },
+    {
+      "type": "放量突破",
+      "advice": "放量突破，半路上车",
+      "reason": "量比8.3+涨幅7.2%+站上均价+近高点",
+      "code": "603901",
+      "name": "永创智能",
+      "mainline": "汽车零部件/机器人设备链",
+      "pct": 7.25,
+      "vol_ratio": 8.28,
+      "turnover": 7.78,
+      "board": null,
+      "role": "",
+      "first_time": "13:04:47",
+      "last_pct": 7.25,
+      "last_seen": "13:04:47",
+      "status": "active"
+    },
+    {
+      "type": "放量突破",
+      "advice": "放量突破，半路上车",
+      "reason": "量比2.5+涨幅7.5%+站上均价+近高点",
+      "code": "603286",
+      "name": "日盈电子",
+      "mainline": "汽车零部件/机器人设备链",
+      "pct": 7.51,
+      "vol_ratio": 2.5,
+      "turnover": 7.12,
+      "board": null,
+      "role": "",
+      "first_time": "13:04:47",
+      "last_pct": 7.51,
+      "last_seen": "13:04:47",
+      "status": "active"
+    }
+  ]
+}

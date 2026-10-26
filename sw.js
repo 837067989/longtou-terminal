@@ -1,5 +1,5 @@
 /* A股短线龙头战法监控终端 · Service Worker */
-const CACHE = "lstd-v2";
+const CACHE = "lstd-v3";
 const ASSETS = ["./", "./index.html", "./manifest.json", "./icon.svg"];
 
 self.addEventListener("install", (e) => {
@@ -18,8 +18,8 @@ self.addEventListener("activate", (e) => {
 
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
-  // 数据文件走 network-first（实时优先），离线时回退缓存
-  if (url.pathname.endsWith("market_data.json")) {
+  // 所有数据文件走 network-first（实时优先），离线时回退缓存
+  if (url.pathname.endsWith(".json")) {
     e.respondWith(
       fetch(e.request)
         .then((res) => {
