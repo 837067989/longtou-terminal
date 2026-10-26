@@ -1,5 +1,5 @@
 {
-  "updated_at": "13:40:36",
+  "updated_at": "13:42:37",
   "source": "easyquotation-tencent + 主线题材(initialData.mainlines)",
   "mainlines": [
     {
@@ -16,7 +16,7 @@
           "role": "主线龙",
           "now": 14.55,
           "pct": 9.98,
-          "vol_ratio": 1.44,
+          "vol_ratio": 1.42,
           "turnover": 19.07,
           "avg": 14.39,
           "sealed": true
@@ -29,7 +29,7 @@
           "role": "跟风",
           "now": 9.39,
           "pct": 9.95,
-          "vol_ratio": 1.06,
+          "vol_ratio": 1.04,
           "turnover": 2.14,
           "avg": 9.39,
           "sealed": true
@@ -42,8 +42,8 @@
           "role": "跟风",
           "now": 13.08,
           "pct": 10.01,
-          "vol_ratio": 2.36,
-          "turnover": 6.73,
+          "vol_ratio": 2.33,
+          "turnover": 6.74,
           "avg": 13.08,
           "sealed": true
         },
@@ -55,7 +55,7 @@
           "role": "跟风",
           "now": 12.71,
           "pct": 10.04,
-          "vol_ratio": 3.84,
+          "vol_ratio": 3.8,
           "turnover": 5.93,
           "avg": 12.56,
           "sealed": true
@@ -68,7 +68,7 @@
           "role": "跟风",
           "now": 43.19,
           "pct": 10.01,
-          "vol_ratio": 0.62,
+          "vol_ratio": 0.61,
           "turnover": 1.2,
           "avg": 43.18,
           "sealed": true
@@ -79,11 +79,11 @@
           "sector": "自动化设",
           "board": null,
           "role": "",
-          "now": 54.73,
-          "pct": 1.07,
-          "vol_ratio": 2.4,
-          "turnover": 9.76,
-          "avg": 55.25,
+          "now": 54.72,
+          "pct": 1.05,
+          "vol_ratio": 2.38,
+          "turnover": 9.82,
+          "avg": 55.24,
           "sealed": false
         },
         {
@@ -92,10 +92,10 @@
           "sector": "自动化设",
           "board": null,
           "role": "",
-          "now": 30.87,
-          "pct": 5.79,
-          "vol_ratio": 2.72,
-          "turnover": 13.62,
+          "now": 30.99,
+          "pct": 6.2,
+          "vol_ratio": 2.7,
+          "turnover": 13.68,
           "avg": 30.43,
           "sealed": false
         },
@@ -105,10 +105,10 @@
           "sector": "通用设备",
           "board": null,
           "role": "",
-          "now": 11.14,
-          "pct": 0.91,
-          "vol_ratio": 2.85,
-          "turnover": 4.39,
+          "now": 11.13,
+          "pct": 0.82,
+          "vol_ratio": 2.83,
+          "turnover": 4.42,
           "avg": 11.04,
           "sealed": false
         },
@@ -120,7 +120,7 @@
           "role": "",
           "now": 13.07,
           "pct": 10.02,
-          "vol_ratio": 2.67,
+          "vol_ratio": 2.64,
           "turnover": 12.72,
           "avg": 12.43,
           "sealed": true
@@ -131,10 +131,10 @@
           "sector": "专用设备",
           "board": null,
           "role": "",
-          "now": 18.54,
-          "pct": 7.17,
-          "vol_ratio": 3.93,
-          "turnover": 21.42,
+          "now": 18.47,
+          "pct": 6.76,
+          "vol_ratio": 3.9,
+          "turnover": 21.49,
           "avg": 18.45,
           "sealed": false
         },
@@ -146,8 +146,8 @@
           "role": "",
           "now": 10.63,
           "pct": 10.04,
-          "vol_ratio": 7.91,
-          "turnover": 9.58,
+          "vol_ratio": 7.82,
+          "turnover": 9.59,
           "avg": 10.29,
           "sealed": true
         },
@@ -157,11 +157,11 @@
           "sector": "汽车零部",
           "board": null,
           "role": "",
-          "now": 53.89,
-          "pct": 5.9,
-          "vol_ratio": 2.23,
-          "turnover": 8.22,
-          "avg": 51.65,
+          "now": 53.65,
+          "pct": 5.42,
+          "vol_ratio": 2.22,
+          "turnover": 8.27,
+          "avg": 51.66,
           "sealed": false
         },
         {
@@ -172,8 +172,8 @@
           "role": "",
           "now": 11.72,
           "pct": 10.05,
-          "vol_ratio": 7.17,
-          "turnover": 7.98,
+          "vol_ratio": 7.11,
+          "turnover": 8.0,
           "avg": 11.39,
           "sealed": true
         },
@@ -183,10 +183,10 @@
           "sector": "汽车零部",
           "board": null,
           "role": "",
-          "now": 54.93,
-          "pct": -2.33,
-          "vol_ratio": 2.14,
-          "turnover": 16.88,
+          "now": 55.09,
+          "pct": -2.04,
+          "vol_ratio": 2.13,
+          "turnover": 17.01,
           "avg": 54.58,
           "sealed": false
         },
@@ -198,8 +198,8 @@
           "role": "",
           "now": 42.37,
           "pct": 9.99,
-          "vol_ratio": 4.57,
-          "turnover": 10.43,
+          "vol_ratio": 4.51,
+          "turnover": 10.44,
           "avg": 40.64,
           "sealed": true
         },
@@ -209,10 +209,10 @@
           "sector": "自动化设",
           "board": null,
           "role": "",
-          "now": 6.15,
-          "pct": -3.0,
-          "vol_ratio": 3.0,
-          "turnover": 6.33,
+          "now": 6.14,
+          "pct": -3.15,
+          "vol_ratio": 2.97,
+          "turnover": 6.34,
           "avg": 6.24,
           "sealed": false
         }
@@ -239,8 +239,8 @@
           "role": "跟风",
           "now": 4.83,
           "pct": 10.02,
-          "vol_ratio": 5.48,
-          "turnover": 3.71,
+          "vol_ratio": 5.42,
+          "turnover": 3.72,
           "avg": 4.7,
           "sealed": true
         }
@@ -303,8 +303,8 @@
       "board": null,
       "role": "",
       "first_time": "10:29:51",
-      "last_pct": 5.79,
-      "last_seen": "13:40:36",
+      "last_pct": 6.2,
+      "last_seen": "13:42:37",
       "status": "active"
     },
     {
@@ -401,9 +401,12 @@
       "board": null,
       "role": "",
       "first_time": "11:28:07",
-      "last_pct": 5.9,
-      "last_seen": "13:40:36",
-      "status": "active"
+      "last_pct": 5.7,
+      "last_seen": "13:41:44",
+      "status": "expired",
+      "expired_time": "13:41:49",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
     },
     {
       "type": "放量突破",
@@ -436,8 +439,11 @@
       "reason": "炸板后重新封板（回封）",
       "first_time": "13:14:06",
       "last_pct": 10.03,
-      "last_seen": "13:40:10",
-      "status": "active"
+      "last_seen": "13:41:44",
+      "status": "expired",
+      "expired_time": "13:41:49",
+      "exit_reason": "炸板",
+      "exit_advice": "炸板，明日开盘反抽即卖/破位清仓"
     },
     {
       "type": "回封",
