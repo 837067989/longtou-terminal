@@ -56,8 +56,8 @@
       "board": null,
       "role": "",
       "first_time": "10:29:51",
-      "last_pct": 6.17,
-      "last_seen": "13:34:17",
+      "last_pct": 6.24,
+      "last_seen": "13:46:38",
       "status": "active"
     },
     {
@@ -118,8 +118,8 @@
       "last_seen": "13:23:35",
       "status": "expired",
       "expired_time": "13:23:37",
-      "exit_reason": "条件破坏",
-      "exit_advice": "条件破坏，明日开盘按纪律离场"
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
     },
     {
       "type": "放量突破",
@@ -154,10 +154,10 @@
       "board": null,
       "role": "",
       "first_time": "11:28:07",
-      "last_pct": 6.41,
-      "last_seen": "13:32:40",
+      "last_pct": 6.09,
+      "last_seen": "13:46:17",
       "status": "expired",
-      "expired_time": "13:34:17",
+      "expired_time": "13:46:38",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈"
     },
@@ -192,12 +192,12 @@
       "reason": "炸板后重新封板（回封）",
       "first_time": "13:14:06",
       "last_pct": 10.03,
-      "last_seen": "13:18:53",
+      "last_seen": "13:44:40",
       "status": "superseded",
-      "expired_time": "13:18:58",
+      "expired_time": "13:45:27",
       "exit_reason": "已回封",
       "exit_advice": "已重新封板，原卖出建议作废",
-      "superseded_time": "13:28:51"
+      "superseded_time": "13:45:56"
     },
     {
       "type": "回封",
