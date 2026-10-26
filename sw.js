@@ -1,5 +1,5 @@
 /* A股短线龙头战法监控终端 · Service Worker */
-const CACHE = "lstd-v1";
+const CACHE = "lstd-v2";
 const ASSETS = ["./", "./index.html", "./manifest.json", "./icon.svg"];
 
 self.addEventListener("install", (e) => {
