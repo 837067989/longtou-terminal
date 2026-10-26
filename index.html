@@ -361,6 +361,8 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 .buy-sig .name{font-weight:700}
 .buy-sig .rsn{margin-left:auto;color:var(--txt2);font-size:10.5px;text-align:right}
 .buy-tag{display:inline-block;font-size:10px;font-weight:700;color:#0B0F19;background:var(--gold);border-radius:2px;padding:0 5px;white-space:nowrap}
+.buy-sig-off{border-color:var(--border2);background:var(--panel);animation:none;opacity:.45}
+.buy-sig-off .buy-tag{background:var(--border2);color:var(--txt2)}
 @keyframes buyPulse{0%,100%{box-shadow:0 0 4px rgba(255,215,0,.15)}50%{box-shadow:0 0 14px rgba(255,215,0,.7)}}
 </style>
 </head>
@@ -2671,18 +2673,27 @@ function renderMainlineSignals() {
     return;
   }
   let html = "";
-  const sigs = (d.signals || []).slice().sort(function(a, b) {
+  const all = (d.signals || []).slice().sort(function(a, b) {
     return (b.first_time || b.last_seen || "").localeCompare(a.first_time || a.last_seen || "");
   });
-  if (sigs.length) {
-    html += '<div class="fb-title">今日买点记录 <span class="cnt">' + sigs.length + ' 条</span></div>';
-    sigs.slice(0, 8).forEach(function(s) {
-      const pctv = s.last_pct != null ? s.last_pct : s.pct;
-      html += '<div class="buy-sig"><span class="buy-tag">' + s.type + '</span>' +
-        '<span class="name">' + (s.name || "") + '</span> <span class="code">' + (s.code || "") + '</span>' +
-        '<span class="up-glow">' + (pctv != null ? (pctv >= 0 ? "+" : "") + pctv + "%" : "") + '</span>' +
-        '<span class="rsn">' + (s.first_time || s.last_seen || "") + " " + (s.advice || "") + '</span></div>';
-    });
+  const active = all.filter(function(s) { return s.status !== "expired"; });
+  const expired = all.filter(function(s) { return s.status === "expired"; });
+  function sigRow(s, cls) {
+    const pctv = s.last_pct != null ? s.last_pct : s.pct;
+    return '<div class="' + cls + '"><span class="buy-tag">' + s.type + '</span>' +
+      '<span class="name">' + (s.name || "") + '</span> <span class="code">' + (s.code || "") + '</span>' +
+      '<span class="up-glow">' + (pctv != null ? (pctv >= 0 ? "+" : "") + pctv + "%" : "") + '</span>' +
+      '<span class="rsn">' + (s.first_time || s.last_seen || "") + " " + (s.advice || "") + '</span></div>';
+  }
+  if (active.length) {
+    html += '<div class="fb-title">当前有效买点 <span class="cnt">' + active.length + ' 条</span></div>';
+    active.slice(0, 6).forEach(function(s) { html += sigRow(s, "buy-sig"); });
+  } else {
+    html += '<div class="fb-empty">当前无有效买点（等待触发）</div>';
+  }
+  if (expired.length) {
+    html += '<div class="fb-title" style="color:var(--txt3)">已失效 ' + expired.length + ' 条（炸板/条件破坏）</div>';
+    expired.slice(0, 3).forEach(function(s) { html += sigRow(s, "buy-sig buy-sig-off"); });
   }
   d.mainlines.forEach(function(ml) {
     html += '<div class="fb-title">' + ml.name + ' <span class="cnt">龙头 ' + ml.leader + '</span></div>';
