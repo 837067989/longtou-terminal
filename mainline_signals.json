@@ -1,5 +1,5 @@
 {
-  "updated_at": "11:31:21",
+  "updated_at": "11:36:52",
   "source": "easyquotation-tencent + 主线题材 + 新浪行业分类低位扫描 + 自适应参数",
   "adaptive_params": {
     "heat": 0.596,
@@ -50,17 +50,17 @@
     {
       "code": "002031",
       "name": "巨轮智能",
-      "pct": 2.88,
-      "now": 5.36,
-      "amount_yi": 4.73,
-      "turnover": 4.03,
-      "nmc_yi": 117.9,
+      "pct": 3.07,
+      "now": 5.37,
+      "amount_yi": 4.74,
+      "turnover": 4.04,
+      "nmc_yi": 118.1,
       "industry": "new_qczz",
       "theme": "汽车零部件/机器人产业链",
-      "d5_gain": 5.3,
-      "d10_gain": 5.1,
-      "d20_gain": 1.7,
-      "pos20": 63.7,
+      "d5_gain": 5.5,
+      "d10_gain": 5.3,
+      "d20_gain": 1.9,
+      "pos20": 64.8,
       "ma5": 5.12,
       "ma20": 5.2,
       "high20": 5.69,
@@ -69,7 +69,7 @@
       "trigger": "放量站上20日高点5.69并守分时均价，或回踩5日线5.12不破后转强",
       "stop": "跌破20日线5.20或平台低点4.78取消观察",
       "status": "低位观察",
-      "score": 42.6
+      "score": 42.5
     },
     {
       "code": "600693",
@@ -146,17 +146,17 @@
     {
       "code": "600699",
       "name": "均胜电子",
-      "pct": -0.23,
-      "now": 21.85,
-      "amount_yi": 7.55,
+      "pct": -0.14,
+      "now": 21.87,
+      "amount_yi": 7.56,
       "turnover": 2.45,
-      "nmc_yi": 305.0,
+      "nmc_yi": 305.2,
       "industry": "new_qczz",
       "theme": "汽车零部件/机器人产业链",
-      "d5_gain": 2.9,
-      "d10_gain": 6.8,
-      "d20_gain": 4.3,
-      "pos20": 61.0,
+      "d5_gain": 3.0,
+      "d10_gain": 6.9,
+      "d20_gain": 4.4,
+      "pos20": 61.4,
       "ma5": 21.42,
       "ma20": 21.32,
       "high20": 24.02,
@@ -669,7 +669,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:02:25",
       "last_pct": 10.03,
-      "last_seen": "11:31:21",
+      "last_seen": "11:36:52",
       "status": "active"
     },
     {
@@ -691,7 +691,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:02:25",
       "last_pct": 10.0,
-      "last_seen": "11:31:21",
+      "last_seen": "11:36:52",
       "status": "active"
     },
     {
@@ -718,8 +718,8 @@
       "expired_time": "11:03:46",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "11:31:21",
-      "revived_time": "11:31:21"
+      "superseded_time": "11:36:52",
+      "revived_time": "11:36:52"
     },
     {
       "type": "放量突破",
@@ -745,8 +745,8 @@
       "expired_time": "11:05:40",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "11:31:21",
-      "revived_time": "11:31:21"
+      "superseded_time": "11:36:52",
+      "revived_time": "11:36:52"
     },
     {
       "type": "放量突破",
@@ -820,7 +820,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:06:12",
       "last_pct": 7.24,
-      "last_seen": "11:31:21",
+      "last_seen": "11:36:52",
       "status": "active"
     },
     {
