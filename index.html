@@ -405,6 +405,7 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 .bc-mid b{color:var(--purple);font-weight:700}
 .bc-bot{font-size:11px;color:var(--txt3);margin-top:2px}
 .bc-bot b{color:var(--red);font-weight:700;font-size:12px}
+.bc-news{font-size:10.5px;color:var(--txt3);margin-top:2px;opacity:.85}
 /* 要卖 / 已了结 行 */
 .sr,.dr{display:flex;align-items:center;gap:6px;padding:4px 6px;margin:2px 0;border-radius:3px;font-size:11.5px;flex-wrap:wrap}
 .sr{background:rgba(255,51,51,.08);border:1px solid rgba(255,51,51,.35)}
@@ -3950,7 +3951,9 @@ function renderMainlineSignals() {
         '<div class="bc-mid">' + (s.mainline || "") + ' · <b>' + (s.action || "观察") + '</b></div>' +
         '<div class="bc-bot">止损 <b>' + sl + '</b>（' + (s.stop_note || "破位止损") + '）' +
         (s.kline_verdict ? ' · K线: ' + s.kline_verdict : '') +
-        (s.position ? ' · ' + s.position : '') + '</div></div>';
+        (s.fund_main != null ? ' · 主力: ' + s.fund_main + '亿' : '') +
+        (s.position ? ' · ' + s.position : '') + '</div>' +
+        (s.news_hit ? '<div class="bc-news">新闻: ' + s.news_hit + '</div>' : '') + '</div>';
     });
   } else {
     html += '<div class="fb-empty">暂无买点（等待触发）</div>';

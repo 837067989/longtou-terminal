@@ -1,9 +1,9 @@
 {
   "date": "2026-10-27",
-  "timestamp": "15:03:37",
+  "timestamp": "15:00:00",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
-  "session": "盘中",
+  "session": "收盘",
   "data_sources": {
     "sector_theme": "easyquotation-新浪",
     "ladder_board": "easyquotation-新浪",
@@ -53,7 +53,7 @@
     "zuot_lianban_premium": "+2.12%",
     "premium_red_rate": "55.6%",
     "big_face": 4,
-    "limit_down": 31,
+    "limit_down": 14,
     "sentiment_state": "分歧",
     "sentiment_coef": 0.5
   },
@@ -72,7 +72,7 @@
     "coefficient_label": "分化降仓系数 0.7",
     "stage_days": 35,
     "repair_over_5": false,
-    "command": "分化加剧：实时涨停40家/跌停31家，最高5板；只做最强核心，回避后排"
+    "command": "分化加剧：涨停46家/跌停14家，最高5板（上海九百）；只做最强核心，回避后排，不确认不追高"
   },
   "liquidity": {
     "total_turnover": 1.96,
@@ -1000,7 +1000,7 @@
     ]
   },
   "fund_flow_one_line": "2026-10-27 13:57:38 盘中：涨停46/跌停14，最高5板（上海九百）；主线汽车零部件/机器人产业链11家、零售/消费复苏7家、软件开发/信创2家；最高板上海九百。",
-  "data_source": "盘中实时（easyquotation新浪+腾讯 + 新浪MoneyFlow）：指数/涨跌家数/涨停池/梯队=新浪快照；核心池/买点=腾讯精确封板；资金流=新浪实时超大单+大单净额；龙卡/主线/低位池=盘中自适应研判",
+  "data_source": "收盘重建 2026-10-27：指数/涨跌家数/成交额/连板梯队(板数)/首板/断板/空间高标=真实收盘数据；连板角色=规则推断；龙卡/内外切/补涨天花板/风险传导/资金流/主线推演=待人工研判（保留 10-23 结论）",
   "note": "盘中自动刷新：行情/情绪/梯队/主线/龙卡/异动/晋级率已更新；无免费行业、炸板次数的项按[MISSING]处理，不编造",
   "promotion_matrix": {
     "prev_date": "2026-10-26",
@@ -1105,7 +1105,7 @@
     }
   },
   "realtime_boards": {
-    "updated_at": "15:03:37",
+    "updated_at": "15:03:25",
     "limit_up": 38,
     "max_board": 5,
     "ladder": [
