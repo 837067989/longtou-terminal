@@ -4497,7 +4497,7 @@ function renderMainlineSignals() {
   if (active.length) {
     html += '<div class="fb-title">现在可买 <span class="cnt">' + active.length + ' 只</span></div>';
     active.forEach(function(s) {
-      const pctv = s.pct;
+      const pctv = s.last_pct != null ? s.last_pct : s.pct;
       const pctCls = (pctv != null && pctv < 0) ? "down-glow" : "up-glow";
       const sl = s.stop_loss != null ? s.stop_loss : "--";
       html += '<div class="bc">' +
