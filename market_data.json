@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "timestamp": "11:04:36",
+  "timestamp": "11:06:12",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
   "session": "盘中",
@@ -14,23 +14,23 @@
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3690.11,
-      "pct": -0.2
+      "price": 3688.22,
+      "pct": -0.25
     },
     "sz": {
       "name": "深证成指",
-      "price": 11488.7,
-      "pct": -0.4
+      "price": 11479.66,
+      "pct": -0.47
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2622.43,
-      "pct": -0.6
+      "price": 2619.96,
+      "pct": -0.69
     },
     "kc50": {
       "name": "科创50",
-      "price": 1293.99,
-      "pct": -1.63
+      "price": 1291.96,
+      "pct": -1.79
     }
   },
   "volume": {
@@ -38,9 +38,9 @@
     "compare": "沪7465亿+深8623亿"
   },
   "breadth": {
-    "up": 1350,
-    "down": 3582,
-    "limit_up": 40,
+    "up": 1281,
+    "down": 3654,
+    "limit_up": 42,
     "limit_down": 7,
     "main_net_inflow": "收盘·尾盘资金大举回流（冰点V型反转）"
   },
@@ -72,7 +72,7 @@
     "coefficient_label": "分化降仓系数 0.7",
     "stage_days": 12,
     "repair_over_5": false,
-    "command": "分化加剧：实时涨停40家/跌停7家，最高5板；只做最强核心，回避后排"
+    "command": "分化加剧：实时涨停42家/跌停7家，最高5板；只做最强核心，回避后排"
   },
   "liquidity": {
     "total_turnover": 1.96,
@@ -1389,8 +1389,8 @@
     "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "11:04:36",
-    "limit_up": 39,
+    "updated_at": "11:06:12",
+    "limit_up": 40,
     "max_board": 5,
     "ladder": [
       {
@@ -1564,6 +1564,13 @@
         "sector": "新首板"
       },
       {
+        "code": "002823",
+        "name": "凯中精密",
+        "pct": 10.03,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
         "code": "002703",
         "name": "浙江世宝",
         "pct": 10.02,
@@ -1674,61 +1681,61 @@
         "code": "603089",
         "name": "正裕工业",
         "board": 3,
-        "pct": -8.03
-      },
-      {
-        "code": "002535",
-        "name": "林州重机",
-        "board": 3,
-        "pct": -3.9
+        "pct": -8.18
       },
       {
         "code": "000559",
         "name": "万向钱潮",
         "board": 2,
-        "pct": -3.86
+        "pct": -4.25
+      },
+      {
+        "code": "002535",
+        "name": "林州重机",
+        "board": 3,
+        "pct": -3.6
       },
       {
         "code": "600094",
         "name": "大名城",
         "board": 2,
-        "pct": -2.07
+        "pct": -1.66
       },
       {
         "code": "000810",
         "name": "创维数字",
         "board": 2,
-        "pct": -1.45
+        "pct": -1.54
       },
       {
         "code": "603901",
         "name": "永创智能",
         "board": 2,
-        "pct": 0.94
+        "pct": 0.47
       },
       {
         "code": "002931",
         "name": "锋龙股份",
         "board": 2,
-        "pct": 1.11
+        "pct": 0.8
       },
       {
         "code": "000700",
         "name": "模塑科技",
         "board": 2,
-        "pct": 5.43
+        "pct": 4.82
       },
       {
         "code": "605488",
         "name": "福莱新材",
         "board": 2,
-        "pct": 6.72
+        "pct": 6.48
       },
       {
         "code": "603337",
         "name": "杰克科技",
         "board": 2,
-        "pct": 6.76
+        "pct": 6.9
       }
     ],
     "cross_candidates": [],
