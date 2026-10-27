@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "timestamp": "09:58:05",
+  "timestamp": "09:58:46",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
   "session": "盘中",
@@ -14,23 +14,23 @@
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3691.57,
-      "pct": -0.16
+      "price": 3691.29,
+      "pct": -0.17
     },
     "sz": {
       "name": "深证成指",
-      "price": 11546.6,
-      "pct": 0.11
+      "price": 11541.02,
+      "pct": 0.06
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2640.96,
-      "pct": 0.1
+      "price": 2639.05,
+      "pct": 0.03
     },
     "kc50": {
       "name": "科创50",
-      "price": 1311.7,
-      "pct": -0.29
+      "price": 1310.11,
+      "pct": -0.41
     }
   },
   "volume": {
@@ -38,10 +38,10 @@
     "compare": "沪7465亿+深8623亿"
   },
   "breadth": {
-    "up": 2478,
-    "down": 2369,
-    "limit_up": 31,
-    "limit_down": 6,
+    "up": 2395,
+    "down": 2438,
+    "limit_up": 30,
+    "limit_down": 5,
     "main_net_inflow": "收盘·尾盘资金大举回流（冰点V型反转）"
   },
   "emotion": {
@@ -53,7 +53,7 @@
     "zuot_lianban_premium": "+1.87%",
     "premium_red_rate": "64.8%",
     "big_face": 4,
-    "limit_down": 6,
+    "limit_down": 5,
     "sentiment_state": "分歧",
     "sentiment_coef": 0.5
   },
@@ -72,7 +72,7 @@
     "coefficient_label": "分化降仓系数 0.7",
     "stage_days": 1,
     "repair_over_5": false,
-    "command": "分化加剧：实时涨停31家/跌停6家，最高5板；只做最强核心，回避后排"
+    "command": "分化加剧：实时涨停30家/跌停5家，最高5板；只做最强核心，回避后排"
   },
   "liquidity": {
     "total_turnover": 1.96,
@@ -1175,8 +1175,8 @@
     "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "09:58:05",
-    "limit_up": 30,
+    "updated_at": "09:58:46",
+    "limit_up": 29,
     "max_board": 5,
     "ladder": [
       {
@@ -1276,13 +1276,6 @@
         "code": "603758",
         "name": "秦安股份",
         "pct": 10.05,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002181",
-        "name": "粤传媒",
-        "pct": 10.04,
         "board": 1,
         "sector": "新首板"
       },
@@ -1403,13 +1396,13 @@
         "code": "603089",
         "name": "正裕工业",
         "board": 3,
-        "pct": -5.96
+        "pct": -5.35
       },
       {
         "code": "002535",
         "name": "林州重机",
         "board": 3,
-        "pct": -4.5
+        "pct": -3.9
       },
       {
         "code": "000559",
@@ -1421,37 +1414,37 @@
         "code": "603901",
         "name": "永创智能",
         "board": 2,
-        "pct": 0.75
+        "pct": 0.0
       },
       {
         "code": "000810",
         "name": "创维数字",
         "board": 2,
-        "pct": 1.54
+        "pct": 1.36
       },
       {
         "code": "002931",
         "name": "锋龙股份",
         "board": 2,
-        "pct": 3.87
+        "pct": 3.61
       },
       {
         "code": "000700",
         "name": "模塑科技",
         "board": 2,
-        "pct": 4.36
+        "pct": 4.51
       },
       {
         "code": "605488",
         "name": "福莱新材",
         "board": 2,
-        "pct": 5.12
+        "pct": 4.72
       },
       {
         "code": "603337",
         "name": "杰克科技",
         "board": 2,
-        "pct": 6.74
+        "pct": 6.78
       }
     ],
     "cross_candidates": [],
