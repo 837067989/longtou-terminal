@@ -20,7 +20,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:02:25",
       "last_pct": 10.03,
-      "last_seen": "11:25:53",
+      "last_seen": "11:31:21",
       "status": "active"
     },
     {
@@ -42,7 +42,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:02:25",
       "last_pct": 10.0,
-      "last_seen": "11:25:53",
+      "last_seen": "11:31:21",
       "status": "active"
     },
     {
@@ -69,8 +69,8 @@
       "expired_time": "11:03:46",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "11:25:53",
-      "revived_time": "11:25:53"
+      "superseded_time": "11:31:21",
+      "revived_time": "11:31:21"
     },
     {
       "type": "放量突破",
@@ -96,8 +96,8 @@
       "expired_time": "11:05:40",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "11:25:53",
-      "revived_time": "11:25:53"
+      "superseded_time": "11:31:21",
+      "revived_time": "11:31:21"
     },
     {
       "type": "放量突破",
@@ -123,8 +123,8 @@
       "expired_time": "11:05:40",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -164,14 +164,14 @@
       "turnover": 11.79,
       "board": 1,
       "role": "首板",
-      "now": 12.39,
+      "now": 12.3,
       "action": "半路上车",
-      "stop_loss": 11.8,
+      "stop_loss": 11.81,
       "stop_note": "跌破均价止损",
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:06:12",
-      "last_pct": 8.02,
-      "last_seen": "11:25:53",
+      "last_pct": 7.24,
+      "last_seen": "11:31:21",
       "status": "active"
     },
     {
@@ -198,8 +198,8 @@
       "expired_time": "11:07:10",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -225,8 +225,8 @@
       "expired_time": "11:10:00",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -252,8 +252,8 @@
       "expired_time": "11:10:16",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -279,8 +279,8 @@
       "expired_time": "11:14:11",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -306,8 +306,8 @@
       "expired_time": "11:18:36",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -333,8 +333,8 @@
       "expired_time": "11:19:08",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -360,8 +360,8 @@
       "expired_time": "11:19:47",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -387,8 +387,8 @@
       "expired_time": "11:19:57",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -414,8 +414,8 @@
       "expired_time": "11:20:26",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -441,8 +441,8 @@
       "expired_time": "11:21:02",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -468,8 +468,8 @@
       "expired_time": "11:25:20",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈",
-      "superseded_time": "11:25:36",
-      "revived_time": "11:25:41"
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
     },
     {
       "type": "放量突破",
@@ -493,6 +493,87 @@
       "last_seen": "11:25:36",
       "status": "expired",
       "expired_time": "11:25:41",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
+    },
+    {
+      "type": "放量突破",
+      "advice": "放量突破，半路上车",
+      "reason": "量比2.6+涨幅6.2%+站上均价+近高点",
+      "code": "600785",
+      "name": "新华百货",
+      "mainline": "零售/消费复苏",
+      "pct": 6.25,
+      "vol_ratio": 2.57,
+      "turnover": 14.1,
+      "board": 1,
+      "role": "首板",
+      "now": 13.42,
+      "action": "半路上车",
+      "stop_loss": 12.93,
+      "stop_note": "跌破均价止损",
+      "position": "标准仓·单笔止损≤总资金3%",
+      "first_time": "11:26:14",
+      "last_pct": 6.17,
+      "last_seen": "11:26:30",
+      "status": "expired",
+      "expired_time": "11:26:35",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
+    },
+    {
+      "type": "放量突破",
+      "advice": "放量突破，半路上车",
+      "reason": "量比2.5+涨幅6.2%+站上均价+近高点",
+      "code": "600785",
+      "name": "新华百货",
+      "mainline": "零售/消费复苏",
+      "pct": 6.25,
+      "vol_ratio": 2.55,
+      "turnover": 14.11,
+      "board": 1,
+      "role": "首板",
+      "now": 13.43,
+      "action": "半路上车",
+      "stop_loss": 12.93,
+      "stop_note": "跌破均价止损",
+      "position": "标准仓·单笔止损≤总资金3%",
+      "first_time": "11:26:40",
+      "last_pct": 6.25,
+      "last_seen": "11:26:40",
+      "status": "expired",
+      "expired_time": "11:26:46",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
+      "superseded_time": "11:27:02",
+      "revived_time": "11:27:07"
+    },
+    {
+      "type": "放量突破",
+      "advice": "放量突破，半路上车",
+      "reason": "量比2.5+涨幅6.2%+站上均价+近高点",
+      "code": "600785",
+      "name": "新华百货",
+      "mainline": "零售/消费复苏",
+      "pct": 6.17,
+      "vol_ratio": 2.55,
+      "turnover": 14.11,
+      "board": 1,
+      "role": "首板",
+      "now": 13.42,
+      "action": "半路上车",
+      "stop_loss": 12.93,
+      "stop_note": "跌破均价止损",
+      "position": "标准仓·单笔止损≤总资金3%",
+      "first_time": "11:26:57",
+      "last_pct": 6.17,
+      "last_seen": "11:27:02",
+      "status": "expired",
+      "expired_time": "11:27:07",
       "exit_reason": "冲高回落",
       "exit_advice": "冲高回落，明日减仓止盈"
     }
