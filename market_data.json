@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "timestamp": "10:09:17",
+  "timestamp": "10:10:56",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
   "session": "盘中",
@@ -14,23 +14,23 @@
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3692.91,
-      "pct": -0.12
+      "price": 3692.31,
+      "pct": -0.14
     },
     "sz": {
       "name": "深证成指",
-      "price": 11535.5,
-      "pct": 0.01
+      "price": 11537.97,
+      "pct": 0.03
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2635.6,
-      "pct": -0.1
+      "price": 2637.29,
+      "pct": -0.04
     },
     "kc50": {
       "name": "科创50",
-      "price": 1306.5,
-      "pct": -0.68
+      "price": 1305.02,
+      "pct": -0.8
     }
   },
   "volume": {
@@ -38,10 +38,10 @@
     "compare": "沪7465亿+深8623亿"
   },
   "breadth": {
-    "up": 2120,
-    "down": 2731,
-    "limit_up": 33,
-    "limit_down": 5,
+    "up": 2099,
+    "down": 2748,
+    "limit_up": 32,
+    "limit_down": 4,
     "main_net_inflow": "收盘·尾盘资金大举回流（冰点V型反转）"
   },
   "emotion": {
@@ -53,7 +53,7 @@
     "zuot_lianban_premium": "+3.26%",
     "premium_red_rate": "66.7%",
     "big_face": 2,
-    "limit_down": 5,
+    "limit_down": 4,
     "sentiment_state": "分歧",
     "sentiment_coef": 0.5
   },
@@ -72,7 +72,7 @@
     "coefficient_label": "分化降仓系数 0.7",
     "stage_days": 3,
     "repair_over_5": false,
-    "command": "分化加剧：涨停34家/跌停5家，最高5板（上海九百）；只做最强核心，回避后排，不确认不追高"
+    "command": "分化加剧：实时涨停32家/跌停4家，最高5板；只做最强核心，回避后排"
   },
   "liquidity": {
     "total_turnover": 1.96,
@@ -1173,7 +1173,7 @@
     "targets": []
   },
   "fund_flow_one_line": "2026-10-27 10:09:17 盘中：涨停34/跌停5，最高5板（上海九百）；主线汽车零部件/机器人产业链13家、零售/消费复苏8家、软件开发/信创2家；最高板上海九百。",
-  "data_source": "盘中实时（easyquotation新浪+腾讯）：指数/涨跌家数/涨停池/梯队=新浪快照+腾讯复核；异动=新浪日K回溯；题材=人工映射/缺失标[MISSING]；资金流=源外不展示",
+  "data_source": "盘中实时（easyquotation 多源）：指数/涨跌家数/涨停池/连板梯队=新浪全市场快照；核心池/买点=腾讯精确封板；情绪周期=自动判定(字幕第2期)；研判类模块（龙卡/首板池/内外切/资金流）为收盘人工结论",
   "note": "盘中自动刷新：行情/情绪/梯队/主线/龙卡/异动/晋级率已更新；无免费行业、炸板次数、逐笔资金流的项按[MISSING]/空处理，不编造",
   "promotion_matrix": {
     "prev_date": "2026-10-26",
@@ -1281,8 +1281,8 @@
     "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "10:09:17",
-    "limit_up": 34,
+    "updated_at": "10:10:56",
+    "limit_up": 31,
     "max_board": 5,
     "ladder": [
       {
@@ -1300,6 +1300,13 @@
         "sector": "汽车零部件"
       },
       {
+        "code": "603028",
+        "name": "赛福天",
+        "pct": 10.01,
+        "board": 4,
+        "sector": "通用设备"
+      },
+      {
         "code": "603528",
         "name": "多伦科技",
         "pct": 10.06,
@@ -1307,326 +1314,261 @@
         "sector": "软件开发"
       },
       {
-        "code": "603028",
-        "name": "赛福天",
-        "pct": 10.01,
-        "board": 4,
-        "sector": "通用设备"
-      },
-      {
-        "code": "002093",
-        "name": "国脉科技",
+        "code": "001219",
+        "name": "青岛食品",
         "pct": 9.99,
         "board": 2,
-        "sector": "IT服务"
+        "sector": "[MISSING]"
       },
       {
         "code": "001331",
         "name": "胜通能源",
         "pct": 9.99,
         "board": 2,
-        "sector": "燃气"
+        "sector": "[MISSING]"
       },
       {
         "code": "002086",
         "name": "东方海洋",
         "pct": 10.0,
         "board": 2,
-        "sector": "渔业"
+        "sector": "[MISSING]"
+      },
+      {
+        "code": "002093",
+        "name": "国脉科技",
+        "pct": 9.99,
+        "board": 2,
+        "sector": "[MISSING]"
       },
       {
         "code": "002708",
         "name": "光洋股份",
         "pct": 10.03,
         "board": 2,
-        "sector": "汽车零部件"
-      },
-      {
-        "code": "001219",
-        "name": "青岛食品",
-        "pct": 9.99,
-        "board": 2,
-        "sector": "食品加工"
+        "sector": "[MISSING]"
       },
       {
         "code": "600558",
         "name": "大西洋",
         "pct": 10.07,
         "board": 2,
-        "sector": "金属制品"
+        "sector": "[MISSING]"
       }
     ],
     "first": [
-      {
-        "code": "002724",
-        "name": "海洋王",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "照明设备"
-      },
-      {
-        "code": "002639",
-        "name": "雪人集团",
-        "pct": 10.03,
-        "board": 1,
-        "sector": "通用设备"
-      },
-      {
-        "code": "002249",
-        "name": "大洋电机",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "[MISSING]"
-      },
-      {
-        "code": "002196",
-        "name": "方正电机",
-        "pct": 10.04,
-        "board": 1,
-        "sector": "[MISSING]"
-      },
-      {
-        "code": "301479",
-        "name": "弘景光电",
-        "pct": 20.0,
-        "board": 1,
-        "sector": "[MISSING]"
-      },
-      {
-        "code": "002703",
-        "name": "浙江世宝",
-        "pct": 10.02,
-        "board": 1,
-        "sector": "汽车零部件"
-      },
       {
         "code": "300539",
         "name": "横河精密",
         "pct": 20.0,
         "board": 1,
-        "sector": "[MISSING]"
-      },
-      {
-        "code": "003026",
-        "name": "中晶科技",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "半导体"
-      },
-      {
-        "code": "600715",
-        "name": "文投控股",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "影视院线"
-      },
-      {
-        "code": "601566",
-        "name": "九牧王",
-        "pct": 10.02,
-        "board": 1,
-        "sector": "服装家纺"
-      },
-      {
-        "code": "002011",
-        "name": "盾安环境",
-        "pct": 9.96,
-        "board": 1,
-        "sector": "家电零部件"
-      },
-      {
-        "code": "603565",
-        "name": "中谷物流",
-        "pct": 9.97,
-        "board": 1,
-        "sector": "航运港口"
-      },
-      {
-        "code": "603390",
-        "name": "通达电气",
-        "pct": 10.02,
-        "board": 1,
-        "sector": "[MISSING]"
-      },
-      {
-        "code": "002434",
-        "name": "万里扬",
-        "pct": 10.07,
-        "board": 1,
-        "sector": "[MISSING]"
-      },
-      {
-        "code": "600303",
-        "name": "曙光股份",
-        "pct": 9.89,
-        "board": 1,
-        "sector": "[MISSING]"
-      },
-      {
-        "code": "002187",
-        "name": "广百股份",
-        "pct": 10.04,
-        "board": 1,
-        "sector": "一般零售"
-      },
-      {
-        "code": "002284",
-        "name": "亚太股份",
-        "pct": 10.01,
-        "board": 1,
-        "sector": "汽车零部件"
-      },
-      {
-        "code": "603758",
-        "name": "秦安股份",
-        "pct": 10.05,
-        "board": 1,
-        "sector": "汽车零部件"
+        "sector": "新首板"
       },
       {
         "code": "600828",
         "name": "茂业商业",
         "pct": 10.1,
         "board": 1,
-        "sector": "一般零售"
+        "sector": "新首板"
       },
       {
-        "code": "601956",
-        "name": "东贝集团",
-        "pct": 9.92,
+        "code": "000058",
+        "name": "深赛格",
+        "pct": 10.07,
         "board": 1,
-        "sector": "家电零部件"
+        "sector": "新首板"
+      },
+      {
+        "code": "002434",
+        "name": "万里扬",
+        "pct": 10.07,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "603758",
+        "name": "秦安股份",
+        "pct": 10.05,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "002181",
+        "name": "粤传媒",
+        "pct": 10.04,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "002187",
+        "name": "广百股份",
+        "pct": 10.04,
+        "board": 1,
+        "sector": "新首板"
       },
       {
         "code": "002590",
         "name": "万安科技",
         "pct": 10.03,
         "board": 1,
-        "sector": "汽车零部件"
+        "sector": "新首板"
+      },
+      {
+        "code": "002703",
+        "name": "浙江世宝",
+        "pct": 10.02,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "601566",
+        "name": "九牧王",
+        "pct": 10.02,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "603390",
+        "name": "通达电气",
+        "pct": 10.02,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "002284",
+        "name": "亚太股份",
+        "pct": 10.01,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "002249",
+        "name": "大洋电机",
+        "pct": 10.0,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "002724",
+        "name": "海洋王",
+        "pct": 10.0,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "003026",
+        "name": "中晶科技",
+        "pct": 10.0,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "600715",
+        "name": "文投控股",
+        "pct": 10.0,
+        "board": 1,
+        "sector": "新首板"
       },
       {
         "code": "001311",
         "name": "多利科技",
         "pct": 9.99,
         "board": 1,
-        "sector": "汽车零部件"
+        "sector": "新首板"
       },
       {
         "code": "603121",
         "name": "华培动力",
         "pct": 9.98,
         "board": 1,
-        "sector": "汽车零部件"
+        "sector": "新首板"
       },
       {
-        "code": "000058",
-        "name": "深 赛 格",
-        "pct": 10.07,
+        "code": "603565",
+        "name": "中谷物流",
+        "pct": 9.97,
         "board": 1,
-        "sector": "[MISSING]"
+        "sector": "新首板"
+      },
+      {
+        "code": "002011",
+        "name": "盾安环境",
+        "pct": 9.96,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "601956",
+        "name": "东贝集团",
+        "pct": 9.92,
+        "board": 1,
+        "sector": "新首板"
       }
     ],
     "broken": [
       {
-        "code": "300916",
-        "name": "朗特智能",
-        "board": 1,
-        "pct": -9.25
-      },
-      {
         "code": "600094",
         "name": "大名城",
         "board": 2,
-        "pct": -9.11
-      },
-      {
-        "code": "600980",
-        "name": "北矿科技",
-        "board": 1,
-        "pct": -4.33
+        "pct": -8.7
       },
       {
         "code": "002535",
         "name": "林州重机",
         "board": 3,
-        "pct": -4.2
-      },
-      {
-        "code": "002869",
-        "name": "金溢科技",
-        "board": 1,
-        "pct": -3.99
-      },
-      {
-        "code": "603089",
-        "name": "正裕工业",
-        "board": 3,
         "pct": -3.9
-      },
-      {
-        "code": "000635",
-        "name": "英力特",
-        "board": 1,
-        "pct": -3.62
-      },
-      {
-        "code": "000411",
-        "name": "英特集团",
-        "board": 1,
-        "pct": -3.61
-      },
-      {
-        "code": "603331",
-        "name": "百达精工",
-        "board": 1,
-        "pct": -3.41
       },
       {
         "code": "000559",
         "name": "万向钱潮",
         "board": 2,
-        "pct": -2.28
+        "pct": -2.6
+      },
+      {
+        "code": "603089",
+        "name": "正裕工业",
+        "board": 3,
+        "pct": -2.37
       },
       {
         "code": "603901",
         "name": "永创智能",
         "board": 2,
-        "pct": 0.75
+        "pct": -0.19
       },
       {
         "code": "000810",
         "name": "创维数字",
         "board": 2,
-        "pct": 0.91
+        "pct": 0.45
+      },
+      {
+        "code": "002931",
+        "name": "锋龙股份",
+        "board": 2,
+        "pct": 2.5
+      },
+      {
+        "code": "000700",
+        "name": "模塑科技",
+        "board": 2,
+        "pct": 5.51
+      },
+      {
+        "code": "605488",
+        "name": "福莱新材",
+        "board": 2,
+        "pct": 5.89
+      },
+      {
+        "code": "603337",
+        "name": "杰克科技",
+        "board": 2,
+        "pct": 6.78
       }
     ],
-    "cross_candidates": [
-      {
-        "name": "上海九百",
-        "code": "600838",
-        "from": 4,
-        "to": 5
-      },
-      {
-        "name": "襄阳轴承",
-        "code": "000678",
-        "from": 3,
-        "to": 4
-      },
-      {
-        "name": "多伦科技",
-        "code": "603528",
-        "from": 3,
-        "to": 4
-      },
-      {
-        "name": "赛福天",
-        "code": "603028",
-        "from": 3,
-        "to": 4
-      }
-    ],
-    "note": "盘中实时：新浪全市场+腾讯精确封板；板数按上一交易日梯队推算"
+    "cross_candidates": [],
+    "note": "今日实时：板数=昨日人工板数+1（今日新涨停记1板）；题材取自昨日名单，无则标 MISSING"
   },
   "node_detect": {
     "type": "非节点",
