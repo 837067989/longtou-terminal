@@ -1,6 +1,6 @@
 {
   "date": "2026-10-27",
-  "timestamp": "09:54:22",
+  "timestamp": "09:58:05",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
   "session": "盘中",
@@ -14,23 +14,23 @@
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3693.31,
-      "pct": -0.11
+      "price": 3691.57,
+      "pct": -0.16
     },
     "sz": {
       "name": "深证成指",
-      "price": 11539.52,
-      "pct": 0.04
+      "price": 11546.6,
+      "pct": 0.11
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2637.04,
-      "pct": -0.05
+      "price": 2640.96,
+      "pct": 0.1
     },
     "kc50": {
       "name": "科创50",
-      "price": 1310.38,
-      "pct": -0.39
+      "price": 1311.7,
+      "pct": -0.29
     }
   },
   "volume": {
@@ -38,9 +38,9 @@
     "compare": "沪7465亿+深8623亿"
   },
   "breadth": {
-    "up": 2316,
-    "down": 2520,
-    "limit_up": 28,
+    "up": 2478,
+    "down": 2369,
+    "limit_up": 31,
     "limit_down": 6,
     "main_net_inflow": "收盘·尾盘资金大举回流（冰点V型反转）"
   },
@@ -72,7 +72,7 @@
     "coefficient_label": "分化降仓系数 0.7",
     "stage_days": 1,
     "repair_over_5": false,
-    "command": "分化加剧：实时涨停28家/跌停6家，最高5板；只做最强核心，回避后排"
+    "command": "分化加剧：实时涨停31家/跌停6家，最高5板；只做最强核心，回避后排"
   },
   "liquidity": {
     "total_turnover": 1.96,
@@ -1175,8 +1175,8 @@
     "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "09:54:22",
-    "limit_up": 27,
+    "updated_at": "09:58:05",
+    "limit_up": 30,
     "max_board": 5,
     "ladder": [
       {
@@ -1252,6 +1252,13 @@
     ],
     "first": [
       {
+        "code": "301479",
+        "name": "弘景光电",
+        "pct": 20.0,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
         "code": "600828",
         "name": "茂业商业",
         "pct": 10.1,
@@ -1315,9 +1322,23 @@
         "sector": "新首板"
       },
       {
+        "code": "603390",
+        "name": "通达电气",
+        "pct": 10.02,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
         "code": "002284",
         "name": "亚太股份",
         "pct": 10.01,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "002249",
+        "name": "大洋电机",
+        "pct": 10.0,
         "board": 1,
         "sector": "新首板"
       },
@@ -1373,64 +1394,64 @@
     ],
     "broken": [
       {
-        "code": "603089",
-        "name": "正裕工业",
-        "board": 3,
-        "pct": -10.02
-      },
-      {
         "code": "600094",
         "name": "大名城",
         "board": 2,
-        "pct": -9.32
+        "pct": -9.52
+      },
+      {
+        "code": "603089",
+        "name": "正裕工业",
+        "board": 3,
+        "pct": -5.96
       },
       {
         "code": "002535",
         "name": "林州重机",
         "board": 3,
-        "pct": -6.91
-      },
-      {
-        "code": "603901",
-        "name": "永创智能",
-        "board": 2,
-        "pct": -1.41
+        "pct": -4.5
       },
       {
         "code": "000559",
         "name": "万向钱潮",
         "board": 2,
-        "pct": -0.94
+        "pct": -1.1
+      },
+      {
+        "code": "603901",
+        "name": "永创智能",
+        "board": 2,
+        "pct": 0.75
       },
       {
         "code": "000810",
         "name": "创维数字",
         "board": 2,
-        "pct": 0.73
-      },
-      {
-        "code": "000700",
-        "name": "模塑科技",
-        "board": 2,
-        "pct": 1.45
+        "pct": 1.54
       },
       {
         "code": "002931",
         "name": "锋龙股份",
         "board": 2,
-        "pct": 4.3
+        "pct": 3.87
+      },
+      {
+        "code": "000700",
+        "name": "模塑科技",
+        "board": 2,
+        "pct": 4.36
       },
       {
         "code": "605488",
         "name": "福莱新材",
         "board": 2,
-        "pct": 4.6
+        "pct": 5.12
       },
       {
         "code": "603337",
         "name": "杰克科技",
         "board": 2,
-        "pct": 8.5
+        "pct": 6.74
       }
     ],
     "cross_candidates": [],
