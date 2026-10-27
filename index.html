@@ -581,7 +581,7 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 // ===== 内嵌数据（唯一数据源，与 market_data.json 同构）=====
 const initialData = {
   "date": "2026-10-27",
-  "timestamp": "10:09:51",
+  "timestamp": "11:03:36",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
   "session": "盘中",
@@ -595,23 +595,23 @@ const initialData = {
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3692.83,
-      "pct": -0.13
+      "price": 3687.18,
+      "pct": -0.28
     },
     "sz": {
       "name": "深证成指",
-      "price": 11539.14,
-      "pct": 0.04
+      "price": 11480.69,
+      "pct": -0.47
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2637.84,
-      "pct": -0.01
+      "price": 2622.0,
+      "pct": -0.62
     },
     "kc50": {
       "name": "科创50",
-      "price": 1305.82,
-      "pct": -0.74
+      "price": 1292.19,
+      "pct": -1.77
     }
   },
   "volume": {
@@ -619,41 +619,41 @@ const initialData = {
     "compare": "沪7465亿+深8623亿"
   },
   "breadth": {
-    "up": 2093,
-    "down": 2768,
-    "limit_up": 34,
-    "limit_down": 5,
+    "up": 1273,
+    "down": 3677,
+    "limit_up": 40,
+    "limit_down": 6,
     "main_net_inflow": "收盘·尾盘资金大举回流（冰点V型反转）"
   },
   "emotion": {
-    "zhaban_rate": "昨涨停54只，实时红盘率66.7%，平均2.95%",
-    "fengban_rate": "实时涨停34家 / 断板12家",
+    "zhaban_rate": "昨涨停54只，实时红盘率63.0%，平均2.69%",
+    "fengban_rate": "实时涨停40家 / 断板12家",
     "max_lianban": 5,
-    "lianban_count": 10,
-    "zuot_zhangting_premium": "+2.95%",
-    "zuot_lianban_premium": "+3.26%",
-    "premium_red_rate": "66.7%",
-    "big_face": 2,
-    "limit_down": 5,
+    "lianban_count": 13,
+    "zuot_zhangting_premium": "+2.69%",
+    "zuot_lianban_premium": "+2.89%",
+    "premium_red_rate": "63.0%",
+    "big_face": 3,
+    "limit_down": 6,
     "sentiment_state": "分歧",
     "sentiment_coef": 0.5
   },
   "emotion_score": {
-    "auction": 66,
+    "auction": 58,
     "noon": null,
     "close": null
   },
   "cycle": {
     "stage": "分化加剧",
-    "sub_stage": "昨最高4板→今实时5板，涨停34/跌停5，红盘2063/绿盘2781",
+    "sub_stage": "昨最高4板→今实时5板，涨停40/跌停7，红盘1326/绿盘3595",
     "node": "否",
     "node_type": "非节点（分化中继）",
-    "node_detail": "昨日最高4板→今日实时最高5板（上海九百，一般零售）；涨停34家、跌停5家",
+    "node_detail": "昨日最高4板→今日实时最高5板（上海九百，一般零售）；涨停40家、跌停7家",
     "coefficient": 0.7,
     "coefficient_label": "分化降仓系数 0.7",
-    "stage_days": 3,
+    "stage_days": 12,
     "repair_over_5": false,
-    "command": "分化加剧：实时涨停34家/跌停5家，最高5板；只做最强核心，回避后排"
+    "command": "分化加剧：实时涨停40家/跌停6家，最高5板；只做最强核心，回避后排"
   },
   "liquidity": {
     "total_turnover": 1.96,
@@ -668,28 +668,22 @@ const initialData = {
     "note": "按新浪日K回溯+盘中现价计算10/20日涨幅，不依赖人工快照",
     "targets": [
       {
-        "name": "百洋股份",
-        "pattern": "首板",
-        "d10_gain": 39.5,
-        "d20_gain": 80.2
-      },
-      {
-        "name": "奥雅股份",
-        "pattern": "首板",
-        "d10_gain": 67.0,
-        "d20_gain": 78.2
-      },
-      {
         "name": "襄阳轴承",
         "pattern": "4天4板",
         "d10_gain": 44.6,
         "d20_gain": 77.5
       },
       {
-        "name": "海洋王",
+        "name": "奥雅股份",
         "pattern": "首板",
-        "d10_gain": 84.9,
-        "d20_gain": 67.0
+        "d10_gain": 63.9,
+        "d20_gain": 74.9
+      },
+      {
+        "name": "百洋股份",
+        "pattern": "首板",
+        "d10_gain": 34.3,
+        "d20_gain": 73.5
       },
       {
         "name": "上海九百",
@@ -707,8 +701,8 @@ const initialData = {
     "keep_note": ""
   },
   "auction_metrics": {
-    "lianban_red_green_ratio": 0.714,
-    "lianban_red_green_label": "强势",
+    "lianban_red_green_ratio": 0.571,
+    "lianban_red_green_label": "修复",
     "nuclear_monitor": {
       "target": "上海九百",
       "yesterday_board": "昨日4板",
@@ -717,13 +711,13 @@ const initialData = {
       "text": "上海九百 今日盘中+10.00%，无核按钮"
     },
     "sentiment_deviation": {
-      "lianban_premium": 3.26,
-      "index_pct": -0.15,
-      "deviation": 3.41,
+      "lianban_premium": 2.89,
+      "index_pct": -0.26,
+      "deviation": 3.15,
       "warn": false,
-      "text": "昨连板今日实时平均+3.26% vs 上证-0.15%，正向/中性"
+      "text": "昨连板今日实时平均+2.89% vs 上证-0.26%，正向/中性"
     },
-    "broken_board_premium": -3.75
+    "broken_board_premium": -5.06
   },
   "auction_verify": {
     "name": "上海九百",
@@ -747,10 +741,10 @@ const initialData = {
   "inner_outer": {
     "old_leader": "上海九百",
     "old_leader_pct": 10.0,
-    "new_theme_limitup": 13,
+    "new_theme_limitup": 12,
     "direction": "存量轮动",
     "hint": "围绕汽车零部件/机器人产业链核心，回避后排",
-    "detail": "按涨停家数推断：汽车零部件/机器人产业链 13家；无免费板块资金流，未做金额验证"
+    "detail": "按涨停家数推断：汽车零部件/机器人产业链 12家；无免费板块资金流，未做金额验证"
   },
   "board_fund_flow": {
     "old_leader_outflow": null,
@@ -765,7 +759,7 @@ const initialData = {
   "risk_metrics": {
     "loss_conduction": {
       "high_avg_drop": 10.0,
-      "mid_avg_drop": 2.75,
+      "mid_avg_drop": 2.34,
       "state": "未传导"
     },
     "mid_fault_rate": {
@@ -784,12 +778,12 @@ const initialData = {
   "mainlines": [
     {
       "name": "汽车零部件/机器人产业链",
-      "count": 13,
+      "count": 12,
       "leader": "襄阳轴承(4板)",
       "has_height": true,
       "tag": "主线爆发",
       "hint": "格局持有核心",
-      "detail": "涨停：襄阳轴承(4板)、赛福天(4板)、光洋股份(2板)、大西洋(2板)、雪人集团(1板)、浙江世宝(1板)、亚太股份(1板)、盾安环境(1板) 等"
+      "detail": "涨停：襄阳轴承(4板)、赛福天(4板)、光洋股份(2板)、大西洋(2板)、浙江世宝(1板)、亚太股份(1板)、盾安环境(1板)、万安科技(1板) 等"
     },
     {
       "name": "零售/消费复苏",
@@ -798,7 +792,7 @@ const initialData = {
       "has_height": true,
       "tag": "低位启动",
       "hint": "关注龙头",
-      "detail": "涨停：上海九百(5板)、胜通能源(2板)、青岛食品(2板)、九牧王(1板)、文投控股(1板)、中谷物流(1板)、茂业商业(1板)、广百股份(1板)"
+      "detail": "涨停：上海九百(5板)、胜通能源(2板)、青岛食品(2板)、九牧王(1板)、文投控股(1板)、茂业商业(1板)、广百股份(1板)、中谷物流(1板)"
     },
     {
       "name": "软件开发/信创",
@@ -817,12 +811,12 @@ const initialData = {
       "board": 5,
       "pct": 10.0,
       "sector": "一般零售",
-      "amount": 3.22,
+      "amount": 3.27,
       "flow_mv": 53.4,
-      "turnover": 6.13,
-      "vol_ratio": 4.63,
+      "turnover": 6.23,
+      "vol_ratio": 2.04,
       "seal": "换手",
-      "seal_fund": 2.65,
+      "seal_fund": 2.73,
       "strength": "强",
       "open_count": null,
       "gap": 7.19,
@@ -835,12 +829,12 @@ const initialData = {
       "board": 4,
       "pct": 10.03,
       "sector": "汽车零部件",
-      "amount": 11.21,
+      "amount": 11.38,
       "flow_mv": 73.6,
-      "turnover": 15.53,
-      "vol_ratio": 4.74,
+      "turnover": 15.76,
+      "vol_ratio": 2.14,
       "seal": "换手",
-      "seal_fund": 3.78,
+      "seal_fund": 2.84,
       "strength": "强",
       "open_count": null,
       "gap": 4.74,
@@ -853,12 +847,12 @@ const initialData = {
       "board": 4,
       "pct": 10.06,
       "sector": "软件开发",
-      "amount": 2.07,
+      "amount": 2.16,
       "flow_mv": 69.5,
-      "turnover": 2.98,
-      "vol_ratio": 3.15,
+      "turnover": 3.11,
+      "vol_ratio": 1.42,
       "seal": "一字",
-      "seal_fund": 4.09,
+      "seal_fund": 3.88,
       "strength": "强",
       "open_count": null,
       "gap": 10.06,
@@ -871,16 +865,16 @@ const initialData = {
       "board": 4,
       "pct": 10.01,
       "sector": "通用设备",
-      "amount": 0.53,
+      "amount": 0.6,
       "flow_mv": 29.3,
-      "turnover": 1.81,
-      "vol_ratio": 3.71,
+      "turnover": 2.06,
+      "vol_ratio": 1.83,
       "seal": "一字",
-      "seal_fund": 2.78,
+      "seal_fund": 2.51,
       "strength": "强",
       "open_count": null,
       "gap": 10.01,
-      "role": "板块龙",
+      "role": "跟风",
       "nature": "今日4板（盘中实时，一字）"
     },
     {
@@ -889,15 +883,33 @@ const initialData = {
       "board": 2,
       "pct": 9.99,
       "sector": "IT服务",
-      "amount": 4.57,
+      "amount": 4.65,
       "flow_mv": 79.9,
-      "turnover": 5.77,
-      "vol_ratio": 21.26,
+      "turnover": 5.88,
+      "vol_ratio": 9.62,
       "seal": "换手",
-      "seal_fund": 2.03,
+      "seal_fund": 1.68,
       "strength": "强",
       "open_count": null,
       "gap": 5.96,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，换手）"
+    },
+    {
+      "code": "001318",
+      "name": "阳光乳业",
+      "board": 2,
+      "pct": 10.0,
+      "sector": "[MISSING]",
+      "amount": 4.44,
+      "flow_mv": 37.6,
+      "turnover": 12.52,
+      "vol_ratio": 2.35,
+      "seal": "换手",
+      "seal_fund": 0.53,
+      "strength": "中",
+      "open_count": null,
+      "gap": -1.82,
       "role": "跟风",
       "nature": "今日2板（盘中实时，换手）"
     },
@@ -907,12 +919,12 @@ const initialData = {
       "board": 2,
       "pct": 9.99,
       "sector": "燃气",
-      "amount": 4.11,
+      "amount": 4.2,
       "flow_mv": 110.1,
-      "turnover": 3.87,
-      "vol_ratio": 8.03,
+      "turnover": 3.95,
+      "vol_ratio": 3.55,
       "seal": "换手",
-      "seal_fund": 1.12,
+      "seal_fund": 1.05,
       "strength": "强",
       "open_count": null,
       "gap": 3.94,
@@ -925,15 +937,33 @@ const initialData = {
       "board": 2,
       "pct": 10.0,
       "sector": "渔业",
-      "amount": 3.92,
+      "amount": 4.05,
       "flow_mv": 40.0,
-      "turnover": 9.98,
-      "vol_ratio": 3.35,
+      "turnover": 10.31,
+      "vol_ratio": 1.54,
       "seal": "换手",
-      "seal_fund": 1.06,
+      "seal_fund": 1.01,
       "strength": "强",
       "open_count": null,
       "gap": 4.78,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，换手）"
+    },
+    {
+      "code": "002820",
+      "name": "桂发祥",
+      "board": 2,
+      "pct": 10.01,
+      "sector": "[MISSING]",
+      "amount": 3.26,
+      "flow_mv": 22.5,
+      "turnover": 15.58,
+      "vol_ratio": 5.9,
+      "seal": "换手",
+      "seal_fund": 1.49,
+      "strength": "强",
+      "open_count": null,
+      "gap": 3.14,
       "role": "跟风",
       "nature": "今日2板（盘中实时，换手）"
     },
@@ -943,15 +973,33 @@ const initialData = {
       "board": 2,
       "pct": 10.03,
       "sector": "汽车零部件",
-      "amount": 3.1,
+      "amount": 3.17,
       "flow_mv": 87.8,
-      "turnover": 3.54,
-      "vol_ratio": 2.95,
+      "turnover": 3.62,
+      "vol_ratio": 1.3,
       "seal": "换手",
-      "seal_fund": 2.53,
+      "seal_fund": 2.35,
       "strength": "强",
       "open_count": null,
       "gap": 9.9,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，换手）"
+    },
+    {
+      "code": "605333",
+      "name": "沪光股份",
+      "board": 2,
+      "pct": 10.0,
+      "sector": "[MISSING]",
+      "amount": 2.72,
+      "flow_mv": 92.4,
+      "turnover": 3.11,
+      "vol_ratio": 12.11,
+      "seal": "换手",
+      "seal_fund": 0.52,
+      "strength": "强",
+      "open_count": null,
+      "gap": -0.99,
       "role": "跟风",
       "nature": "今日2板（盘中实时，换手）"
     },
@@ -961,12 +1009,12 @@ const initialData = {
       "board": 2,
       "pct": 9.99,
       "sector": "食品加工",
-      "amount": 1.93,
+      "amount": 2.01,
       "flow_mv": 28.5,
-      "turnover": 6.77,
-      "vol_ratio": 26.49,
+      "turnover": 7.06,
+      "vol_ratio": 12.27,
       "seal": "一字",
-      "seal_fund": 0.87,
+      "seal_fund": 0.84,
       "strength": "强",
       "open_count": null,
       "gap": 9.99,
@@ -979,12 +1027,12 @@ const initialData = {
       "board": 2,
       "pct": 10.07,
       "sector": "金属制品",
-      "amount": 1.4,
+      "amount": 1.48,
       "flow_mv": 54.9,
-      "turnover": 2.55,
-      "vol_ratio": 3.31,
+      "turnover": 2.7,
+      "vol_ratio": 1.52,
       "seal": "一字",
-      "seal_fund": 1.67,
+      "seal_fund": 1.72,
       "strength": "强",
       "open_count": null,
       "gap": 10.07,
@@ -997,34 +1045,7 @@ const initialData = {
       "name": "朗特智能",
       "code": "300916",
       "board": "1板断",
-      "pct": -9.25,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": null
-    },
-    {
-      "name": "大名城",
-      "code": "600094",
-      "board": "2板断",
-      "pct": -9.11,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": null
-    },
-    {
-      "name": "北矿科技",
-      "code": "600980",
-      "board": "1板断",
-      "pct": -4.33,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": null
-    },
-    {
-      "name": "林州重机",
-      "code": "002535",
-      "board": "3板断",
-      "pct": -4.2,
+      "pct": -10.39,
       "type": "断板",
       "reason": "今日未涨停",
       "turnover": null
@@ -1033,7 +1054,7 @@ const initialData = {
       "name": "金溢科技",
       "code": "002869",
       "board": "1板断",
-      "pct": -3.99,
+      "pct": -8.03,
       "type": "断板",
       "reason": "今日未涨停",
       "turnover": null
@@ -1042,7 +1063,25 @@ const initialData = {
       "name": "正裕工业",
       "code": "603089",
       "board": "3板断",
-      "pct": -3.9,
+      "pct": -7.26,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "华阳智能",
+      "code": "301502",
+      "board": "1板断",
+      "pct": -6.37,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "百达精工",
+      "code": "603331",
+      "board": "1板断",
+      "pct": -5.34,
       "type": "断板",
       "reason": "今日未涨停",
       "turnover": null
@@ -1051,7 +1090,25 @@ const initialData = {
       "name": "英力特",
       "code": "000635",
       "board": "1板断",
-      "pct": -3.62,
+      "pct": -4.74,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "北矿科技",
+      "code": "600980",
+      "board": "1板断",
+      "pct": -4.54,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "万向钱潮",
+      "code": "000559",
+      "board": "2板断",
+      "pct": -4.09,
       "type": "断板",
       "reason": "今日未涨停",
       "turnover": null
@@ -1066,28 +1123,19 @@ const initialData = {
       "turnover": null
     },
     {
-      "name": "百达精工",
-      "code": "603331",
-      "board": "1板断",
-      "pct": -3.41,
+      "name": "大名城",
+      "code": "600094",
+      "board": "2板断",
+      "pct": -2.48,
       "type": "断板",
       "reason": "今日未涨停",
       "turnover": null
     },
     {
-      "name": "万向钱潮",
-      "code": "000559",
-      "board": "2板断",
-      "pct": -2.28,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": null
-    },
-    {
-      "name": "永创智能",
-      "code": "603901",
-      "board": "2板断",
-      "pct": 0.75,
+      "name": "林州重机",
+      "code": "002535",
+      "board": "3板断",
+      "pct": -2.4,
       "type": "断板",
       "reason": "今日未涨停",
       "turnover": null
@@ -1096,7 +1144,7 @@ const initialData = {
       "name": "创维数字",
       "code": "000810",
       "board": "2板断",
-      "pct": 0.91,
+      "pct": -1.45,
       "type": "断板",
       "reason": "今日未涨停",
       "turnover": null
@@ -1112,40 +1160,40 @@ const initialData = {
   },
   "first_boards": [
     {
-      "code": "002724",
-      "name": "海洋王",
+      "code": "002181",
+      "name": "粤 传 媒",
       "board": 1,
-      "pct": 10.0,
-      "sector": "照明设备",
-      "amount": 13.45,
-      "flow_mv": 74.2,
-      "turnover": 18.75,
-      "vol_ratio": 6.74,
+      "pct": 10.04,
+      "sector": "[MISSING]",
+      "amount": 13.42,
+      "flow_mv": 121.8,
+      "turnover": 11.27,
+      "vol_ratio": 3.13,
       "seal": "换手",
-      "seal_fund": 1.67,
+      "seal_fund": 3.04,
       "strength": "强",
       "open_count": null,
-      "gap": 0.84,
+      "gap": 0.0,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
       "heavy": true
     },
     {
-      "code": "002639",
-      "name": "雪人集团",
+      "code": "002929",
+      "name": "润建股份",
       "board": 1,
-      "pct": 10.03,
-      "sector": "通用设备",
-      "amount": 12.59,
-      "flow_mv": 98.5,
-      "turnover": 12.99,
-      "vol_ratio": 4.21,
+      "pct": 10.0,
+      "sector": "[MISSING]",
+      "amount": 11.12,
+      "flow_mv": 123.4,
+      "turnover": 9.37,
+      "vol_ratio": 1.5,
       "seal": "换手",
-      "seal_fund": 5.78,
+      "seal_fund": 3.61,
       "strength": "强",
       "open_count": null,
-      "gap": -0.52,
+      "gap": 0.08,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1157,12 +1205,12 @@ const initialData = {
       "board": 1,
       "pct": 10.0,
       "sector": "[MISSING]",
-      "amount": 10.39,
+      "amount": 10.98,
       "flow_mv": 144.2,
-      "turnover": 7.52,
-      "vol_ratio": 6.55,
+      "turnover": 7.93,
+      "vol_ratio": 3.07,
       "seal": "换手",
-      "seal_fund": 12.84,
+      "seal_fund": 7.11,
       "strength": "强",
       "open_count": null,
       "gap": -2.29,
@@ -1177,12 +1225,12 @@ const initialData = {
       "board": 1,
       "pct": 10.04,
       "sector": "[MISSING]",
-      "amount": 5.04,
+      "amount": 7.99,
       "flow_mv": 54.3,
-      "turnover": 9.59,
-      "vol_ratio": 6.9,
+      "turnover": 15.04,
+      "vol_ratio": 4.81,
       "seal": "换手",
-      "seal_fund": 4.87,
+      "seal_fund": 2.92,
       "strength": "强",
       "open_count": null,
       "gap": -0.99,
@@ -1197,12 +1245,12 @@ const initialData = {
       "board": 1,
       "pct": 20.0,
       "sector": "[MISSING]",
-      "amount": 4.52,
+      "amount": 5.6,
       "flow_mv": 40.0,
-      "turnover": 11.89,
-      "vol_ratio": 21.0,
+      "turnover": 14.6,
+      "vol_ratio": 11.17,
       "seal": "换手",
-      "seal_fund": 1.12,
+      "seal_fund": 1.56,
       "strength": "强",
       "open_count": null,
       "gap": 0.47,
@@ -1217,19 +1265,19 @@ const initialData = {
       "board": 1,
       "pct": 10.02,
       "sector": "汽车零部件",
-      "amount": 3.98,
+      "amount": 4.28,
       "flow_mv": 93.3,
-      "turnover": 4.34,
-      "vol_ratio": 5.34,
+      "turnover": 4.67,
+      "vol_ratio": 2.55,
       "seal": "换手",
-      "seal_fund": 5.09,
+      "seal_fund": 3.33,
       "strength": "强",
       "open_count": null,
       "gap": 1.17,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
-      "heavy": false
+      "heavy": true
     },
     {
       "code": "300539",
@@ -1237,15 +1285,35 @@ const initialData = {
       "board": 1,
       "pct": 20.0,
       "sector": "[MISSING]",
-      "amount": 3.36,
+      "amount": 3.66,
       "flow_mv": 43.0,
-      "turnover": 8.25,
-      "vol_ratio": 11.76,
+      "turnover": 8.95,
+      "vol_ratio": 5.52,
       "seal": "换手",
-      "seal_fund": 6.18,
+      "seal_fund": 3.11,
       "strength": "强",
       "open_count": null,
       "gap": -0.06,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002995",
+      "name": "天地在线",
+      "board": 1,
+      "pct": 10.02,
+      "sector": "[MISSING]",
+      "amount": 3.03,
+      "flow_mv": 24.1,
+      "turnover": 13.33,
+      "vol_ratio": 3.01,
+      "seal": "换手",
+      "seal_fund": 2.97,
+      "strength": "强",
+      "open_count": null,
+      "gap": 1.11,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1257,12 +1325,12 @@ const initialData = {
       "board": 1,
       "pct": 10.0,
       "sector": "半导体",
-      "amount": 2.65,
+      "amount": 2.86,
       "flow_mv": 42.0,
-      "turnover": 6.45,
-      "vol_ratio": 6.38,
+      "turnover": 6.94,
+      "vol_ratio": 2.98,
       "seal": "换手",
-      "seal_fund": 2.26,
+      "seal_fund": 1.62,
       "strength": "强",
       "open_count": null,
       "gap": 5.62,
@@ -1277,15 +1345,75 @@ const initialData = {
       "board": 1,
       "pct": 10.0,
       "sector": "影视院线",
-      "amount": 2.24,
+      "amount": 2.39,
       "flow_mv": 53.5,
-      "turnover": 4.29,
-      "vol_ratio": 4.89,
+      "turnover": 4.57,
+      "vol_ratio": 2.26,
       "seal": "换手",
-      "seal_fund": 1.53,
+      "seal_fund": 1.23,
       "strength": "强",
       "open_count": null,
       "gap": 1.18,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "603565",
+      "name": "中谷物流",
+      "board": 1,
+      "pct": 9.97,
+      "sector": "航运港口",
+      "amount": 2.21,
+      "flow_mv": 264.2,
+      "turnover": 0.84,
+      "vol_ratio": 2.99,
+      "seal": "换手",
+      "seal_fund": 0.7,
+      "strength": "强",
+      "open_count": null,
+      "gap": 6.64,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "600303",
+      "name": "曙光股份",
+      "board": 1,
+      "pct": 9.89,
+      "sector": "[MISSING]",
+      "amount": 1.99,
+      "flow_mv": 21.1,
+      "turnover": 9.67,
+      "vol_ratio": 2.77,
+      "seal": "换手",
+      "seal_fund": 0.54,
+      "strength": "强",
+      "open_count": null,
+      "gap": -1.06,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002434",
+      "name": "万里扬",
+      "board": 1,
+      "pct": 10.07,
+      "sector": "[MISSING]",
+      "amount": 1.87,
+      "flow_mv": 87.5,
+      "turnover": 2.22,
+      "vol_ratio": 3.64,
+      "seal": "换手",
+      "seal_fund": 1.55,
+      "strength": "强",
+      "open_count": null,
+      "gap": 0.17,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1297,12 +1425,12 @@ const initialData = {
       "board": 1,
       "pct": 10.02,
       "sector": "服装家纺",
-      "amount": 1.8,
+      "amount": 1.87,
       "flow_mv": 59.3,
-      "turnover": 3.08,
-      "vol_ratio": 2.67,
+      "turnover": 3.2,
+      "vol_ratio": 1.2,
       "seal": "换手",
-      "seal_fund": 1.91,
+      "seal_fund": 1.79,
       "strength": "强",
       "open_count": null,
       "gap": 0.0,
@@ -1317,35 +1445,15 @@ const initialData = {
       "board": 1,
       "pct": 9.96,
       "sector": "家电零部件",
-      "amount": 1.79,
+      "amount": 1.86,
       "flow_mv": 120.7,
-      "turnover": 1.49,
-      "vol_ratio": 3.18,
+      "turnover": 1.55,
+      "vol_ratio": 1.47,
       "seal": "换手",
-      "seal_fund": 1.98,
+      "seal_fund": 1.87,
       "strength": "强",
       "open_count": null,
       "gap": 8.61,
-      "role": "首板",
-      "nature": "今日1板（盘中实时，换手）",
-      "pattern": "1天1板",
-      "heavy": false
-    },
-    {
-      "code": "603565",
-      "name": "中谷物流",
-      "board": 1,
-      "pct": 9.97,
-      "sector": "航运港口",
-      "amount": 1.6,
-      "flow_mv": 264.2,
-      "turnover": 0.61,
-      "vol_ratio": 5.03,
-      "seal": "换手",
-      "seal_fund": 1.25,
-      "strength": "强",
-      "open_count": null,
-      "gap": 6.64,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1357,55 +1465,15 @@ const initialData = {
       "board": 1,
       "pct": 10.02,
       "sector": "[MISSING]",
-      "amount": 1.56,
+      "amount": 1.61,
       "flow_mv": 38.9,
-      "turnover": 4.1,
-      "vol_ratio": 15.73,
-      "seal": "换手",
-      "seal_fund": 1.36,
-      "strength": "强",
-      "open_count": null,
-      "gap": 3.17,
-      "role": "首板",
-      "nature": "今日1板（盘中实时，换手）",
-      "pattern": "1天1板",
-      "heavy": false
-    },
-    {
-      "code": "002434",
-      "name": "万里扬",
-      "board": 1,
-      "pct": 10.07,
-      "sector": "[MISSING]",
-      "amount": 1.42,
-      "flow_mv": 87.5,
-      "turnover": 1.69,
-      "vol_ratio": 6.25,
-      "seal": "换手",
-      "seal_fund": 3.25,
-      "strength": "强",
-      "open_count": null,
-      "gap": 0.17,
-      "role": "首板",
-      "nature": "今日1板（盘中实时，换手）",
-      "pattern": "1天1板",
-      "heavy": false
-    },
-    {
-      "code": "600303",
-      "name": "曙光股份",
-      "board": 1,
-      "pct": 9.89,
-      "sector": "[MISSING]",
-      "amount": 1.42,
-      "flow_mv": 21.1,
-      "turnover": 6.96,
-      "vol_ratio": 4.6,
+      "turnover": 4.24,
+      "vol_ratio": 7.04,
       "seal": "换手",
       "seal_fund": 1.13,
       "strength": "强",
       "open_count": null,
-      "gap": -1.06,
+      "gap": 3.17,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1417,12 +1485,12 @@ const initialData = {
       "board": 1,
       "pct": 10.04,
       "sector": "一般零售",
-      "amount": 1.31,
+      "amount": 1.41,
       "flow_mv": 41.5,
-      "turnover": 3.22,
-      "vol_ratio": 13.37,
+      "turnover": 3.47,
+      "vol_ratio": 6.38,
       "seal": "换手",
-      "seal_fund": 1.05,
+      "seal_fund": 0.71,
       "strength": "强",
       "open_count": null,
       "gap": -0.56,
@@ -1437,12 +1505,12 @@ const initialData = {
       "board": 1,
       "pct": 10.01,
       "sector": "汽车零部件",
-      "amount": 1.24,
+      "amount": 1.32,
       "flow_mv": 70.8,
-      "turnover": 1.76,
-      "vol_ratio": 6.78,
+      "turnover": 1.87,
+      "vol_ratio": 3.2,
       "seal": "换手",
-      "seal_fund": 2.31,
+      "seal_fund": 2.11,
       "strength": "强",
       "open_count": null,
       "gap": 7.85,
@@ -1457,35 +1525,15 @@ const initialData = {
       "board": 1,
       "pct": 10.05,
       "sector": "汽车零部件",
-      "amount": 1.1,
+      "amount": 1.14,
       "flow_mv": 46.5,
-      "turnover": 2.44,
-      "vol_ratio": 8.87,
+      "turnover": 2.53,
+      "vol_ratio": 3.98,
       "seal": "换手",
-      "seal_fund": 0.99,
+      "seal_fund": 0.89,
       "strength": "强",
       "open_count": null,
       "gap": -2.46,
-      "role": "首板",
-      "nature": "今日1板（盘中实时，换手）",
-      "pattern": "1天1板",
-      "heavy": false
-    },
-    {
-      "code": "600828",
-      "name": "茂业商业",
-      "board": 1,
-      "pct": 10.1,
-      "sector": "一般零售",
-      "amount": 1.07,
-      "flow_mv": 77.4,
-      "turnover": 1.42,
-      "vol_ratio": 8.82,
-      "seal": "换手",
-      "seal_fund": 1.07,
-      "strength": "强",
-      "open_count": null,
-      "gap": -0.49,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1497,15 +1545,55 @@ const initialData = {
       "board": 1,
       "pct": 9.92,
       "sector": "家电零部件",
-      "amount": 1.06,
+      "amount": 1.13,
       "flow_mv": 34.4,
-      "turnover": 3.11,
-      "vol_ratio": 7.35,
+      "turnover": 3.3,
+      "vol_ratio": 3.38,
       "seal": "换手",
-      "seal_fund": 1.02,
+      "seal_fund": 0.84,
       "strength": "强",
       "open_count": null,
       "gap": 0.0,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "600828",
+      "name": "茂业商业",
+      "board": 1,
+      "pct": 10.1,
+      "sector": "一般零售",
+      "amount": 1.09,
+      "flow_mv": 77.4,
+      "turnover": 1.45,
+      "vol_ratio": 3.91,
+      "seal": "换手",
+      "seal_fund": 0.95,
+      "strength": "强",
+      "open_count": null,
+      "gap": -0.49,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002205",
+      "name": "国统股份",
+      "board": 1,
+      "pct": 10.04,
+      "sector": "[MISSING]",
+      "amount": 1.07,
+      "flow_mv": 21.2,
+      "turnover": 5.26,
+      "vol_ratio": 3.71,
+      "seal": "换手",
+      "seal_fund": 0.89,
+      "strength": "强",
+      "open_count": null,
+      "gap": -1.54,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1517,35 +1605,15 @@ const initialData = {
       "board": 1,
       "pct": 10.03,
       "sector": "汽车零部件",
-      "amount": 0.78,
+      "amount": 0.89,
       "flow_mv": 52.1,
-      "turnover": 1.53,
-      "vol_ratio": 6.94,
+      "turnover": 1.75,
+      "vol_ratio": 3.43,
       "seal": "换手",
-      "seal_fund": 1.98,
+      "seal_fund": 1.76,
       "strength": "强",
       "open_count": null,
       "gap": 0.0,
-      "role": "首板",
-      "nature": "今日1板（盘中实时，换手）",
-      "pattern": "1天1板",
-      "heavy": false
-    },
-    {
-      "code": "001311",
-      "name": "多利科技",
-      "board": 1,
-      "pct": 9.99,
-      "sector": "汽车零部件",
-      "amount": 0.6,
-      "flow_mv": 30.2,
-      "turnover": 2.01,
-      "vol_ratio": 4.82,
-      "seal": "换手",
-      "seal_fund": 0.84,
-      "strength": "强",
-      "open_count": null,
-      "gap": 7.15,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1557,15 +1625,35 @@ const initialData = {
       "board": 1,
       "pct": 9.98,
       "sector": "汽车零部件",
-      "amount": 0.58,
+      "amount": 0.67,
       "flow_mv": 43.6,
-      "turnover": 1.37,
-      "vol_ratio": 4.11,
+      "turnover": 1.58,
+      "vol_ratio": 2.05,
       "seal": "换手",
-      "seal_fund": 1.44,
+      "seal_fund": 0.95,
       "strength": "强",
       "open_count": null,
       "gap": -1.45,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "001311",
+      "name": "多利科技",
+      "board": 1,
+      "pct": 9.99,
+      "sector": "汽车零部件",
+      "amount": 0.66,
+      "flow_mv": 30.2,
+      "turnover": 2.23,
+      "vol_ratio": 2.32,
+      "seal": "换手",
+      "seal_fund": 0.74,
+      "strength": "强",
+      "open_count": null,
+      "gap": 7.15,
       "role": "首板",
       "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
@@ -1577,10 +1665,10 @@ const initialData = {
       "board": 1,
       "pct": 10.07,
       "sector": "[MISSING]",
-      "amount": 0.46,
+      "amount": 0.48,
       "flow_mv": 77.5,
-      "turnover": 0.6,
-      "vol_ratio": 3.54,
+      "turnover": 0.62,
+      "vol_ratio": 1.64,
       "seal": "一字",
       "seal_fund": 5.53,
       "strength": "强",
@@ -1588,6 +1676,26 @@ const initialData = {
       "gap": 10.07,
       "role": "首板",
       "nature": "今日1板（盘中实时，一字）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "603813",
+      "name": "原尚股份",
+      "board": 1,
+      "pct": 10.0,
+      "sector": "[MISSING]",
+      "amount": 0.4,
+      "flow_mv": 25.4,
+      "turnover": 1.64,
+      "vol_ratio": 4.94,
+      "seal": "换手",
+      "seal_fund": 0.16,
+      "strength": "强",
+      "open_count": null,
+      "gap": 0.14,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
       "heavy": false
     }
@@ -1614,7 +1722,7 @@ const initialData = {
       "is_near_100": false,
       "shen_wei": "5板·一般零售·盘中实时",
       "sector": "一般零售",
-      "trigger": "5板封死（封单2.65亿/换手6.13%），一般零售线；看能否继续晋级6板，只做分歧转一致",
+      "trigger": "5板封死（封单2.73亿/换手6.23%），一般零售线；看能否继续晋级6板，只做分歧转一致",
       "abort": "炸板不回封、板块退潮、竞价低开无承接",
       "ceiling": "当前5板，若板块梯队延续看6板；跌破4板则降级",
       "premium_tier": "高溢价",
@@ -1622,7 +1730,7 @@ const initialData = {
       "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
         "qualified": true,
-        "text": "今日5板封死，封单2.65亿，一般零售线"
+        "text": "今日5板封死，封单2.73亿，一般零售线"
       }
     },
     {
@@ -1634,7 +1742,7 @@ const initialData = {
       "is_near_100": false,
       "shen_wei": "4板·汽车零部件·盘中实时",
       "sector": "汽车零部件",
-      "trigger": "4板封死（封单3.78亿/换手15.53%），汽车零部件线；看能否继续晋级5板，只做分歧转一致",
+      "trigger": "4板封死（封单2.84亿/换手15.76%），汽车零部件线；看能否继续晋级5板，只做分歧转一致",
       "abort": "炸板不回封、板块退潮、竞价低开无承接",
       "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
       "premium_tier": "高溢价",
@@ -1642,7 +1750,7 @@ const initialData = {
       "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
         "qualified": true,
-        "text": "今日4板封死，封单3.78亿，汽车零部件线"
+        "text": "今日4板封死，封单2.84亿，汽车零部件线"
       }
     },
     {
@@ -1654,7 +1762,7 @@ const initialData = {
       "is_near_100": false,
       "shen_wei": "4板·软件开发·盘中实时",
       "sector": "软件开发",
-      "trigger": "4板封死（封单4.09亿/换手2.98%），软件开发线；看能否继续晋级5板，只做分歧转一致",
+      "trigger": "4板封死（封单3.88亿/换手3.11%），软件开发线；看能否继续晋级5板，只做分歧转一致",
       "abort": "炸板不回封、板块退潮、竞价低开无承接",
       "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
       "premium_tier": "高溢价",
@@ -1662,7 +1770,7 @@ const initialData = {
       "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
         "qualified": true,
-        "text": "今日4板封死，封单4.09亿，软件开发线"
+        "text": "今日4板封死，封单3.88亿，软件开发线"
       }
     },
     {
@@ -1674,7 +1782,7 @@ const initialData = {
       "is_near_100": false,
       "shen_wei": "4板·通用设备·盘中实时",
       "sector": "通用设备",
-      "trigger": "4板封死（封单2.78亿/换手1.81%），通用设备线；看能否继续晋级5板，只做分歧转一致",
+      "trigger": "4板封死（封单2.51亿/换手2.06%），通用设备线；看能否继续晋级5板，只做分歧转一致",
       "abort": "炸板不回封、板块退潮、竞价低开无承接",
       "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
       "premium_tier": "高溢价",
@@ -1682,7 +1790,7 @@ const initialData = {
       "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
         "qualified": true,
-        "text": "今日4板封死，封单2.78亿，通用设备线"
+        "text": "今日4板封死，封单2.51亿，通用设备线"
       }
     }
   ],
@@ -1701,10 +1809,10 @@ const initialData = {
     "is_node": false,
     "node_type": "非节点（分化中继）",
     "key_events": [
-      "实时涨停34家、跌停5家，上涨2063/下跌2781",
+      "实时涨停40家、跌停7家，上涨1326/下跌3595",
       "最高5板：上海九百（一般零售）",
-      "主线：汽车零部件/机器人产业链 13家；零售/消费复苏 8家；软件开发/信创 2家",
-      "昨涨停实时红盘率66.7%，昨连板平均3.26%"
+      "主线：汽车零部件/机器人产业链 12家；零售/消费复苏 8家；软件开发/信创 2家",
+      "昨涨停实时红盘率63.0%，昨连板平均2.89%"
     ],
     "position_tier": "执行层另算：以竞价情绪分+总龙开盘核验为准",
     "bury_types": "高位断板、后排跟风、封单偏薄个股",
@@ -1753,7 +1861,7 @@ const initialData = {
     "source": "无免费逐笔资金流源（easyquotation/新浪/腾讯均无主力净流入字段）；空列表不编造",
     "targets": []
   },
-  "fund_flow_one_line": "2026-10-27 10:09:17 盘中：涨停34/跌停5，最高5板（上海九百）；主线汽车零部件/机器人产业链13家、零售/消费复苏8家、软件开发/信创2家；最高板上海九百。",
+  "fund_flow_one_line": "2026-10-27 10:59:46 盘中：涨停40/跌停7，最高5板（上海九百）；主线汽车零部件/机器人产业链12家、零售/消费复苏8家、软件开发/信创2家；最高板上海九百。",
   "data_source": "盘中实时（easyquotation 多源）：指数/涨跌家数/涨停池/连板梯队=新浪全市场快照；核心池/买点=腾讯精确封板；情绪周期=自动判定(字幕第2期)；研判类模块（龙卡/首板池/内外切/资金流）为收盘人工结论",
   "note": "盘中自动刷新：行情/情绪/梯队/主线/龙卡/异动/晋级率已更新；无免费行业、炸板次数、逐笔资金流的项按[MISSING]/空处理，不编造",
   "promotion_matrix": {
@@ -1766,13 +1874,16 @@ const initialData = {
         "from": 1,
         "to": 2,
         "total": 40,
-        "pass": 6,
-        "rate": 15.0,
+        "pass": 9,
+        "rate": 22.5,
         "promoted": [
           "大西洋",
           "国脉科技",
           "东方海洋",
+          "桂发祥",
+          "沪光股份",
           "青岛食品",
+          "阳光乳业",
           "胜通能源",
           "光洋股份"
         ],
@@ -1791,16 +1902,13 @@ const initialData = {
           "永和智控",
           "英特集团",
           "皇台酒业",
-          "桂发祥",
           "兰生股份",
           "海量数据",
-          "沪光股份",
           "和泰机电",
           "南方传媒",
           "英力特",
           "生意宝",
           "三羊马",
-          "阳光乳业",
           "春光科技",
           "晶华新材",
           "塞力医疗",
@@ -1862,8 +1970,8 @@ const initialData = {
     "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "10:09:51",
-    "limit_up": 33,
+    "updated_at": "11:03:36",
+    "limit_up": 39,
     "max_board": 5,
     "ladder": [
       {
@@ -1902,6 +2010,13 @@ const initialData = {
         "sector": "[MISSING]"
       },
       {
+        "code": "001318",
+        "name": "阳光乳业",
+        "pct": 10.0,
+        "board": 2,
+        "sector": "[MISSING]"
+      },
+      {
         "code": "001331",
         "name": "胜通能源",
         "pct": 9.99,
@@ -1930,9 +2045,23 @@ const initialData = {
         "sector": "[MISSING]"
       },
       {
+        "code": "002820",
+        "name": "桂发祥",
+        "pct": 10.01,
+        "board": 2,
+        "sector": "[MISSING]"
+      },
+      {
         "code": "600558",
         "name": "大西洋",
         "pct": 10.07,
+        "board": 2,
+        "sector": "[MISSING]"
+      },
+      {
+        "code": "605333",
+        "name": "沪光股份",
+        "pct": 10.0,
         "board": 2,
         "sector": "[MISSING]"
       }
@@ -2002,6 +2131,13 @@ const initialData = {
         "sector": "新首板"
       },
       {
+        "code": "002205",
+        "name": "国统股份",
+        "pct": 10.04,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
         "code": "002590",
         "name": "万安科技",
         "pct": 10.03,
@@ -2011,6 +2147,13 @@ const initialData = {
       {
         "code": "002703",
         "name": "浙江世宝",
+        "pct": 10.02,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "002995",
+        "name": "天地在线",
         "pct": 10.02,
         "board": 1,
         "sector": "新首板"
@@ -2044,8 +2187,8 @@ const initialData = {
         "sector": "新首板"
       },
       {
-        "code": "002724",
-        "name": "海洋王",
+        "code": "002929",
+        "name": "润建股份",
         "pct": 10.0,
         "board": 1,
         "sector": "新首板"
@@ -2060,6 +2203,13 @@ const initialData = {
       {
         "code": "600715",
         "name": "文投控股",
+        "pct": 10.0,
+        "board": 1,
+        "sector": "新首板"
+      },
+      {
+        "code": "603813",
+        "name": "原尚股份",
         "pct": 10.0,
         "board": 1,
         "sector": "新首板"
@@ -2102,64 +2252,64 @@ const initialData = {
     ],
     "broken": [
       {
-        "code": "600094",
-        "name": "大名城",
-        "board": 2,
-        "pct": -9.11
-      },
-      {
-        "code": "002535",
-        "name": "林州重机",
-        "board": 3,
-        "pct": -4.2
-      },
-      {
         "code": "603089",
         "name": "正裕工业",
         "board": 3,
-        "pct": -3.59
+        "pct": -8.1
       },
       {
         "code": "000559",
         "name": "万向钱潮",
         "board": 2,
-        "pct": -2.36
+        "pct": -3.93
       },
       {
-        "code": "603901",
-        "name": "永创智能",
+        "code": "002535",
+        "name": "林州重机",
+        "board": 3,
+        "pct": -3.6
+      },
+      {
+        "code": "600094",
+        "name": "大名城",
         "board": 2,
-        "pct": 0.75
+        "pct": -2.9
       },
       {
         "code": "000810",
         "name": "创维数字",
         "board": 2,
-        "pct": 0.82
+        "pct": -1.36
       },
       {
         "code": "002931",
         "name": "锋龙股份",
         "board": 2,
-        "pct": 3.09
+        "pct": 0.97
+      },
+      {
+        "code": "603901",
+        "name": "永创智能",
+        "board": 2,
+        "pct": 1.13
       },
       {
         "code": "000700",
         "name": "模塑科技",
         "board": 2,
-        "pct": 5.66
-      },
-      {
-        "code": "605488",
-        "name": "福莱新材",
-        "board": 2,
-        "pct": 6.72
+        "pct": 5.05
       },
       {
         "code": "603337",
         "name": "杰克科技",
         "board": 2,
-        "pct": 7.2
+        "pct": 6.55
+      },
+      {
+        "code": "605488",
+        "name": "福莱新材",
+        "board": 2,
+        "pct": 6.81
       }
     ],
     "cross_candidates": [],
@@ -4018,6 +4168,7 @@ function renderMainlineSignals() {
     return;
   }
   let html = "";
+  const ap = d.adaptive_params || {};
   const all = (d.signals || []).slice();
   const active = all.filter(function(s) { return s.status === "active"; });
   const expired = all.filter(function(s) { return s.status === "expired"; });
@@ -4053,6 +4204,12 @@ function renderMainlineSignals() {
     '<span>要卖 <b class="down-glow">' + expUniq.length + '</b></span>' +
     '<span>已了结 <b style="color:var(--green)">' + recUniq.length + '</b></span>' +
     '<span class="dim">今日累计 ' + all.length + ' 条</span></div>';
+  if (ap.heat != null) {
+    html += '<div class="gray-note">自适应参数：热度 ' + Math.round(ap.heat * 100) + '% · 弱转强换手≥' +
+      (ap.weak_turnover_threshold != null ? ap.weak_turnover_threshold : "-") + '% · 突破量比≥' +
+      (ap.breakout_vol_min != null ? ap.breakout_vol_min : "-") + ' · 排板封单≥' +
+      (ap.seal_min_yi != null ? ap.seal_min_yi : "-") + '亿</div>';
+  }
 
   // ===== 低位待启动观察池（主线行业内，未涨停）=====
   const low = d.low_position || [];
@@ -4128,8 +4285,10 @@ function renderMainlineSignals() {
     if (!ml.candidates || !ml.candidates.length) { html += '<div class="fb-empty">无匹配候选</div>'; return; }
     html += '<table class="fb-table"><thead><tr><th>个股</th><th class="num">现价</th><th class="num">涨跌</th><th class="num">量比</th><th>状态</th></tr></thead><tbody>';
     ml.candidates.forEach(function(c) {
-      const st = c.sealed ? '<span class="fb-tag healthy">封板</span>' : '<span class="fb-tag heavy">未封</span>';
-      html += '<tr><td><span class="name">' + c.name + '</span> <span class="code">' + c.code + '</span></td>' +
+      const st = (c.new_start ? '<span class="badge mid">新启动</span> ' : '') +
+        (c.sealed ? '<span class="fb-tag healthy">封板</span>' : '<span class="fb-tag heavy">未封</span>');
+      html += '<tr><td><span class="name">' + c.name + '</span> <span class="code">' + c.code + '</span> ' +
+        (c.board ? '<span class="code">' + c.board + '板</span>' : '') + '</td>' +
         '<td class="num">' + (c.now != null ? c.now : "-") + '</td>' +
         '<td class="num ' + (c.pct >= 0 ? "up-glow" : "down-glow") + '">' + (c.pct != null ? (c.pct >= 0 ? "+" : "") + c.pct + "%" : "-") + '</td>' +
         '<td class="num">' + (c.vol_ratio != null ? c.vol_ratio : "-") + '</td>' +
