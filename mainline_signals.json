@@ -1,5 +1,5 @@
 {
-  "updated_at": "10:04:01",
+  "updated_at": "10:09:29",
   "source": "easyquotation-tencent + 主线题材(initialData.mainlines)",
   "mainlines": [
     {
@@ -16,8 +16,8 @@
           "role": "板块龙",
           "now": 16.01,
           "pct": 10.03,
-          "vol_ratio": 5.56,
-          "turnover": 15.49,
+          "vol_ratio": 4.74,
+          "turnover": 15.53,
           "avg": 15.7,
           "sealed": true
         },
@@ -29,8 +29,8 @@
           "role": "板块龙",
           "now": 10.33,
           "pct": 10.01,
-          "vol_ratio": 4.13,
-          "turnover": 1.75,
+          "vol_ratio": 3.62,
+          "turnover": 1.81,
           "avg": 10.33,
           "sealed": true
         },
@@ -42,8 +42,8 @@
           "role": "跟风",
           "now": 17.22,
           "pct": 10.03,
-          "vol_ratio": 3.37,
-          "turnover": 3.53,
+          "vol_ratio": 2.87,
+          "turnover": 3.54,
           "avg": 17.2,
           "sealed": true
         },
@@ -53,12 +53,12 @@
           "sector": "通用设备",
           "board": 1,
           "role": "首板",
-          "now": 14.92,
-          "pct": 10.03,
-          "vol_ratio": 4.41,
-          "turnover": 11.85,
-          "avg": 14.66,
-          "sealed": true
+          "now": 14.87,
+          "pct": 9.66,
+          "vol_ratio": 4.14,
+          "turnover": 13.1,
+          "avg": 14.68,
+          "sealed": false
         },
         {
           "code": "002703",
@@ -68,9 +68,9 @@
           "role": "首板",
           "now": 15.92,
           "pct": 10.02,
-          "vol_ratio": 6.19,
-          "turnover": 4.28,
-          "avg": 15.64,
+          "vol_ratio": 5.34,
+          "turnover": 4.35,
+          "avg": 15.65,
           "sealed": true
         },
         {
@@ -81,9 +81,9 @@
           "role": "首板",
           "now": 9.67,
           "pct": 10.01,
-          "vol_ratio": 7.83,
-          "turnover": 1.73,
-          "avg": 9.61,
+          "vol_ratio": 6.78,
+          "turnover": 1.76,
+          "avg": 9.62,
           "sealed": true
         },
         {
@@ -94,8 +94,8 @@
           "role": "首板",
           "now": 10.73,
           "pct": 10.05,
-          "vol_ratio": 10.14,
-          "turnover": 2.43,
+          "vol_ratio": 8.65,
+          "turnover": 2.44,
           "avg": 10.4,
           "sealed": true
         },
@@ -107,9 +107,9 @@
           "role": "首板",
           "now": 10.53,
           "pct": 10.03,
-          "vol_ratio": 7.73,
-          "turnover": 1.49,
-          "avg": 10.24,
+          "vol_ratio": 6.77,
+          "turnover": 1.54,
+          "avg": 10.25,
           "sealed": true
         },
         {
@@ -120,9 +120,9 @@
           "role": "首板",
           "now": 16.62,
           "pct": 9.99,
-          "vol_ratio": 5.38,
-          "turnover": 1.96,
-          "avg": 16.35,
+          "vol_ratio": 4.7,
+          "turnover": 2.01,
+          "avg": 16.36,
           "sealed": true
         },
         {
@@ -133,9 +133,9 @@
           "role": "首板",
           "now": 12.89,
           "pct": 9.98,
-          "vol_ratio": 4.67,
-          "turnover": 1.36,
-          "avg": 12.42,
+          "vol_ratio": 4.01,
+          "turnover": 1.38,
+          "avg": 12.43,
           "sealed": true
         }
       ]
@@ -154,8 +154,8 @@
           "role": "总龙",
           "now": 13.31,
           "pct": 10.0,
-          "vol_ratio": 5.3,
-          "turnover": 6.11,
+          "vol_ratio": 4.51,
+          "turnover": 6.13,
           "avg": 13.1,
           "sealed": true
         },
@@ -167,8 +167,8 @@
           "role": "首板",
           "now": 5.92,
           "pct": 10.04,
-          "vol_ratio": 15.45,
-          "turnover": 3.17,
+          "vol_ratio": 13.37,
+          "turnover": 3.22,
           "avg": 5.79,
           "sealed": true
         },
@@ -180,8 +180,8 @@
           "role": "首板",
           "now": 4.47,
           "pct": 10.1,
-          "vol_ratio": 10.0,
-          "turnover": 1.4,
+          "vol_ratio": 8.6,
+          "turnover": 1.42,
           "avg": 4.34,
           "sealed": true
         }
@@ -201,8 +201,8 @@
           "role": "跟风",
           "now": 9.85,
           "pct": 10.06,
-          "vol_ratio": 3.58,
-          "turnover": 2.95,
+          "vol_ratio": 3.07,
+          "turnover": 2.98,
           "avg": 9.85,
           "sealed": true
         },
@@ -214,8 +214,8 @@
           "role": "跟风",
           "now": 7.93,
           "pct": 9.99,
-          "vol_ratio": 24.85,
-          "turnover": 5.73,
+          "vol_ratio": 21.26,
+          "turnover": 5.77,
           "avg": 7.85,
           "sealed": true
         }
