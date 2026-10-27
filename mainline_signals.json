@@ -1,5 +1,5 @@
 {
-  "updated_at": "11:42:23",
+  "updated_at": "11:47:52",
   "source": "easyquotation-tencent + 主线题材 + 新浪行业分类低位扫描 + 自适应参数",
   "adaptive_params": {
     "heat": 0.596,
@@ -669,7 +669,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:02:25",
       "last_pct": 10.03,
-      "last_seen": "11:42:23",
+      "last_seen": "11:47:52",
       "status": "active"
     },
     {
@@ -691,7 +691,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:02:25",
       "last_pct": 10.0,
-      "last_seen": "11:42:23",
+      "last_seen": "11:47:52",
       "status": "active"
     },
     {
@@ -718,8 +718,8 @@
       "expired_time": "11:03:46",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "11:42:23",
-      "revived_time": "11:42:23"
+      "superseded_time": "11:47:52",
+      "revived_time": "11:47:52"
     },
     {
       "type": "放量突破",
@@ -745,8 +745,8 @@
       "expired_time": "11:05:40",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "11:42:23",
-      "revived_time": "11:42:23"
+      "superseded_time": "11:47:52",
+      "revived_time": "11:47:52"
     },
     {
       "type": "放量突破",
@@ -820,7 +820,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "11:06:12",
       "last_pct": 7.24,
-      "last_seen": "11:42:23",
+      "last_seen": "11:47:52",
       "status": "active"
     },
     {
