@@ -543,7 +543,7 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
     <!-- 右栏：四龙卡与执行指令 -->
     <div class="col col-right">
       <div class="card">
-        <h3><span class="bar"></span>明日四大龙卡 · 条件观察 <span class="cnt">条件触发·不荐股</span></h3>
+        <h3><span class="bar"></span>盘中核心龙卡 · 条件观察 <span class="cnt">实时梯队·不荐股</span></h3>
         <div id="dragons"></div>
       </div>
       <div class="card">
@@ -575,11 +575,11 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
 <script>
 // ===== 内嵌数据（唯一数据源，与 market_data.json 同构）=====
 const initialData = {
-  "date": "2026-10-26",
-  "timestamp": "15:00:00",
+  "date": "2026-10-27",
+  "timestamp": "09:50:52",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
-  "session": "收盘",
+  "session": "盘中",
   "data_sources": {
     "sector_theme": "easyquotation-新浪",
     "ladder_board": "easyquotation-新浪",
@@ -590,23 +590,23 @@ const initialData = {
   "indices": {
     "sh": {
       "name": "上证指数",
-      "price": 3697.52,
-      "pct": 0.19
+      "price": 3694.06,
+      "pct": -0.09
     },
     "sz": {
       "name": "深证成指",
-      "price": 11534.38,
-      "pct": -1.19
+      "price": 11564.47,
+      "pct": 0.26
     },
     "cyb": {
       "name": "创业板指",
-      "price": 2638.23,
-      "pct": -1.71
+      "price": 2647.31,
+      "pct": 0.34
     },
     "kc50": {
       "name": "科创50",
-      "price": 1315.5,
-      "pct": -2.23
+      "price": 1313.79,
+      "pct": -0.13
     }
   },
   "volume": {
@@ -614,41 +614,41 @@ const initialData = {
     "compare": "沪7465亿+深8623亿"
   },
   "breadth": {
-    "up": 2068,
-    "down": 2893,
-    "limit_up": 58,
-    "limit_down": 26,
+    "up": 2691,
+    "down": 2120,
+    "limit_up": 29,
+    "limit_down": 6,
     "main_net_inflow": "收盘·尾盘资金大举回流（冰点V型反转）"
   },
   "emotion": {
-    "zhaban_rate": "昨涨停33只今日普涨（情绪修复）",
-    "fengban_rate": "约85%",
-    "max_lianban": 4,
-    "lianban_count": 14,
-    "zuot_zhangting_premium": "+1.8%",
-    "zuot_lianban_premium": "-1.8%",
-    "premium_red_rate": "约33%",
-    "big_face": 1,
+    "zhaban_rate": "昨涨停54只，实时红盘率64.8%，平均2.29%",
+    "fengban_rate": "实时涨停29家 / 断板12家",
+    "max_lianban": 5,
+    "lianban_count": 10,
+    "zuot_zhangting_premium": "+2.29%",
+    "zuot_lianban_premium": "+1.87%",
+    "premium_red_rate": "64.8%",
+    "big_face": 4,
     "limit_down": 7,
-    "sentiment_state": "修复",
-    "sentiment_coef": 1.0
+    "sentiment_state": "分歧",
+    "sentiment_coef": 0.5
   },
   "emotion_score": {
-    "auction": 20,
-    "noon": 21,
-    "close": 66
+    "auction": 66,
+    "noon": null,
+    "close": null
   },
   "cycle": {
-    "stage": "修复·冰点反转",
-    "sub_stage": "冰点V型反转+机器人产业链全面爆发，涨停82家",
-    "node": "是",
-    "node_type": "是节点（冰点反转+情绪爆发）",
-    "node_detail": "午盘冰点恐慌(19涨停vs47跌停)→尾盘V型反转，创业板+4.16%领涨，涨停82家vs跌停7家，总龙大业6板晋级(16天8板)+海洋王地天板6板，机器人产业链全面爆发(埃斯顿/雷赛智能/兆威机电/万向钱潮/歌尔等)，空间高度突破5板天花板至6板",
-    "coefficient": 1.0,
-    "coefficient_label": "修复系数 1.0",
+    "stage": "分化加剧",
+    "sub_stage": "昨最高4板→今实时5板，涨停29/跌停7，红盘2314/绿盘2514",
+    "node": "否",
+    "node_type": "非节点（分化中继）",
+    "node_detail": "昨日最高4板→今日实时最高5板（上海九百，一般零售）；涨停29家、跌停7家",
+    "coefficient": 0.7,
+    "coefficient_label": "分化降仓系数 0.7",
     "stage_days": 1,
-    "repair_over_5": true,
-    "command": "冰点反转：情绪修复，涨停82家，机器人主线爆发，可积极参与核心(总龙大业6板+机器人首板潮)，但注意高位连板分化(晋级率仅33%)，优先低位首板、轻仓试错高位"
+    "repair_over_5": false,
+    "command": "分化加剧：涨停29家/跌停7家，最高5板（上海九百）；只做最强核心，回避后排，不确认不追高"
   },
   "liquidity": {
     "total_turnover": 1.96,
@@ -658,928 +658,977 @@ const initialData = {
     "label": "充裕"
   },
   "yidong_calc": {
-    "status": "accumulating",
-    "days": 2,
-    "note": "异动红线需 11 个交易日收盘价存档（当前 2/11）",
+    "status": "ok",
+    "days": 20,
+    "note": "按新浪日K回溯+盘中现价计算10/20日涨幅，不依赖人工快照",
     "targets": [
       {
-        "name": "澳弘电子",
-        "pattern": "21天12板",
-        "d10_gain": 62.0,
-        "d20_gain": 151.0
+        "name": "襄阳轴承",
+        "pattern": "4天4板",
+        "d10_gain": 44.6,
+        "d20_gain": 77.5
       },
       {
-        "name": "吉大正元",
+        "name": "奥雅股份",
+        "pattern": "首板",
+        "d10_gain": 61.8,
+        "d20_gain": 72.7
+      },
+      {
+        "name": "百洋股份",
+        "pattern": "首板",
+        "d10_gain": 31.7,
+        "d20_gain": 70.1
+      },
+      {
+        "name": "上海九百",
+        "pattern": "5天5板",
+        "d10_gain": 53.9,
+        "d20_gain": 52.8
+      },
+      {
+        "name": "多伦科技",
         "pattern": "4天4板",
-        "d10_gain": 48.0,
-        "d20_gain": 45.5
+        "d10_gain": 40.1,
+        "d20_gain": 51.5
       }
     ],
-    "keep_note": "targets 保留人工研判快照（自动计算待存档积累）"
+    "keep_note": ""
   },
   "auction_metrics": {
-    "lianban_red_green_ratio": 0.33,
+    "lianban_red_green_ratio": 0.643,
     "lianban_red_green_label": "修复",
     "nuclear_monitor": {
-      "target": "大业股份",
-      "yesterday_board": "昨日5板总龙",
-      "auction_pct": 10.01,
+      "target": "上海九百",
+      "yesterday_board": "昨日4板",
+      "auction_pct": 10.0,
       "warn": false,
-      "text": "总龙大业6板晋级+海洋王地天板6板，无核按钮，情绪修复"
+      "text": "上海九百 今日盘中+10.00%，无核按钮"
     },
     "sentiment_deviation": {
-      "lianban_premium": -1.8,
-      "index_pct": -0.03,
-      "deviation": -2.7,
-      "warn": true,
-      "text": "连板溢价-1.8%弱于指数+0.89%，高位连板分化(晋级率仅33%)"
+      "lianban_premium": 1.87,
+      "index_pct": -0.21,
+      "deviation": 2.08,
+      "warn": false,
+      "text": "昨连板今日实时平均+1.87% vs 上证-0.21%，正向/中性"
     },
-    "broken_board_premium": -7.7
+    "broken_board_premium": -2.28
   },
   "auction_verify": {
-    "name": "大业股份",
-    "code": "603278",
-    "gap_pct": -4.0,
+    "name": "上海九百",
+    "code": "600838",
+    "gap_pct": 7.19,
     "gap_req": 3,
-    "auction_amount": 0.0,
-    "burst_amount": 0.0,
+    "auction_amount": 0.84,
+    "burst_amount": 4.2,
     "threshold_pct": 3,
-    "qualified": false,
-    "verdict": "竞价低开-4.00%，总龙分歧，开盘需观察能否翻红，冰点未确认"
+    "qualified": true,
+    "mode": "open_first_minute",
+    "amount_label": "首分钟额",
+    "note": "口径：腾讯分钟线09:30首分钟成交额（代替竞价额，不冒充精确竞价）；基准为上一日总龙成交额",
+    "verdict": "开盘+7.19% + 首分钟0.84亿，总龙承接合格"
   },
   "space_high": {
-    "absolute_high": "上海九百 4板(一般零售)",
-    "cross_high": "上海九百（扛伤害/穿越候选）",
-    "note": "收盘实盘最高板（规则推断）；穿越候选=最高标断板时次高标逆势晋级（字幕第7期）"
+    "absolute_high": "上海九百 5板(一般零售)",
+    "cross_high": "上海九百（4→5）、襄阳轴承（3→4）",
+    "note": "盘中实时最高板与穿越候选（按上一交易日梯队推算）"
   },
   "inner_outer": {
-    "old_leader": "大业股份",
-    "old_leader_pct": 10.01,
-    "new_theme_limitup": 53,
-    "direction": "内切",
-    "hint": "主线内切，机器人产业链扩散",
-    "detail": "总龙大业6板晋级+机器人产业链全面爆发(首板53家)，资金在机器人主线内部扩散(总装→电机/减速器/伺服/轴承)，判定内切"
+    "old_leader": "上海九百",
+    "old_leader_pct": 10.0,
+    "new_theme_limitup": 13,
+    "direction": "存量轮动",
+    "hint": "围绕汽车零部件/机器人产业链核心，回避后排",
+    "detail": "按涨停家数推断：汽车零部件/机器人产业链 13家；无免费板块资金流，未做金额验证"
   },
   "board_fund_flow": {
-    "old_leader_outflow": true,
-    "new_theme_inflow": true,
-    "verdict": "主线内切",
-    "detail": "总龙大业主力净流出1.74亿但晋级6板，机器人产业链整体流入，主线内切扩散",
-    "old_theme": "机器人(总龙6板)",
-    "old_amount_2d": -1.7,
-    "new_theme": "机器人产业链扩散",
-    "new_amount_2d": 3.5
+    "old_leader_outflow": null,
+    "new_theme_inflow": null,
+    "verdict": "",
+    "detail": "",
+    "old_theme": "上海九百",
+    "new_theme": "汽车零部件/机器人产业链",
+    "old_amount_2d": null,
+    "new_amount_2d": null
   },
   "risk_metrics": {
     "loss_conduction": {
-      "high_avg_drop": -6.1,
-      "mid_avg_drop": -7.7,
-      "state": "修复中"
+      "high_avg_drop": 10.0,
+      "mid_avg_drop": 1.24,
+      "state": "未传导"
     },
     "mid_fault_rate": {
-      "fault_count": 6,
-      "total_count": 9,
-      "rate": 66.7,
-      "warn": false
+      "fault_count": 10,
+      "total_count": 13,
+      "rate": 76.9,
+      "warn": true
     },
     "crowding": {
-      "count": 11,
-      "avg20": 18,
+      "count": 0,
+      "avg20": "—",
       "crowded": false,
       "ceiling_down": 0
     }
   },
   "mainlines": [
     {
-      "name": "机器人/人形机器人产业链",
-      "count": 20,
-      "leader": "大业股份(6板)",
+      "name": "汽车零部件/机器人产业链",
+      "count": 13,
+      "leader": "襄阳轴承(4板)",
       "has_height": true,
       "tag": "主线爆发",
       "hint": "格局持有核心",
-      "detail": "总龙大业6板(16天8板)晋级+整条产业链爆发：埃斯顿/雷赛智能/宇树科技/兆威机电/万向钱潮/襄阳轴承/洛轴/派斯林/山东威达等20家涨停，机器人从总装扩散到电机/减速器/伺服/执行器"
+      "detail": "涨停：襄阳轴承(4板)、赛福天(4板)、光洋股份(2板)、大西洋(2板)、浙江世宝(1板)、雪人集团(1板)、万安科技(1板)、亚太股份(1板) 等"
     },
     {
-      "name": "消费电子",
-      "count": 3,
-      "leader": "歌尔股份",
-      "has_height": false,
+      "name": "零售/消费复苏",
+      "count": 8,
+      "leader": "上海九百(5板)",
+      "has_height": true,
       "tag": "低位启动",
       "hint": "关注龙头",
-      "detail": "歌尔股份首板(封单3.3亿)+龙旗科技+创维数字，消费电子低位启动"
+      "detail": "涨停：上海九百(5板)、胜通能源(2板)、青岛食品(2板)、文投控股(1板)、九牧王(1板)、中谷物流(1板)、茂业商业(1板)、广百股份(1板)"
     },
     {
       "name": "软件开发/信创",
-      "count": 8,
-      "leader": "多伦科技(2板)",
+      "count": 2,
+      "leader": "多伦科技(4板)",
       "has_height": true,
-      "tag": "低位接力",
+      "tag": "高度接力",
       "hint": "只做最强",
-      "detail": "多伦科技2板+大智慧/能科科技/税友股份/达实智能/理工能科/科远智慧等首板，软件开发低位接力"
+      "detail": "涨停：多伦科技(4板)、国脉科技(2板)"
     }
   ],
   "ladder": [
     {
-      "name": "上海九百",
       "code": "600838",
-      "board": 4,
-      "seal": "换手",
+      "name": "上海九百",
+      "board": 5,
+      "pct": 10.0,
       "sector": "一般零售",
-      "amount": 4.2,
-      "open_count": null,
-      "turnover": 8.68,
-      "vol_ratio": 1.22,
-      "role": "总龙",
-      "strength": "中",
-      "nature": "今日4板（收盘实盘）"
-    },
-    {
-      "name": "襄阳轴承",
-      "code": "000678",
-      "board": 3,
-      "seal": "换手",
-      "sector": "汽车零部件",
-      "amount": 12.75,
-      "open_count": null,
-      "turnover": 19.28,
-      "vol_ratio": 0.98,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日3板（收盘实盘）"
-    },
-    {
-      "name": "林州重机",
-      "code": "002535",
-      "board": 3,
-      "seal": "换手",
-      "sector": "专用设备",
-      "amount": 5.82,
-      "open_count": null,
-      "turnover": 24.85,
-      "vol_ratio": 3.02,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日3板（收盘实盘）"
-    },
-    {
-      "name": "赛福天",
-      "code": "603028",
-      "board": 3,
-      "seal": "换手",
-      "sector": "通用设备",
-      "amount": 0.59,
-      "open_count": null,
-      "turnover": 2.21,
-      "vol_ratio": 0.73,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日3板（收盘实盘）"
-    },
-    {
-      "name": "正裕工业",
-      "code": "603089",
-      "board": 3,
-      "seal": "换手",
-      "sector": "汽车零部件",
-      "amount": 3.76,
-      "open_count": null,
-      "turnover": 10.44,
-      "vol_ratio": 2.45,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日3板（收盘实盘）"
-    },
-    {
-      "name": "多伦科技",
-      "code": "603528",
-      "board": 3,
-      "seal": "换手",
-      "sector": "软件开发",
-      "amount": 1.3,
-      "open_count": null,
-      "turnover": 2.05,
-      "vol_ratio": 0.32,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日3板（收盘实盘）"
-    },
-    {
-      "name": "万向钱潮",
-      "code": "000559",
-      "board": 2,
-      "seal": "换手",
-      "sector": "汽车零部",
-      "amount": 25.08,
-      "open_count": null,
-      "turnover": 6.0,
-      "vol_ratio": 2.61,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    },
-    {
-      "name": "模塑科技",
-      "code": "000700",
-      "board": 2,
-      "seal": "换手",
-      "sector": "汽车零部",
-      "amount": 15.31,
-      "open_count": null,
-      "turnover": 13.38,
-      "vol_ratio": 1.88,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    },
-    {
-      "name": "创维数字",
-      "code": "000810",
-      "board": 2,
-      "seal": "换手",
-      "sector": "黑色家电",
-      "amount": 8.08,
-      "open_count": null,
-      "turnover": 6.65,
-      "vol_ratio": 3.54,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    },
-    {
-      "name": "锋龙股份",
-      "code": "002931",
-      "board": 2,
-      "seal": "换手",
-      "sector": "通用设备",
-      "amount": 8.83,
-      "open_count": null,
-      "turnover": 10.71,
-      "vol_ratio": 3.15,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    },
-    {
-      "name": "大名城",
-      "code": "600094",
-      "board": 2,
-      "seal": "换手",
-      "sector": "房地产开",
-      "amount": 4.44,
-      "open_count": null,
-      "turnover": 4.42,
-      "vol_ratio": 4.38,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    },
-    {
-      "name": "杰克科技",
-      "code": "603337",
-      "board": 2,
-      "seal": "换手",
-      "sector": "专用设备",
-      "amount": 2.74,
-      "open_count": null,
-      "turnover": 1.36,
-      "vol_ratio": 0.47,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    },
-    {
-      "name": "永创智能",
-      "code": "603901",
-      "board": 2,
-      "seal": "换手",
-      "sector": "专用设备",
-      "amount": 5.86,
-      "open_count": null,
-      "turnover": 10.0,
-      "vol_ratio": 5.54,
-      "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    },
-    {
-      "name": "福莱新材",
-      "code": "605488",
-      "board": 2,
-      "seal": "换手",
-      "sector": "塑料",
-      "amount": 7.48,
-      "open_count": null,
+      "amount": 3.16,
+      "flow_mv": 53.4,
       "turnover": 6.02,
-      "vol_ratio": 0.62,
+      "vol_ratio": 8.43,
+      "seal": "换手",
+      "seal_fund": 2.62,
+      "strength": "强",
+      "open_count": null,
+      "gap": 7.19,
+      "role": "总龙",
+      "nature": "今日5板（盘中实时，换手）"
+    },
+    {
+      "code": "000678",
+      "name": "襄阳轴承",
+      "board": 4,
+      "pct": 10.03,
+      "sector": "汽车零部件",
+      "amount": 11.07,
+      "flow_mv": 73.6,
+      "turnover": 15.33,
+      "vol_ratio": 8.91,
+      "seal": "换手",
+      "seal_fund": 3.44,
+      "strength": "强",
+      "open_count": null,
+      "gap": 4.74,
+      "role": "板块龙",
+      "nature": "今日4板（盘中实时，换手）"
+    },
+    {
+      "code": "603528",
+      "name": "多伦科技",
+      "board": 4,
+      "pct": 10.06,
+      "sector": "软件开发",
+      "amount": 1.99,
+      "flow_mv": 69.5,
+      "turnover": 2.86,
+      "vol_ratio": 5.6,
+      "seal": "一字",
+      "seal_fund": 4.17,
+      "strength": "强",
+      "open_count": null,
+      "gap": 10.06,
       "role": "跟风",
-      "strength": "中",
-      "nature": "今日2板（收盘实盘）"
-    }
-  ],
-  "broken_board": [
-    {
-      "name": "海洋王",
-      "code": "002724",
-      "board": "6板断",
-      "pct": -3.49,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": 25.66
+      "nature": "今日4板（盘中实时，一字）"
     },
     {
-      "name": "睿能科技",
-      "code": "603933",
-      "board": "2板断",
-      "pct": -2.72,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": 16.79
-    },
-    {
-      "name": "南方路机",
-      "code": "603280",
-      "board": "2板断",
-      "pct": 3.35,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": 14.92
-    },
-    {
-      "name": "兆威机电",
-      "code": "003021",
-      "board": "2板断",
-      "pct": 4.94,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": 12.96
-    },
-    {
-      "name": "大业股份",
-      "code": "603278",
-      "board": "6板断",
-      "pct": 8.08,
-      "type": "断板",
-      "reason": "今日未涨停",
-      "turnover": 38.0
-    }
-  ],
-  "hold_judgment": {
-    "high_mark": "大业股份",
-    "high_mark_pct": 10.01,
-    "sub_high": "海洋王",
-    "sub_high_pct": 10.01,
-    "cross_confirm": true,
-    "result": "总龙大业6板(16天8板)+海洋王地天板6板双双晋级，双高标确认，但主力均净流出(大业-1.74亿/海洋王-1.71亿)需警惕，中位断板(三峡/星光/天洋/海量/出版/哈空调)"
-  },
-  "first_boards": [
-    {
-      "code": "301314",
-      "name": "科瑞思",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 16.8,
-      "amount": 0.45,
-      "heavy": false,
-      "turnover": 2.65
-    },
-    {
-      "code": "688648",
-      "name": "中邮科技",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 24.1,
-      "amount": 3.3,
-      "heavy": false,
-      "turnover": 14.15
-    },
-    {
-      "code": "300949",
-      "name": "奥雅股份",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 17.7,
-      "amount": 4.08,
-      "heavy": true,
-      "turnover": 24.41
-    },
-    {
-      "code": "300976",
-      "name": "达瑞电子",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 64.28,
-      "amount": 5.79,
-      "heavy": true,
-      "turnover": 9.59
-    },
-    {
-      "code": "301502",
-      "name": "华阳智能",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 18.41,
-      "amount": 6.23,
-      "heavy": true,
-      "turnover": 34.94
-    },
-    {
-      "code": "688386",
-      "name": "泛亚微透",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 46.38,
-      "amount": 4.04,
-      "heavy": true,
-      "turnover": 9.13
-    },
-    {
-      "code": "688585",
-      "name": "上纬新材",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 611.38,
-      "amount": 19.52,
-      "heavy": true,
-      "turnover": 3.39
-    },
-    {
-      "code": "300916",
-      "name": "朗特智能",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 35.19,
-      "amount": 2.89,
-      "heavy": false,
-      "turnover": 8.44
-    },
-    {
-      "code": "002178",
-      "name": "延华智能",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 38.01,
-      "amount": 2.01,
-      "heavy": false,
-      "turnover": 5.36
-    },
-    {
-      "code": "600558",
-      "name": "大西洋",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 49.91,
-      "amount": 2.22,
-      "heavy": false,
-      "turnover": 4.52
-    },
-    {
-      "code": "002578",
-      "name": "闽发铝业",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 31.0,
-      "amount": 2.36,
-      "heavy": false,
-      "turnover": 7.78
+      "code": "603028",
+      "name": "赛福天",
+      "board": 4,
+      "pct": 10.01,
+      "sector": "通用设备",
+      "amount": 0.42,
+      "flow_mv": 29.3,
+      "turnover": 1.43,
+      "vol_ratio": 5.45,
+      "seal": "一字",
+      "seal_fund": 3.13,
+      "strength": "强",
+      "open_count": null,
+      "gap": 10.01,
+      "role": "板块龙",
+      "nature": "今日4板（盘中实时，一字）"
     },
     {
       "code": "002093",
       "name": "国脉科技",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 72.64,
-      "amount": 2.18,
-      "heavy": false,
-      "turnover": 3.11
-    },
-    {
-      "code": "002086",
-      "name": "东方海洋",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 36.36,
-      "amount": 5.03,
-      "heavy": true,
-      "turnover": 14.32
-    },
-    {
-      "code": "002696",
-      "name": "百洋股份",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 37.7,
-      "amount": 9.43,
-      "heavy": true,
-      "turnover": 26.58
-    },
-    {
-      "code": "002795",
-      "name": "永和智控",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 29.94,
-      "amount": 1.23,
-      "heavy": false,
-      "turnover": 4.21
-    },
-    {
-      "code": "000411",
-      "name": "英特集团",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 59.31,
-      "amount": 1.62,
-      "heavy": false,
-      "turnover": 2.78
-    },
-    {
-      "code": "000995",
-      "name": "皇台酒业",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 23.72,
-      "amount": 5.6,
-      "heavy": true,
-      "turnover": 24.35
-    },
-    {
-      "code": "002820",
-      "name": "桂发祥",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 20.47,
-      "amount": 1.55,
-      "heavy": false,
-      "turnover": 7.88
-    },
-    {
-      "code": "600826",
-      "name": "兰生股份",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 59.53,
-      "amount": 0.6,
-      "heavy": false,
-      "turnover": 1.01
-    },
-    {
-      "code": "603138",
-      "name": "海量数据",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 49.02,
-      "amount": 7.05,
-      "heavy": true,
-      "turnover": 15.15
-    },
-    {
-      "code": "605333",
-      "name": "沪光股份",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 83.99,
-      "amount": 1.3,
-      "heavy": false,
-      "turnover": 1.61
-    },
-    {
-      "code": "001219",
-      "name": "青岛食品",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 25.9,
-      "amount": 1.02,
-      "heavy": false,
-      "turnover": 3.96
-    },
-    {
-      "code": "001225",
-      "name": "和泰机电",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 27.97,
-      "amount": 1.19,
-      "heavy": false,
-      "turnover": 4.39
-    },
-    {
-      "code": "601900",
-      "name": "南方传媒",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 125.95,
-      "amount": 2.32,
-      "heavy": false,
-      "turnover": 1.85
-    },
-    {
-      "code": "000635",
-      "name": "英力特",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 29.42,
-      "amount": 1.73,
-      "heavy": false,
-      "turnover": 6.12
-    },
-    {
-      "code": "002095",
-      "name": "生意宝",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 41.48,
-      "amount": 1.52,
-      "heavy": false,
-      "turnover": 3.8
-    },
-    {
-      "code": "001317",
-      "name": "三羊马",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 45.9,
-      "amount": 6.07,
-      "heavy": true,
-      "turnover": 14.05
-    },
-    {
-      "code": "001318",
-      "name": "阳光乳业",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 34.2,
-      "amount": 4.35,
-      "heavy": true,
-      "turnover": 13.32
-    },
-    {
-      "code": "603657",
-      "name": "春光科技",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 45.8,
-      "amount": 2.37,
-      "heavy": false,
-      "turnover": 5.25
-    },
-    {
-      "code": "603683",
-      "name": "晶华新材",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 49.5,
-      "amount": 7.74,
-      "heavy": true,
-      "turnover": 16.59
-    },
-    {
-      "code": "603716",
-      "name": "塞力医疗",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 36.26,
-      "amount": 2.72,
-      "heavy": false,
-      "turnover": 7.6
-    },
-    {
-      "code": "603955",
-      "name": "大千生态",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 36.71,
-      "amount": 1.76,
-      "heavy": false,
-      "turnover": 4.99
+      "board": 2,
+      "pct": 9.99,
+      "sector": "IT服务",
+      "amount": 4.47,
+      "flow_mv": 79.9,
+      "turnover": 5.65,
+      "vol_ratio": 39.63,
+      "seal": "换手",
+      "seal_fund": 2.53,
+      "strength": "强",
+      "open_count": null,
+      "gap": 5.96,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，换手）"
     },
     {
       "code": "001331",
       "name": "胜通能源",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 100.1,
-      "amount": 4.63,
-      "heavy": false,
-      "turnover": 4.85
+      "board": 2,
+      "pct": 9.99,
+      "sector": "燃气",
+      "amount": 4.05,
+      "flow_mv": 110.1,
+      "turnover": 3.81,
+      "vol_ratio": 14.68,
+      "seal": "换手",
+      "seal_fund": 1.23,
+      "strength": "强",
+      "open_count": null,
+      "gap": 3.94,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，换手）"
     },
     {
-      "code": "002869",
-      "name": "金溢科技",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 31.75,
-      "amount": 2.97,
-      "heavy": false,
-      "turnover": 9.85
-    },
-    {
-      "code": "603200",
-      "name": "上海洗霸",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 88.46,
-      "amount": 8.85,
-      "heavy": true,
-      "turnover": 10.51
-    },
-    {
-      "code": "603258",
-      "name": "电魂网络",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 36.93,
-      "amount": 2.63,
-      "heavy": false,
-      "turnover": 7.46
+      "code": "002086",
+      "name": "东方海洋",
+      "board": 2,
+      "pct": 10.0,
+      "sector": "渔业",
+      "amount": 3.78,
+      "flow_mv": 40.0,
+      "turnover": 9.63,
+      "vol_ratio": 6.15,
+      "seal": "换手",
+      "seal_fund": 1.13,
+      "strength": "强",
+      "open_count": null,
+      "gap": 4.78,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，换手）"
     },
     {
       "code": "002708",
       "name": "光洋股份",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 79.76,
-      "amount": 7.21,
-      "heavy": true,
-      "turnover": 9.14
+      "board": 2,
+      "pct": 10.03,
+      "sector": "汽车零部件",
+      "amount": 2.98,
+      "flow_mv": 87.8,
+      "turnover": 3.39,
+      "vol_ratio": 5.25,
+      "seal": "换手",
+      "seal_fund": 2.62,
+      "strength": "强",
+      "open_count": null,
+      "gap": 9.9,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，换手）"
     },
     {
-      "code": "600822",
-      "name": "上海物贸",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 37.12,
-      "amount": 1.23,
-      "heavy": false,
-      "turnover": 3.4
+      "code": "001219",
+      "name": "青岛食品",
+      "board": 2,
+      "pct": 9.99,
+      "sector": "食品加工",
+      "amount": 1.87,
+      "flow_mv": 28.5,
+      "turnover": 6.59,
+      "vol_ratio": 49.07,
+      "seal": "一字",
+      "seal_fund": 0.91,
+      "strength": "强",
+      "open_count": null,
+      "gap": 9.99,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，一字）"
     },
     {
-      "code": "600980",
+      "code": "600558",
+      "name": "大西洋",
+      "board": 2,
+      "pct": 10.07,
+      "sector": "金属制品",
+      "amount": 1.37,
+      "flow_mv": 54.9,
+      "turnover": 2.5,
+      "vol_ratio": 6.01,
+      "seal": "一字",
+      "seal_fund": 1.63,
+      "strength": "强",
+      "open_count": null,
+      "gap": 10.07,
+      "role": "跟风",
+      "nature": "今日2板（盘中实时，一字）"
+    }
+  ],
+  "broken_board": [
+    {
+      "name": "正裕工业",
+      "code": "603089",
+      "board": "3板断",
+      "pct": -9.94,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "朗特智能",
+      "code": "300916",
+      "board": "1板断",
+      "pct": -9.83,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "大名城",
+      "code": "600094",
+      "board": "2板断",
+      "pct": -9.32,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "华阳智能",
+      "code": "301502",
+      "board": "1板断",
+      "pct": -7.7,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "林州重机",
+      "code": "002535",
+      "board": "3板断",
+      "pct": -6.01,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
       "name": "北矿科技",
-      "pattern": "1天1板",
-      "sector": "[MISSING]",
-      "flow_mv": 35.87,
-      "amount": 0.72,
-      "heavy": false,
-      "turnover": 2.02
+      "code": "600980",
+      "board": "1板断",
+      "pct": -4.22,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
     },
     {
-      "code": "603331",
       "name": "百达精工",
+      "code": "603331",
+      "board": "1板断",
+      "pct": -4.18,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "英特集团",
+      "code": "000411",
+      "board": "1板断",
+      "pct": -3.23,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "永创智能",
+      "code": "603901",
+      "board": "2板断",
+      "pct": -1.88,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "万向钱潮",
+      "code": "000559",
+      "board": "2板断",
+      "pct": -1.81,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "模塑科技",
+      "code": "000700",
+      "board": "2板断",
+      "pct": 0.23,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    },
+    {
+      "name": "创维数字",
+      "code": "000810",
+      "board": "2板断",
+      "pct": 1.27,
+      "type": "断板",
+      "reason": "今日未涨停",
+      "turnover": null
+    }
+  ],
+  "hold_judgment": {
+    "high_mark": "上海九百",
+    "high_mark_pct": 10.0,
+    "sub_high": "上海九百",
+    "sub_high_pct": 10.0,
+    "cross_confirm": true,
+    "result": "昨日高标上海九百实时+10.00%，今日最高上海九百 +10.00%；高位延续，按梯队执行"
+  },
+  "first_boards": [
+    {
+      "code": "002639",
+      "name": "雪人集团",
+      "board": 1,
+      "pct": 10.03,
+      "sector": "通用设备",
+      "amount": 8.21,
+      "flow_mv": 98.5,
+      "turnover": 8.53,
+      "vol_ratio": 5.14,
+      "seal": "换手",
+      "seal_fund": 4.05,
+      "strength": "强",
+      "open_count": null,
+      "gap": -0.52,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
       "pattern": "1天1板",
+      "heavy": true
+    },
+    {
+      "code": "002181",
+      "name": "粤 传 媒",
+      "board": 1,
+      "pct": 10.04,
       "sector": "[MISSING]",
-      "flow_mv": 26.1,
-      "amount": 3.75,
-      "heavy": false,
-      "turnover": 14.5
+      "amount": 7.08,
+      "flow_mv": 121.8,
+      "turnover": 6.03,
+      "vol_ratio": 7.17,
+      "seal": "换手",
+      "seal_fund": 8.97,
+      "strength": "强",
+      "open_count": null,
+      "gap": 0.0,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002703",
+      "name": "浙江世宝",
+      "board": 1,
+      "pct": 10.02,
+      "sector": "汽车零部件",
+      "amount": 3.63,
+      "flow_mv": 93.3,
+      "turnover": 3.97,
+      "vol_ratio": 9.3,
+      "seal": "换手",
+      "seal_fund": 7.48,
+      "strength": "强",
+      "open_count": null,
+      "gap": 1.17,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "003026",
+      "name": "中晶科技",
+      "board": 1,
+      "pct": 10.0,
+      "sector": "半导体",
+      "amount": 2.54,
+      "flow_mv": 42.0,
+      "turnover": 6.18,
+      "vol_ratio": 11.36,
+      "seal": "换手",
+      "seal_fund": 2.81,
+      "strength": "强",
+      "open_count": null,
+      "gap": 5.62,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "688252",
+      "name": "天德钰",
+      "board": 1,
+      "pct": 20.01,
+      "sector": "半导体",
+      "amount": 2.19,
+      "flow_mv": 89.8,
+      "turnover": 2.49,
+      "vol_ratio": 27.23,
+      "seal": "换手",
+      "seal_fund": 0.67,
+      "strength": "强",
+      "open_count": null,
+      "gap": 11.54,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "600715",
+      "name": "文投控股",
+      "board": 1,
+      "pct": 10.0,
+      "sector": "影视院线",
+      "amount": 1.93,
+      "flow_mv": 53.5,
+      "turnover": 3.7,
+      "vol_ratio": 7.85,
+      "seal": "换手",
+      "seal_fund": 2.75,
+      "strength": "强",
+      "open_count": null,
+      "gap": 1.18,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002011",
+      "name": "盾安环境",
+      "board": 1,
+      "pct": 9.96,
+      "sector": "家电零部件",
+      "amount": 1.73,
+      "flow_mv": 120.7,
+      "turnover": 1.44,
+      "vol_ratio": 5.85,
+      "seal": "换手",
+      "seal_fund": 2.11,
+      "strength": "强",
+      "open_count": null,
+      "gap": 8.61,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "601566",
+      "name": "九牧王",
+      "board": 1,
+      "pct": 10.02,
+      "sector": "服装家纺",
+      "amount": 1.64,
+      "flow_mv": 59.3,
+      "turnover": 2.81,
+      "vol_ratio": 4.52,
+      "seal": "换手",
+      "seal_fund": 2.0,
+      "strength": "强",
+      "open_count": null,
+      "gap": 0.0,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "603565",
+      "name": "中谷物流",
+      "board": 1,
+      "pct": 9.97,
+      "sector": "航运港口",
+      "amount": 1.48,
+      "flow_mv": 264.2,
+      "turnover": 0.57,
+      "vol_ratio": 8.63,
+      "seal": "换手",
+      "seal_fund": 1.55,
+      "strength": "强",
+      "open_count": null,
+      "gap": 6.64,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "600303",
+      "name": "曙光股份",
+      "board": 1,
+      "pct": 9.89,
+      "sector": "[MISSING]",
+      "amount": 1.35,
+      "flow_mv": 21.1,
+      "turnover": 6.62,
+      "vol_ratio": 8.13,
+      "seal": "换手",
+      "seal_fund": 1.32,
+      "strength": "强",
+      "open_count": null,
+      "gap": -1.06,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002284",
+      "name": "亚太股份",
+      "board": 1,
+      "pct": 10.01,
+      "sector": "汽车零部件",
+      "amount": 1.15,
+      "flow_mv": 70.8,
+      "turnover": 1.64,
+      "vol_ratio": 12.03,
+      "seal": "换手",
+      "seal_fund": 2.44,
+      "strength": "强",
+      "open_count": null,
+      "gap": 7.85,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "603758",
+      "name": "秦安股份",
+      "board": 1,
+      "pct": 10.05,
+      "sector": "汽车零部件",
+      "amount": 1.06,
+      "flow_mv": 46.5,
+      "turnover": 2.36,
+      "vol_ratio": 15.95,
+      "seal": "换手",
+      "seal_fund": 1.07,
+      "strength": "强",
+      "open_count": null,
+      "gap": -2.46,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "600828",
+      "name": "茂业商业",
+      "board": 1,
+      "pct": 10.1,
+      "sector": "一般零售",
+      "amount": 1.02,
+      "flow_mv": 77.4,
+      "turnover": 1.36,
+      "vol_ratio": 15.72,
+      "seal": "换手",
+      "seal_fund": 1.23,
+      "strength": "强",
+      "open_count": null,
+      "gap": -0.49,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "601956",
+      "name": "东贝集团",
+      "board": 1,
+      "pct": 9.92,
+      "sector": "家电零部件",
+      "amount": 1.0,
+      "flow_mv": 34.4,
+      "turnover": 2.92,
+      "vol_ratio": 12.81,
+      "seal": "换手",
+      "seal_fund": 1.11,
+      "strength": "强",
+      "open_count": null,
+      "gap": 0.0,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002590",
+      "name": "万安科技",
+      "board": 1,
+      "pct": 10.03,
+      "sector": "汽车零部件",
+      "amount": 0.69,
+      "flow_mv": 52.1,
+      "turnover": 1.38,
+      "vol_ratio": 11.57,
+      "seal": "换手",
+      "seal_fund": 2.48,
+      "strength": "强",
+      "open_count": null,
+      "gap": 0.0,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "002187",
+      "name": "广百股份",
+      "board": 1,
+      "pct": 10.04,
+      "sector": "一般零售",
+      "amount": 0.68,
+      "flow_mv": 41.5,
+      "turnover": 1.71,
+      "vol_ratio": 13.52,
+      "seal": "换手",
+      "seal_fund": 0.86,
+      "strength": "强",
+      "open_count": null,
+      "gap": -0.56,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "001311",
+      "name": "多利科技",
+      "board": 1,
+      "pct": 9.99,
+      "sector": "汽车零部件",
+      "amount": 0.56,
+      "flow_mv": 30.2,
+      "turnover": 1.9,
+      "vol_ratio": 8.45,
+      "seal": "换手",
+      "seal_fund": 0.9,
+      "strength": "强",
+      "open_count": null,
+      "gap": 7.15,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "603121",
+      "name": "华培动力",
+      "board": 1,
+      "pct": 9.98,
+      "sector": "汽车零部件",
+      "amount": 0.55,
+      "flow_mv": 43.6,
+      "turnover": 1.32,
+      "vol_ratio": 7.3,
+      "seal": "换手",
+      "seal_fund": 1.72,
+      "strength": "强",
+      "open_count": null,
+      "gap": -1.45,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，换手）",
+      "pattern": "1天1板",
+      "heavy": false
+    },
+    {
+      "code": "000058",
+      "name": "深 赛 格",
+      "board": 1,
+      "pct": 10.07,
+      "sector": "[MISSING]",
+      "amount": 0.43,
+      "flow_mv": 77.5,
+      "turnover": 0.56,
+      "vol_ratio": 6.24,
+      "seal": "一字",
+      "seal_fund": 5.54,
+      "strength": "强",
+      "open_count": null,
+      "gap": 10.07,
+      "role": "首板",
+      "nature": "今日1板（盘中实时，一字）",
+      "pattern": "1天1板",
+      "heavy": false
     }
   ],
   "ceiling_calc": {
-    "last_supply_leader": "大业股份、海洋王",
-    "last_supply_height": 6,
-    "formula": "本轮补涨天花板 = 上一轮补涨龙高度 − 1 板",
-    "result": 5,
+    "last_supply_leader": "上海九百",
+    "last_supply_height": 4,
+    "formula": "本轮补涨天花板 = 上一轮最高板 − 1 板",
+    "result": 3,
     "current_supply": "上海九百",
-    "current_board": 4,
-    "near_ceiling": false,
-    "zone": "警戒区",
-    "match_basis": "自动计算：昨日最高 6 板 − 1 = 5 板天花板",
-    "fallback_note": "高度锚=昨日总龙；幅度锚=上一轮补涨龙（存档不足时用昨日总龙近似，字幕第2期）"
+    "current_board": 5,
+    "near_ceiling": true,
+    "zone": "兑现区",
+    "match_basis": "盘中实时：昨最高4板−1=3板；当前龙头5板",
+    "fallback_note": "补涨高度用昨日最高板近似；历史多日不足时不做更强拟合"
   },
   "dragon_cards": [
     {
       "role": "前排总龙头",
-      "name": "大业股份",
-      "code": "603278",
+      "name": "上海九百",
+      "code": "600838",
       "weight": 40,
       "method": "打板",
       "is_near_100": false,
-      "shen_wei": "6板·机器人总龙·晋级突破天花板",
-      "sector": "人形机器人/风电",
-      "trigger": "6板封死(16天8板换手33.4%封单9479万)总龙晋级，但主力净流出1.74亿散户接盘需警惕",
-      "abort": "炸板不回封、机器人板块补跌",
-      "ceiling": "6板突破5板天花板，明日看能否晋级7板",
+      "shen_wei": "5板·一般零售·盘中实时",
+      "sector": "一般零售",
+      "trigger": "5板封死（封单2.62亿/换手6.02%），一般零售线；看能否继续晋级6板，只做分歧转一致",
+      "abort": "炸板不回封、板块退潮、竞价低开无承接",
+      "ceiling": "当前5板，若板块梯队延续看6板；跌破4板则降级",
       "premium_tier": "高溢价",
-      "fault_tolerance": "中容错",
-      "fault_note": "总龙晋级但主力派发，格局持有但炸板即减仓",
+      "fault_tolerance": "高容错",
+      "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
         "qualified": true,
-        "text": "6板晋级总龙，但主力净流出1.74亿，明日竞价需强"
+        "text": "今日5板封死，封单2.62亿，一般零售线"
       }
     },
     {
       "role": "中排卡位龙",
-      "name": "海洋王",
-      "code": "002724",
+      "name": "襄阳轴承",
+      "code": "000678",
       "weight": 30,
       "method": "打板",
       "is_near_100": false,
-      "shen_wei": "6板·照明·地天板穿越",
-      "sector": "照明/光学光电",
-      "trigger": "6板地天板(炸板5次换手28.1%封单仅345万)穿越成功，但封单薄弱主力净流出1.71亿",
-      "abort": "开板不回封、跟风退潮",
-      "ceiling": "6板地天板封单薄，明日大概率分歧",
-      "premium_tier": "正常溢价",
-      "fault_tolerance": "低容错",
-      "fault_note": "地天板封单薄+主力派发，明日弱于预期直接走",
+      "shen_wei": "4板·汽车零部件·盘中实时",
+      "sector": "汽车零部件",
+      "trigger": "4板封死（封单3.44亿/换手15.33%），汽车零部件线；看能否继续晋级5板，只做分歧转一致",
+      "abort": "炸板不回封、板块退潮、竞价低开无承接",
+      "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
+      "premium_tier": "高溢价",
+      "fault_tolerance": "高容错",
+      "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
-        "qualified": false,
-        "text": "6板地天板封单仅345万+主力净流出1.71亿，分歧大"
+        "qualified": true,
+        "text": "今日4板封死，封单3.44亿，汽车零部件线"
       }
     },
     {
       "role": "后排补涨龙",
-      "name": "三峡新材",
-      "code": "600293",
+      "name": "多伦科技",
+      "code": "603528",
       "weight": 20,
       "method": "打板",
       "is_near_100": false,
-      "shen_wei": "3板断·玻璃玻纤·天地板",
-      "sector": "玻璃玻纤",
-      "trigger": "竞价一字+9.94%→收盘-6.12%天地板，主力净流出4.33亿大幅派发，退出",
-      "abort": "天地板确认、题材退潮",
-      "ceiling": "天地板炸板，穿越失败",
-      "premium_tier": "弱溢价",
-      "fault_tolerance": "低容错",
-      "fault_note": "天地板+主力大幅派发，反包前不碰",
+      "shen_wei": "4板·软件开发·盘中实时",
+      "sector": "软件开发",
+      "trigger": "4板封死（封单4.17亿/换手2.86%），软件开发线；看能否继续晋级5板，只做分歧转一致",
+      "abort": "炸板不回封、板块退潮、竞价低开无承接",
+      "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
+      "premium_tier": "高溢价",
+      "fault_tolerance": "高容错",
+      "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
-        "qualified": false,
-        "text": "天地板-6.12%，主力净流出4.33亿，退出"
+        "qualified": true,
+        "text": "今日4板封死，封单4.17亿，软件开发线"
       }
     },
     {
       "role": "穿越龙",
-      "name": "东安动力",
-      "code": "600178",
+      "name": "赛福天",
+      "code": "603028",
       "weight": 10,
-      "method": "弱转强",
+      "method": "打板",
       "is_near_100": false,
-      "shen_wei": "4板断·低空·继续跌",
-      "sector": "低空经济/飞行汽车",
-      "trigger": "收盘-6.10%继续下跌，反包前不碰",
-      "abort": "继续下跌、跌破关键位",
-      "ceiling": "断板继续跌，反包前不碰",
-      "premium_tier": "弱溢价",
-      "fault_tolerance": "低容错",
-      "fault_note": "断板继续跌，反包前不碰",
+      "shen_wei": "4板·通用设备·盘中实时",
+      "sector": "通用设备",
+      "trigger": "4板封死（封单3.13亿/换手1.43%），通用设备线；看能否继续晋级5板，只做分歧转一致",
+      "abort": "炸板不回封、板块退潮、竞价低开无承接",
+      "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
+      "premium_tier": "高溢价",
+      "fault_tolerance": "高容错",
+      "fault_note": "封单较厚、换手可控，按纪律持有",
       "auction_verdict": {
-        "qualified": false,
-        "text": "收盘-6.10%，反包前不碰，退出"
+        "qualified": true,
+        "text": "今日4板封死，封单3.13亿，通用设备线"
       }
     }
   ],
   "sell_discipline": {
-    "reduce_1": "大哥（大业股份）炸板跳水，跟风减仓1/3",
+    "reduce_1": "上海九百（今日最高5板）炸板跳水，跟风减仓1/3",
     "reduce_2": "主动变被动，再减1/3",
     "clear": "破分时/5日线/主动开板，彻底清仓",
     "role_rules": [
-      "总龙/穿越龙：关键支撑位不破可容错，断板不 A 杀可持有",
+      "总龙/穿越龙：关键支撑位不破可容错，断板不A杀可持有",
       "板块龙/卡位龙：不及预期减半仓，破位清仓",
       "补涨龙/跟风：容错最低，开盘弱于预期直接走，不格局"
     ]
   },
   "cycle_close": {
-    "stage": "修复",
-    "is_node": true,
-    "node_type": "冰点V型反转+情绪爆发",
+    "stage": "分化加剧",
+    "is_node": false,
+    "node_type": "非节点（分化中继）",
     "key_events": [
-      "午盘冰点恐慌(19涨停vs47跌停)→尾盘V型反转，创业板+4.16%领涨",
-      "涨停82家vs跌停7家，普涨4239家 vs 下跌911家，情绪修复",
-      "总龙大业6板晋级(16天8板)+海洋王地天板6板，空间突破5板天花板",
-      "机器人产业链全面爆发(埃斯顿/雷赛智能/兆威机电/万向钱潮/歌尔等20家)",
-      "三峡新材天地板(竞价一字+9.94%→收盘-6.12%)主力净流出4.33亿"
+      "实时涨停29家、跌停7家，上涨2314/下跌2514",
+      "最高5板：上海九百（一般零售）",
+      "主线：汽车零部件/机器人产业链 13家；零售/消费复苏 8家；软件开发/信创 2家",
+      "昨涨停实时红盘率64.8%，昨连板平均1.87%"
     ],
-    "position_tier": "建议仓位 50%（修复日可参与）",
-    "bury_types": "修复日可积极参与机器人主线核心(总龙大业6板+首板潮)，但高位连板晋级率仅33%，优先低位首板、轻仓试错高位",
-    "watch_direction": "大业6板明日能否晋级7板 vs 涨停82家能否延续 vs 高位连板分歧是否加剧"
+    "position_tier": "执行层另算：以竞价情绪分+总龙开盘核验为准",
+    "bury_types": "高位断板、后排跟风、封单偏薄个股",
+    "watch_direction": "看上海九百能否延续高度，以及汽车零部件/机器人产业链主线是否继续扩散"
   },
   "tomorrow_scenarios": [
     {
       "type": "超预期",
-      "trigger": "大业6板晋级7板+机器人主线延续，涨停家数维持80家以上",
-      "strategy": "修复延续，主线核心可打板，机器人产业链继续扩散",
-      "watch": "大业股份、埃斯顿、兆威机电",
+      "trigger": "最高板晋级6板且涨停家数回升至50家以上",
+      "strategy": "核心继续晋级，主线扩散，只做最强",
+      "watch": "上海九百、襄阳轴承、多伦科技",
       "auto_match": {
-        "lu_min": 80,
-        "board_min": 7
+        "lu_min": 50,
+        "board_min": 6
       }
     },
     {
       "type": "符合预期",
-      "trigger": "大业6板分歧，机器人主线分化，涨停回落至50家左右",
-      "strategy": "高位分歧，只留最强核心，低位首板可低吸",
-      "hold": "跟风减仓，核心持有",
+      "trigger": "最高5板维持，涨停25-49家，主线内部分化",
+      "strategy": "只做核心抱团，后排不接",
+      "watch": "上海九百、襄阳轴承、多伦科技",
       "auto_match": {
-        "lu_min": 30,
-        "lu_max": 79
+        "lu_min": 25,
+        "lu_max": 49,
+        "board_min": 5
       }
     },
     {
       "type": "不及预期",
-      "trigger": "大业炸板+高位连板集体分歧，涨停回落至30家以下",
-      "strategy": "修复证伪，防守为主，只出不进",
-      "risk": "破位清仓，优先处理高位断板持仓",
+      "trigger": "涨停回落至24家以下或最高板断板",
+      "strategy": "防守为主，只处理持仓，不新开仓",
+      "watch": "—",
       "auto_match": {
-        "lu_max": 29
+        "lu_max": 24,
+        "board_max": 4
       }
     }
   ],
@@ -1590,116 +1639,106 @@ const initialData = {
     "rule": "前日烂板换手≥50%（充分换手）且 昨日爆量 且 竞价额≥昨日爆量额×3% 且 带量高开超预期 → 真弱转强"
   },
   "fund_flow": {
-    "source": "easyquotation-新浪（2026-10-23 收盘快照；新浪源无资金流字段，明细保留快照值）",
-    "targets": [
-      {
-        "name": "大业股份",
-        "main_net_inflow": -17353,
-        "super_large": -14803,
-        "large": -2550,
-        "small": 17353,
-        "conclusion": "主力派发",
-        "fund_type": "游资分歧型"
-      },
-      {
-        "name": "海洋王",
-        "main_net_inflow": -17148,
-        "super_large": -13975,
-        "large": -3173,
-        "small": 17148,
-        "conclusion": "主力派发",
-        "fund_type": "游资分歧型"
-      },
-      {
-        "name": "上海九百",
-        "main_net_inflow": 3824,
-        "super_large": 4270,
-        "large": -446,
-        "small": -3824,
-        "conclusion": "主力净买入",
-        "fund_type": "游资合力型"
-      },
-      {
-        "name": "三峡新材",
-        "main_net_inflow": -43312,
-        "super_large": -35919,
-        "large": -7394,
-        "small": 43312,
-        "conclusion": "主力大幅派发",
-        "fund_type": "游资分歧型"
-      }
-    ]
+    "source": "无免费逐笔资金流源（easyquotation/新浪/腾讯均无主力净流入字段）；空列表不编造",
+    "targets": []
   },
-  "fund_flow_one_line": "2026-10-23 16:01 收盘：冰点V型反转，午盘恐慌(19涨停vs47跌停)→尾盘爆发，创业板+4.16%领涨，涨停82家vs跌停7家普涨4239家；总龙大业6板晋级(16天8板)+海洋王地天板6板双高标，机器人产业链全面爆发(埃斯顿/雷赛/兆威/万向钱潮/歌尔20家)，但大业/海洋王主力均净流出(1.74亿/1.71亿)散户接盘需警惕，三峡新材天地板(主力出逃4.33亿)",
-  "data_source": "收盘重建 2026-10-26：指数/涨跌家数/成交额/连板梯队(板数)/首板/断板/空间高标=真实收盘数据；连板角色=规则推断；龙卡/内外切/补涨天花板/风险传导/资金流/主线推演=待人工研判（保留 10-23 结论）",
-  "note": "北向资金自2024-08-19起停止披露日度净买入额；资金流/连板天数无免费源，相关明细以 2026-10-23 收盘快照为准；leverfun 十档 Level-2 已停止服务，盘中个股监控用腾讯五档(涨停价/量比/换手/委差/流通市值)",
+  "fund_flow_one_line": "2026-10-27 09:50:52 盘中：涨停29/跌停7，最高5板（上海九百）；主线汽车零部件/机器人产业链13家、零售/消费复苏8家、软件开发/信创2家；最高板上海九百。",
+  "data_source": "盘中实时（easyquotation新浪+腾讯）：指数/涨跌家数/涨停池/梯队=新浪快照+腾讯复核；异动=新浪日K回溯；题材=人工映射/缺失标[MISSING]；资金流=源外不展示",
+  "note": "盘中自动刷新：行情/情绪/梯队/主线/龙卡/异动/晋级率已更新；无免费行业、炸板次数、逐笔资金流的项按[MISSING]/空处理，不编造",
   "promotion_matrix": {
-    "prev_date": "2026-10-23",
-    "date": "2026-10-26",
+    "prev_date": "2026-10-26",
+    "date": "2026-10-27",
     "status": "ok",
-    "note": "晋级判定口径：今日收盘涨停(新浪近似阈值)；首板池视为1板候选",
+    "note": "盘中实时：昨日梯队对今日涨停名单；未封板计失败",
     "matrix": [
       {
         "from": 1,
         "to": 2,
-        "total": 53,
-        "pass": 8,
-        "rate": 15.1,
+        "total": 40,
+        "pass": 6,
+        "rate": 15.0,
         "promoted": [
-          "万向钱潮",
-          "创维数字",
-          "福莱新材",
-          "模塑科技",
-          "杰克科技",
-          "永创智能",
-          "锋龙股份",
-          "大名城"
+          "大西洋",
+          "国脉科技",
+          "东方海洋",
+          "青岛食品",
+          "胜通能源",
+          "光洋股份"
         ],
         "failed": [
-          "歌尔股份",
-          "天娱数科",
-          "尚太科技",
-          "雷赛智能",
-          "湘佳股份",
-          "大智慧",
-          "好上好",
-          "能科科技",
-          "埃斯顿",
-          "华林证券",
-          "税友股份",
-          "达实智能",
-          "恩捷股份",
-          "慈文传媒",
-          "风语筑",
-          "新华百货",
-          "理工能科",
-          "百大集团",
-          "密尔克卫",
-          "山东威达"
+          "科瑞思",
+          "中邮科技",
+          "奥雅股份",
+          "达瑞电子",
+          "华阳智能",
+          "泛亚微透",
+          "上纬新材",
+          "朗特智能",
+          "延华智能",
+          "闽发铝业",
+          "百洋股份",
+          "永和智控",
+          "英特集团",
+          "皇台酒业",
+          "桂发祥",
+          "兰生股份",
+          "海量数据",
+          "沪光股份",
+          "和泰机电",
+          "南方传媒",
+          "英力特",
+          "生意宝",
+          "三羊马",
+          "阳光乳业",
+          "春光科技",
+          "晶华新材",
+          "塞力医疗",
+          "大千生态",
+          "金溢科技",
+          "上海洗霸",
+          "电魂网络",
+          "上海物贸",
+          "北矿科技",
+          "百达精工"
         ]
       },
       {
         "from": 2,
         "to": 3,
         "total": 8,
-        "pass": 5,
-        "rate": 62.5,
-        "promoted": [
-          "赛福天",
-          "林州重机",
-          "正裕工业",
-          "襄阳轴承",
-          "多伦科技"
-        ],
+        "pass": 0,
+        "rate": 0.0,
+        "promoted": [],
         "failed": [
-          "兆威机电",
-          "睿能科技",
-          "南方路机"
+          "万向钱潮",
+          "模塑科技",
+          "创维数字",
+          "锋龙股份",
+          "大名城",
+          "杰克科技",
+          "永创智能",
+          "福莱新材"
         ]
       },
       {
         "from": 3,
         "to": 4,
+        "total": 5,
+        "pass": 3,
+        "rate": 60.0,
+        "promoted": [
+          "襄阳轴承",
+          "赛福天",
+          "多伦科技"
+        ],
+        "failed": [
+          "林州重机",
+          "正裕工业"
+        ]
+      },
+      {
+        "from": 4,
+        "to": 5,
         "total": 1,
         "pass": 1,
         "rate": 100.0,
@@ -1707,483 +1746,941 @@ const initialData = {
           "上海九百"
         ],
         "failed": []
-      },
-      {
-        "from": 4,
-        "to": 5,
-        "total": 0,
-        "pass": 0,
-        "rate": 0,
-        "promoted": [],
-        "failed": []
-      },
-      {
-        "from": 5,
-        "to": 6,
-        "total": 0,
-        "pass": 0,
-        "rate": 0,
-        "promoted": [],
-        "failed": []
-      },
-      {
-        "from": 6,
-        "to": 7,
-        "total": 2,
-        "pass": 0,
-        "rate": 0.0,
-        "promoted": [],
-        "failed": [
-          "大业股份",
-          "海洋王"
-        ]
       }
     ],
     "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "00:37:58",
-    "limit_up": 55,
-    "max_board": 4,
+    "updated_at": "09:50:52",
+    "limit_up": 29,
+    "max_board": 5,
     "ladder": [
       {
         "code": "600838",
         "name": "上海九百",
         "pct": 10.0,
-        "board": 4,
+        "board": 5,
         "sector": "一般零售"
       },
       {
         "code": "000678",
         "name": "襄阳轴承",
-        "pct": 9.98,
-        "board": 3,
-        "sector": "汽车零部件"
-      },
-      {
-        "code": "002535",
-        "name": "林州重机",
-        "pct": 9.9,
-        "board": 3,
-        "sector": "专用设备"
-      },
-      {
-        "code": "603028",
-        "name": "赛福天",
-        "pct": 9.95,
-        "board": 3,
-        "sector": "通用设备"
-      },
-      {
-        "code": "603089",
-        "name": "正裕工业",
-        "pct": 10.01,
-        "board": 3,
+        "pct": 10.03,
+        "board": 4,
         "sector": "汽车零部件"
       },
       {
         "code": "603528",
         "name": "多伦科技",
-        "pct": 9.95,
-        "board": 3,
+        "pct": 10.06,
+        "board": 4,
         "sector": "软件开发"
       },
       {
-        "code": "000559",
-        "name": "万向钱潮",
-        "pct": 10.04,
-        "board": 2,
-        "sector": "汽车零部"
-      },
-      {
-        "code": "000700",
-        "name": "模塑科技",
-        "pct": 10.02,
-        "board": 2,
-        "sector": "汽车零部"
-      },
-      {
-        "code": "000810",
-        "name": "创维数字",
-        "pct": 9.98,
-        "board": 2,
-        "sector": "黑色家电"
-      },
-      {
-        "code": "002931",
-        "name": "锋龙股份",
-        "pct": 9.99,
-        "board": 2,
+        "code": "603028",
+        "name": "赛福天",
+        "pct": 10.01,
+        "board": 4,
         "sector": "通用设备"
-      },
-      {
-        "code": "600094",
-        "name": "大名城",
-        "pct": 10.02,
-        "board": 2,
-        "sector": "房地产开"
-      },
-      {
-        "code": "603337",
-        "name": "杰克科技",
-        "pct": 10.01,
-        "board": 2,
-        "sector": "专用设备"
-      },
-      {
-        "code": "603901",
-        "name": "永创智能",
-        "pct": 10.04,
-        "board": 2,
-        "sector": "专用设备"
-      },
-      {
-        "code": "605488",
-        "name": "福莱新材",
-        "pct": 10.01,
-        "board": 2,
-        "sector": "塑料"
-      }
-    ],
-    "first": [
-      {
-        "code": "301314",
-        "name": "科瑞思",
-        "pct": 20.01,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "688648",
-        "name": "中邮科技",
-        "pct": 20.01,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "300949",
-        "name": "奥雅股份",
-        "pct": 20.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "300976",
-        "name": "达瑞电子",
-        "pct": 20.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "301502",
-        "name": "华阳智能",
-        "pct": 20.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "688386",
-        "name": "泛亚微透",
-        "pct": 20.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "688585",
-        "name": "上纬新材",
-        "pct": 20.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "300916",
-        "name": "朗特智能",
-        "pct": 19.99,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002178",
-        "name": "延华智能",
-        "pct": 10.1,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "600558",
-        "name": "大西洋",
-        "pct": 10.1,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002578",
-        "name": "闽发铝业",
-        "pct": 10.09,
-        "board": 1,
-        "sector": "新首板"
       },
       {
         "code": "002093",
         "name": "国脉科技",
-        "pct": 10.08,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002086",
-        "name": "东方海洋",
-        "pct": 10.05,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002696",
-        "name": "百洋股份",
-        "pct": 10.05,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002795",
-        "name": "永和智控",
-        "pct": 10.05,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "000411",
-        "name": "英特集团",
-        "pct": 10.04,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "000995",
-        "name": "皇台酒业",
-        "pct": 10.04,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002820",
-        "name": "桂发祥",
-        "pct": 10.04,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "600826",
-        "name": "兰生股份",
-        "pct": 10.04,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "603138",
-        "name": "海量数据",
-        "pct": 10.03,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "605333",
-        "name": "沪光股份",
-        "pct": 10.03,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "001219",
-        "name": "青岛食品",
-        "pct": 10.02,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "001225",
-        "name": "和泰机电",
-        "pct": 10.02,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "601900",
-        "name": "南方传媒",
-        "pct": 10.02,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "000635",
-        "name": "英力特",
-        "pct": 10.01,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "002095",
-        "name": "生意宝",
-        "pct": 10.01,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "001317",
-        "name": "三羊马",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "001318",
-        "name": "阳光乳业",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "603657",
-        "name": "春光科技",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "603683",
-        "name": "晶华新材",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "603716",
-        "name": "塞力医疗",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "603955",
-        "name": "大千生态",
-        "pct": 10.0,
-        "board": 1,
-        "sector": "新首板"
+        "pct": 9.99,
+        "board": 2,
+        "sector": "IT服务"
       },
       {
         "code": "001331",
         "name": "胜通能源",
         "pct": 9.99,
-        "board": 1,
-        "sector": "新首板"
+        "board": 2,
+        "sector": "燃气"
       },
       {
-        "code": "002869",
-        "name": "金溢科技",
-        "pct": 9.99,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "603200",
-        "name": "上海洗霸",
-        "pct": 9.99,
-        "board": 1,
-        "sector": "新首板"
-      },
-      {
-        "code": "603258",
-        "name": "电魂网络",
-        "pct": 9.99,
-        "board": 1,
-        "sector": "新首板"
+        "code": "002086",
+        "name": "东方海洋",
+        "pct": 10.0,
+        "board": 2,
+        "sector": "渔业"
       },
       {
         "code": "002708",
         "name": "光洋股份",
-        "pct": 9.98,
-        "board": 1,
-        "sector": "新首板"
+        "pct": 10.03,
+        "board": 2,
+        "sector": "汽车零部件"
       },
       {
-        "code": "600822",
-        "name": "上海物贸",
-        "pct": 9.98,
-        "board": 1,
-        "sector": "新首板"
+        "code": "001219",
+        "name": "青岛食品",
+        "pct": 9.99,
+        "board": 2,
+        "sector": "食品加工"
       },
       {
-        "code": "600980",
-        "name": "北矿科技",
-        "pct": 9.98,
+        "code": "600558",
+        "name": "大西洋",
+        "pct": 10.07,
+        "board": 2,
+        "sector": "金属制品"
+      }
+    ],
+    "first": [
+      {
+        "code": "002639",
+        "name": "雪人集团",
+        "pct": 10.03,
         "board": 1,
-        "sector": "新首板"
+        "sector": "通用设备"
       },
       {
-        "code": "603331",
-        "name": "百达精工",
+        "code": "002181",
+        "name": "粤 传 媒",
+        "pct": 10.04,
+        "board": 1,
+        "sector": "[MISSING]"
+      },
+      {
+        "code": "002703",
+        "name": "浙江世宝",
+        "pct": 10.02,
+        "board": 1,
+        "sector": "汽车零部件"
+      },
+      {
+        "code": "003026",
+        "name": "中晶科技",
+        "pct": 10.0,
+        "board": 1,
+        "sector": "半导体"
+      },
+      {
+        "code": "688252",
+        "name": "天德钰",
+        "pct": 20.01,
+        "board": 1,
+        "sector": "半导体"
+      },
+      {
+        "code": "600715",
+        "name": "文投控股",
+        "pct": 10.0,
+        "board": 1,
+        "sector": "影视院线"
+      },
+      {
+        "code": "002011",
+        "name": "盾安环境",
+        "pct": 9.96,
+        "board": 1,
+        "sector": "家电零部件"
+      },
+      {
+        "code": "601566",
+        "name": "九牧王",
+        "pct": 10.02,
+        "board": 1,
+        "sector": "服装家纺"
+      },
+      {
+        "code": "603565",
+        "name": "中谷物流",
         "pct": 9.97,
         "board": 1,
-        "sector": "新首板"
+        "sector": "航运港口"
+      },
+      {
+        "code": "600303",
+        "name": "曙光股份",
+        "pct": 9.89,
+        "board": 1,
+        "sector": "[MISSING]"
+      },
+      {
+        "code": "002284",
+        "name": "亚太股份",
+        "pct": 10.01,
+        "board": 1,
+        "sector": "汽车零部件"
+      },
+      {
+        "code": "603758",
+        "name": "秦安股份",
+        "pct": 10.05,
+        "board": 1,
+        "sector": "汽车零部件"
+      },
+      {
+        "code": "600828",
+        "name": "茂业商业",
+        "pct": 10.1,
+        "board": 1,
+        "sector": "一般零售"
+      },
+      {
+        "code": "601956",
+        "name": "东贝集团",
+        "pct": 9.92,
+        "board": 1,
+        "sector": "家电零部件"
+      },
+      {
+        "code": "002590",
+        "name": "万安科技",
+        "pct": 10.03,
+        "board": 1,
+        "sector": "汽车零部件"
+      },
+      {
+        "code": "002187",
+        "name": "广百股份",
+        "pct": 10.04,
+        "board": 1,
+        "sector": "一般零售"
+      },
+      {
+        "code": "001311",
+        "name": "多利科技",
+        "pct": 9.99,
+        "board": 1,
+        "sector": "汽车零部件"
+      },
+      {
+        "code": "603121",
+        "name": "华培动力",
+        "pct": 9.98,
+        "board": 1,
+        "sector": "汽车零部件"
+      },
+      {
+        "code": "000058",
+        "name": "深 赛 格",
+        "pct": 10.07,
+        "board": 1,
+        "sector": "[MISSING]"
       }
     ],
     "broken": [
       {
-        "code": "002724",
-        "name": "海洋王",
-        "board": 6,
-        "pct": -3.49
+        "code": "603089",
+        "name": "正裕工业",
+        "board": 3,
+        "pct": -9.94
       },
       {
-        "code": "603933",
-        "name": "睿能科技",
+        "code": "300916",
+        "name": "朗特智能",
+        "board": 1,
+        "pct": -9.83
+      },
+      {
+        "code": "600094",
+        "name": "大名城",
         "board": 2,
-        "pct": -2.72
+        "pct": -9.32
       },
       {
-        "code": "603280",
-        "name": "南方路机",
+        "code": "301502",
+        "name": "华阳智能",
+        "board": 1,
+        "pct": -7.7
+      },
+      {
+        "code": "002535",
+        "name": "林州重机",
+        "board": 3,
+        "pct": -6.01
+      },
+      {
+        "code": "600980",
+        "name": "北矿科技",
+        "board": 1,
+        "pct": -4.22
+      },
+      {
+        "code": "603331",
+        "name": "百达精工",
+        "board": 1,
+        "pct": -4.18
+      },
+      {
+        "code": "000411",
+        "name": "英特集团",
+        "board": 1,
+        "pct": -3.23
+      },
+      {
+        "code": "603901",
+        "name": "永创智能",
         "board": 2,
-        "pct": 3.35
+        "pct": -1.88
       },
       {
-        "code": "003021",
-        "name": "兆威机电",
+        "code": "000559",
+        "name": "万向钱潮",
         "board": 2,
-        "pct": 4.94
+        "pct": -1.81
       },
       {
-        "code": "603278",
-        "name": "大业股份",
-        "board": 6,
-        "pct": 8.08
+        "code": "000700",
+        "name": "模塑科技",
+        "board": 2,
+        "pct": 0.23
+      },
+      {
+        "code": "000810",
+        "name": "创维数字",
+        "board": 2,
+        "pct": 1.27
       }
     ],
     "cross_candidates": [
       {
         "name": "上海九百",
         "code": "600838",
+        "from": 4,
+        "to": 5
+      },
+      {
+        "name": "襄阳轴承",
+        "code": "000678",
+        "from": 3,
+        "to": 4
+      },
+      {
+        "name": "多伦科技",
+        "code": "603528",
+        "from": 3,
+        "to": 4
+      },
+      {
+        "name": "赛福天",
+        "code": "603028",
         "from": 3,
         "to": 4
       }
     ],
-    "note": "今日实时：板数=昨日人工板数+1（今日新涨停记1板）；题材取自昨日名单，无则标 MISSING"
+    "note": "盘中实时：新浪全市场+腾讯精确封板；板数按上一交易日梯队推算"
   },
   "node_detect": {
-    "type": "爆量断板节点",
-    "broken": [
+    "type": "非节点",
+    "broken": [],
+    "detail": "昨日最高4板，今日实时最高5板，梯队未断",
+    "sub_high": [
       {
-        "name": "大业股份",
-        "board": 6
+        "name": "上海九百",
+        "board": 5
       },
       {
-        "name": "海洋王",
-        "board": 6
+        "name": "襄阳轴承",
+        "board": 4
       }
     ],
-    "detail": "昨日最高 6 板 大业股份、海洋王 今日断板（昨日最高标换手 30.8%，爆量分歧已提前释放）（情绪出清拐点）",
-    "sub_high": [],
-    "advice": "情绪冲击温和、修复概率高；断板次日确认修复即可出手（可偏积极）"
+    "advice": "按分化节奏只做最强核心，回避后排"
+  },
+  "prev_day": {
+    "date": "2026-10-26",
+    "ladder": [
+      {
+        "name": "上海九百",
+        "code": "600838",
+        "board": 4,
+        "seal": "换手",
+        "sector": "一般零售",
+        "amount": 4.2,
+        "open_count": null,
+        "turnover": 8.68,
+        "vol_ratio": 1.22,
+        "role": "总龙",
+        "strength": "中",
+        "nature": "今日4板（收盘实盘）"
+      },
+      {
+        "name": "襄阳轴承",
+        "code": "000678",
+        "board": 3,
+        "seal": "换手",
+        "sector": "汽车零部件",
+        "amount": 12.75,
+        "open_count": null,
+        "turnover": 19.28,
+        "vol_ratio": 0.98,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日3板（收盘实盘）"
+      },
+      {
+        "name": "林州重机",
+        "code": "002535",
+        "board": 3,
+        "seal": "换手",
+        "sector": "专用设备",
+        "amount": 5.82,
+        "open_count": null,
+        "turnover": 24.85,
+        "vol_ratio": 3.02,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日3板（收盘实盘）"
+      },
+      {
+        "name": "赛福天",
+        "code": "603028",
+        "board": 3,
+        "seal": "换手",
+        "sector": "通用设备",
+        "amount": 0.59,
+        "open_count": null,
+        "turnover": 2.21,
+        "vol_ratio": 0.73,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日3板（收盘实盘）"
+      },
+      {
+        "name": "正裕工业",
+        "code": "603089",
+        "board": 3,
+        "seal": "换手",
+        "sector": "汽车零部件",
+        "amount": 3.76,
+        "open_count": null,
+        "turnover": 10.44,
+        "vol_ratio": 2.45,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日3板（收盘实盘）"
+      },
+      {
+        "name": "多伦科技",
+        "code": "603528",
+        "board": 3,
+        "seal": "换手",
+        "sector": "软件开发",
+        "amount": 1.3,
+        "open_count": null,
+        "turnover": 2.05,
+        "vol_ratio": 0.32,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日3板（收盘实盘）"
+      },
+      {
+        "name": "万向钱潮",
+        "code": "000559",
+        "board": 2,
+        "seal": "换手",
+        "sector": "汽车零部",
+        "amount": 25.08,
+        "open_count": null,
+        "turnover": 6.0,
+        "vol_ratio": 2.61,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      },
+      {
+        "name": "模塑科技",
+        "code": "000700",
+        "board": 2,
+        "seal": "换手",
+        "sector": "汽车零部",
+        "amount": 15.31,
+        "open_count": null,
+        "turnover": 13.38,
+        "vol_ratio": 1.88,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      },
+      {
+        "name": "创维数字",
+        "code": "000810",
+        "board": 2,
+        "seal": "换手",
+        "sector": "黑色家电",
+        "amount": 8.08,
+        "open_count": null,
+        "turnover": 6.65,
+        "vol_ratio": 3.54,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      },
+      {
+        "name": "锋龙股份",
+        "code": "002931",
+        "board": 2,
+        "seal": "换手",
+        "sector": "通用设备",
+        "amount": 8.83,
+        "open_count": null,
+        "turnover": 10.71,
+        "vol_ratio": 3.15,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      },
+      {
+        "name": "大名城",
+        "code": "600094",
+        "board": 2,
+        "seal": "换手",
+        "sector": "房地产开",
+        "amount": 4.44,
+        "open_count": null,
+        "turnover": 4.42,
+        "vol_ratio": 4.38,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      },
+      {
+        "name": "杰克科技",
+        "code": "603337",
+        "board": 2,
+        "seal": "换手",
+        "sector": "专用设备",
+        "amount": 2.74,
+        "open_count": null,
+        "turnover": 1.36,
+        "vol_ratio": 0.47,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      },
+      {
+        "name": "永创智能",
+        "code": "603901",
+        "board": 2,
+        "seal": "换手",
+        "sector": "专用设备",
+        "amount": 5.86,
+        "open_count": null,
+        "turnover": 10.0,
+        "vol_ratio": 5.54,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      },
+      {
+        "name": "福莱新材",
+        "code": "605488",
+        "board": 2,
+        "seal": "换手",
+        "sector": "塑料",
+        "amount": 7.48,
+        "open_count": null,
+        "turnover": 6.02,
+        "vol_ratio": 0.62,
+        "role": "跟风",
+        "strength": "中",
+        "nature": "今日2板（收盘实盘）"
+      }
+    ],
+    "first_boards": [
+      {
+        "code": "301314",
+        "name": "科瑞思",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 16.8,
+        "amount": 0.45,
+        "heavy": false,
+        "turnover": 2.65
+      },
+      {
+        "code": "688648",
+        "name": "中邮科技",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 24.1,
+        "amount": 3.3,
+        "heavy": false,
+        "turnover": 14.15
+      },
+      {
+        "code": "300949",
+        "name": "奥雅股份",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 17.7,
+        "amount": 4.08,
+        "heavy": true,
+        "turnover": 24.41
+      },
+      {
+        "code": "300976",
+        "name": "达瑞电子",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 64.28,
+        "amount": 5.79,
+        "heavy": true,
+        "turnover": 9.59
+      },
+      {
+        "code": "301502",
+        "name": "华阳智能",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 18.41,
+        "amount": 6.23,
+        "heavy": true,
+        "turnover": 34.94
+      },
+      {
+        "code": "688386",
+        "name": "泛亚微透",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 46.38,
+        "amount": 4.04,
+        "heavy": true,
+        "turnover": 9.13
+      },
+      {
+        "code": "688585",
+        "name": "上纬新材",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 611.38,
+        "amount": 19.52,
+        "heavy": true,
+        "turnover": 3.39
+      },
+      {
+        "code": "300916",
+        "name": "朗特智能",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 35.19,
+        "amount": 2.89,
+        "heavy": false,
+        "turnover": 8.44
+      },
+      {
+        "code": "002178",
+        "name": "延华智能",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 38.01,
+        "amount": 2.01,
+        "heavy": false,
+        "turnover": 5.36
+      },
+      {
+        "code": "600558",
+        "name": "大西洋",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 49.91,
+        "amount": 2.22,
+        "heavy": false,
+        "turnover": 4.52
+      },
+      {
+        "code": "002578",
+        "name": "闽发铝业",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 31.0,
+        "amount": 2.36,
+        "heavy": false,
+        "turnover": 7.78
+      },
+      {
+        "code": "002093",
+        "name": "国脉科技",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 72.64,
+        "amount": 2.18,
+        "heavy": false,
+        "turnover": 3.11
+      },
+      {
+        "code": "002086",
+        "name": "东方海洋",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 36.36,
+        "amount": 5.03,
+        "heavy": true,
+        "turnover": 14.32
+      },
+      {
+        "code": "002696",
+        "name": "百洋股份",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 37.7,
+        "amount": 9.43,
+        "heavy": true,
+        "turnover": 26.58
+      },
+      {
+        "code": "002795",
+        "name": "永和智控",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 29.94,
+        "amount": 1.23,
+        "heavy": false,
+        "turnover": 4.21
+      },
+      {
+        "code": "000411",
+        "name": "英特集团",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 59.31,
+        "amount": 1.62,
+        "heavy": false,
+        "turnover": 2.78
+      },
+      {
+        "code": "000995",
+        "name": "皇台酒业",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 23.72,
+        "amount": 5.6,
+        "heavy": true,
+        "turnover": 24.35
+      },
+      {
+        "code": "002820",
+        "name": "桂发祥",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 20.47,
+        "amount": 1.55,
+        "heavy": false,
+        "turnover": 7.88
+      },
+      {
+        "code": "600826",
+        "name": "兰生股份",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 59.53,
+        "amount": 0.6,
+        "heavy": false,
+        "turnover": 1.01
+      },
+      {
+        "code": "603138",
+        "name": "海量数据",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 49.02,
+        "amount": 7.05,
+        "heavy": true,
+        "turnover": 15.15
+      },
+      {
+        "code": "605333",
+        "name": "沪光股份",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 83.99,
+        "amount": 1.3,
+        "heavy": false,
+        "turnover": 1.61
+      },
+      {
+        "code": "001219",
+        "name": "青岛食品",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 25.9,
+        "amount": 1.02,
+        "heavy": false,
+        "turnover": 3.96
+      },
+      {
+        "code": "001225",
+        "name": "和泰机电",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 27.97,
+        "amount": 1.19,
+        "heavy": false,
+        "turnover": 4.39
+      },
+      {
+        "code": "601900",
+        "name": "南方传媒",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 125.95,
+        "amount": 2.32,
+        "heavy": false,
+        "turnover": 1.85
+      },
+      {
+        "code": "000635",
+        "name": "英力特",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 29.42,
+        "amount": 1.73,
+        "heavy": false,
+        "turnover": 6.12
+      },
+      {
+        "code": "002095",
+        "name": "生意宝",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 41.48,
+        "amount": 1.52,
+        "heavy": false,
+        "turnover": 3.8
+      },
+      {
+        "code": "001317",
+        "name": "三羊马",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 45.9,
+        "amount": 6.07,
+        "heavy": true,
+        "turnover": 14.05
+      },
+      {
+        "code": "001318",
+        "name": "阳光乳业",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 34.2,
+        "amount": 4.35,
+        "heavy": true,
+        "turnover": 13.32
+      },
+      {
+        "code": "603657",
+        "name": "春光科技",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 45.8,
+        "amount": 2.37,
+        "heavy": false,
+        "turnover": 5.25
+      },
+      {
+        "code": "603683",
+        "name": "晶华新材",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 49.5,
+        "amount": 7.74,
+        "heavy": true,
+        "turnover": 16.59
+      },
+      {
+        "code": "603716",
+        "name": "塞力医疗",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 36.26,
+        "amount": 2.72,
+        "heavy": false,
+        "turnover": 7.6
+      },
+      {
+        "code": "603955",
+        "name": "大千生态",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 36.71,
+        "amount": 1.76,
+        "heavy": false,
+        "turnover": 4.99
+      },
+      {
+        "code": "001331",
+        "name": "胜通能源",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 100.1,
+        "amount": 4.63,
+        "heavy": false,
+        "turnover": 4.85
+      },
+      {
+        "code": "002869",
+        "name": "金溢科技",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 31.75,
+        "amount": 2.97,
+        "heavy": false,
+        "turnover": 9.85
+      },
+      {
+        "code": "603200",
+        "name": "上海洗霸",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 88.46,
+        "amount": 8.85,
+        "heavy": true,
+        "turnover": 10.51
+      },
+      {
+        "code": "603258",
+        "name": "电魂网络",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 36.93,
+        "amount": 2.63,
+        "heavy": false,
+        "turnover": 7.46
+      },
+      {
+        "code": "002708",
+        "name": "光洋股份",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 79.76,
+        "amount": 7.21,
+        "heavy": true,
+        "turnover": 9.14
+      },
+      {
+        "code": "600822",
+        "name": "上海物贸",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 37.12,
+        "amount": 1.23,
+        "heavy": false,
+        "turnover": 3.4
+      },
+      {
+        "code": "600980",
+        "name": "北矿科技",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 35.87,
+        "amount": 0.72,
+        "heavy": false,
+        "turnover": 2.02
+      },
+      {
+        "code": "603331",
+        "name": "百达精工",
+        "pattern": "1天1板",
+        "sector": "[MISSING]",
+        "flow_mv": 26.1,
+        "amount": 3.75,
+        "heavy": false,
+        "turnover": 14.5
+      }
+    ]
   }
 };
 
@@ -2468,6 +2965,7 @@ function renderAuctionVerify(d) {
   const gapOk = a.gap_pct >= a.gap_req;
   const amtOk = a.auction_amount >= a.burst_amount * a.threshold_pct / 100;
   const qualified = gapOk && amtOk && a.qualified !== false;
+  const amountLabel = a.amount_label || "竞价额";
   let resultText;
   if (!qualified) resultText = "总龙未达标 · 该股不接力";
   else if (!decision.allowNew) resultText = "个股达标 · 全局" + decision.label + "，暂不执行";
@@ -2476,14 +2974,15 @@ function renderAuctionVerify(d) {
     '<div class="m-row"><span class="k">总龙 <b style="color:var(--txt)">' + a.name + '</b> 高开</span>' +
     '<span class="v ' + (gapOk ? "up" : "down") + '">' + fmtPct(a.gap_pct) + '</span>' +
     '<span class="badge ' + (gapOk ? "ok" : "warn") + '">要求≥' + a.gap_req + '%</span></div>' +
-    '<div class="m-row"><span class="k">竞价额</span><span class="v gold">' + a.auction_amount.toFixed(2) + '亿</span>' +
-    '<span class="badge gray">昨爆量' + a.burst_amount.toFixed(2) + '亿</span></div>' +
-    '<div class="m-row"><span class="k">竞价额≥昨爆量×' + a.threshold_pct + '%</span>' +
+    '<div class="m-row"><span class="k">' + amountLabel + '</span><span class="v gold">' + a.auction_amount.toFixed(2) + '亿</span>' +
+    '<span class="badge gray">' + (a.burst_amount ? ("昨总成交" + a.burst_amount.toFixed(2) + '亿') : "昨总额缺失") + '</span></div>' +
+    '<div class="m-row"><span class="k">' + amountLabel + '≥昨总成交×' + a.threshold_pct + '%</span>' +
     '<span class="badge ' + (amtOk ? "ok" : "warn") + '">' + (amtOk ? "达标" : "未达标") + '</span></div>' +
     '<div class="result ' + (qualified && decision.allowNew ? "strong" : "weak") + '">' + resultText + '</div>' +
     '<div class="gate-note ' + decision.tone + '">全局执行：<b>' + decision.label + '</b> · ' + decision.reason + '</div>' +
-    '<div style="font-size:10px;color:var(--txt3);margin-top:3px">总龙要求：高开≥' + a.gap_req + '% 且 竞价额≥昨日爆量额' + a.threshold_pct + '%</div>';
+    '<div style="font-size:10px;color:var(--txt3);margin-top:3px">' + (a.note || "总龙要求：高开≥" + a.gap_req + "% 且 " + amountLabel + "≥昨日成交额" + a.threshold_pct + "%") + '</div>';
 }
+
 function renderYidongCalc(d) {
   const y = d.yidong_calc || {};
   const list = y.targets || [];
