@@ -20,7 +20,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "13:58:37",
       "last_pct": 9.99,
-      "last_seen": "14:27:41",
+      "last_seen": "14:30:26",
       "status": "active"
     },
     {
@@ -92,8 +92,8 @@
       "last_seen": "14:00:27",
       "status": "expired",
       "expired_time": "14:00:35",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈",
+      "exit_reason": "跌破均价",
+      "exit_advice": "跌破均价，明日开盘止损",
       "superseded_time": "14:06:30",
       "revived_time": "14:06:38"
     },
@@ -161,8 +161,8 @@
       "last_seen": "14:06:30",
       "status": "expired",
       "expired_time": "14:06:38",
-      "exit_reason": "冲高回落",
-      "exit_advice": "冲高回落，明日减仓止盈"
+      "exit_reason": "跌破均价",
+      "exit_advice": "跌破均价，明日开盘止损"
     },
     {
       "type": "封板排板",
@@ -183,7 +183,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "14:27:16",
       "last_pct": 9.99,
-      "last_seen": "14:27:41",
+      "last_seen": "14:30:26",
       "status": "active"
     }
   ]
