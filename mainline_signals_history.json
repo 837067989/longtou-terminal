@@ -20,12 +20,12 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "13:58:37",
       "last_pct": 9.99,
-      "last_seen": "14:00:35",
+      "last_seen": "14:04:38",
       "status": "active"
     },
     {
       "type": "封板排板",
-      "advice": "封板封单 4.5 亿，打板排板",
+      "advice": "封板封单 4.4 亿，打板排板",
       "reason": "封板+封单足+质量好（修复·积极（聚焦核心节点龙头））",
       "code": "000559",
       "name": "万向钱潮",
@@ -42,7 +42,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "13:58:37",
       "last_pct": 10.02,
-      "last_seen": "14:00:35",
+      "last_seen": "14:04:38",
       "status": "active"
     },
     {
@@ -65,7 +65,10 @@
       "first_time": "13:58:37",
       "last_pct": 3.62,
       "last_seen": "14:00:35",
-      "status": "active"
+      "status": "expired",
+      "expired_time": "14:04:38",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
     },
     {
       "type": "放量突破",
@@ -109,9 +112,10 @@
       "last_seen": "13:59:57",
       "status": "superseded",
       "expired_time": "14:00:27",
-      "exit_reason": "已回封",
-      "exit_advice": "已重新封板，原卖出建议作废",
-      "superseded_time": "14:00:35"
+      "exit_reason": "新买点覆盖",
+      "exit_advice": "已有新买点，原卖出建议作废",
+      "superseded_time": "14:04:38",
+      "revived_time": "14:04:38"
     },
     {
       "type": "回封",
@@ -119,15 +123,15 @@
       "name": "沪光股份",
       "mainline": "",
       "pct": 9.99,
-      "now": 21.9,
+      "now": 21.65,
       "advice": "炸板后回封，打板买点",
       "reason": "炸板后重新封板（回封）",
       "action": "回封打板",
-      "stop_loss": 21.24,
+      "stop_loss": 21.0,
       "stop_note": "炸板破价止损",
       "first_time": "14:00:35",
       "last_pct": 9.99,
-      "last_seen": "14:00:35",
+      "last_seen": "14:04:38",
       "status": "active"
     }
   ]
