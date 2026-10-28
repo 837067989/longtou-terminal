@@ -3,7 +3,7 @@
   "signals": [
     {
       "type": "封板排板",
-      "advice": "封板封单 3.8 亿，打板排板",
+      "advice": "封板封单 3.7 亿，打板排板",
       "reason": "封板+封单足+质量好（修复·积极（聚焦核心节点龙头））",
       "code": "000678",
       "name": "襄阳轴承",
@@ -20,7 +20,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "13:58:37",
       "last_pct": 9.99,
-      "last_seen": "14:13:02",
+      "last_seen": "14:20:08",
       "status": "active"
     },
     {
@@ -42,7 +42,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "13:58:37",
       "last_pct": 10.02,
-      "last_seen": "14:13:02",
+      "last_seen": "14:20:08",
       "status": "active"
     },
     {

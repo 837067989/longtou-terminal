@@ -4410,6 +4410,7 @@ function liveCodes() {
   const d = state.data || {};
   ["ladder", "first_boards", "broken_board", "dragon_cards"].forEach(function(k) { (d[k] || []).forEach(function(it) { add(it.code); }); });
   if (state.coreData && state.coreData.quotes) Object.keys(state.coreData.quotes).forEach(add);
+  liveUniverse().forEach(add);
   const m = state.mainlineData;
   if (m) {
     (m.signals || []).forEach(function(it) { add(it.code); });
@@ -4430,7 +4431,9 @@ function parseTencent(txt) {
     if (!now || now <= 0) return; // 停牌/无报价：不覆盖
     const lu = num(47);
     out[m[1]] = { now: now, pct: num(32), high: num(33), low: num(34), limit_up: (lu && lu > 0) ? lu : null,
-                  ask1_vol: num(20), time: (f[30] || "").slice(8, 14) };
+                  ask1_vol: num(20), time: (f[30] || "").slice(8, 14), name: f[1] || "",
+                  open: num(5), close: num(4), bid1_vol: num(10) != null ? num(10) * 100 : null,
+                  amount_yi: num(37) != null ? num(37) / 1e4 : null, turnover: num(38), vol_ratio: num(49), fmv: num(44) };
   });
   return out;
 }
@@ -4480,6 +4483,167 @@ function applyLive() {
     (m.signals || []).forEach(upd); (m.low_position || []).forEach(upd);
     (m.mainlines || []).forEach(function(ml) { (ml.candidates || []).forEach(upd); });
   }
+  try { computeLiveModules(); } catch (e) {}
+}
+// ===== v1.2：App 内秒级推算（口径逐行移植自 07_更新脚本/refresh_live_modules.py、calc_yidong.py） =====
+// 昨日梯队来源：archive_bundle.json（收盘后由 box 发布）；无包或包过期时与 Python 一致，回退 market_data.prev_day / ladder。
+// 覆盖范围：昨日梯队+首板 ∪ 守护最近一次实时涨停名单 ∪ 盯盘池；全市场新出现的首板需等守护推送（约 5-7 分钟）。
+state.bundle = null;
+const SH_STAR = ["688", "689"], SZ_CHINE = ["300", "301", "302"], BJ_PRE = ["43", "83", "87", "92"];
+function sw(c, arr) { return arr.some(function(p) { return String(c).indexOf(p) === 0; }); }
+function limitThreshold(c) { if (sw(c, SH_STAR) || sw(c, SZ_CHINE)) return 19.9; if (sw(c, BJ_PRE)) return 29.9; return 9.9; }
+function bjDate() { const t = new Date(Date.now() + 8 * 3600 * 1000); return t.toISOString().slice(0, 10); }
+function loadBundle() {
+  fetch("archive_bundle.json", { cache: "no-cache" }).then(function(r) { if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+    .then(function(b) { state.bundle = b; applyLive(); }).catch(function() { state.bundle = null; });
+}
+function prevBlock() {
+  const d = state.data || {}, today = (d.date || bjDate());
+  const b = state.bundle, pb = d.prev_day || {};
+  if (b && b.date && b.date < today && (!pb.date || b.date >= pb.date) && b.ladder) return { src: "archive_bundle", date: b.date, ladder: b.ladder, first: b.first_boards || [] };
+  if (pb.date && pb.date < today && pb.ladder) return { src: "prev_day", date: pb.date, ladder: pb.ladder, first: pb.first_boards || [] };
+  return { src: "ladder", date: null, ladder: d.ladder || [], first: d.first_boards || [] };
+}
+function liveUniverse() {
+  const set = {}, d = state.data || {}, pv = prevBlock();
+  pv.ladder.concat(pv.first).forEach(function(it) { if (it.code) set[it.code] = 1; });
+  const rb = d.realtime_boards || {};
+  (rb.ladder || []).concat(rb.first || []).forEach(function(it) { if (it.code && !it._app) set[it.code] = 1; });
+  if (state.daemonZt) state.daemonZt.forEach(function(c) { set[c] = 1; });
+  if (state.coreData && state.coreData.quotes) Object.keys(state.coreData.quotes).forEach(function(c) { set[c] = 1; });
+  const yd = state.bundle && state.bundle.yidong;
+  if (yd && yd.days >= 10) Object.keys(yd.base10 || {}).forEach(function(c) { set[c] = 1; });
+  return Object.keys(set);
+}
+function r2(x) { return Math.round(x * 100) / 100; }
+function r1(x) { return Math.round(x * 10) / 10; }
+function avgOf(a) { const v = a.filter(function(x) { return x != null; }); return v.length ? r2(v.reduce(function(s, x) { return s + x; }, 0) / v.length) : null; }
+function computeLiveModules() {
+  const d = state.data;
+  if (!d || !inTradingHours() && !state.liveTime) return;
+  // 记住守护推送的实时涨停名单（作为覆盖范围的一部分）
+  if (d.realtime_boards && !d.realtime_boards._app) {
+    state.daemonZt = (d.realtime_boards.ladder || []).concat(d.realtime_boards.first || []).map(function(x) { return x.code; });
+    state.daemonRb = d.realtime_boards;
+  }
+  const pv = prevBlock();
+  const prevMap = {};
+  pv.ladder.concat(pv.first).forEach(function(it) {
+    const c = String(it.code || ""); if (!c || prevMap[c]) return;
+    prevMap[c] = { board: parseInt(it.board || 1, 10), sector: it.sector || "", name: it.name || "", amount: it.amount };
+  });
+  const prevMax = Math.max.apply(null, [0].concat(Object.keys(prevMap).map(function(c) { return prevMap[c].board; })));
+  const uni = liveUniverse();
+  const have = uni.filter(function(c) { return liveOf(c); });
+  if (!uni.length || have.length < uni.length * 0.9) return; // 覆盖不足：不推算，保持守护数据
+  const manual = (state.bundle && state.bundle.manual_sectors) || {};
+  const dSector = {};
+  ((state.daemonRb || {}).ladder || []).concat(((state.daemonRb || {}).first) || []).forEach(function(x) { if (x.sector) dSector[x.code] = x.sector; });
+  const zt = [];
+  uni.forEach(function(c) {
+    const v = liveOf(c); if (!v) return;
+    const name = v.name || (prevMap[c] || {}).name || "";
+    if (!name || name.toUpperCase().indexOf("ST") >= 0 || name.indexOf("退") >= 0) return;
+    if (!(v.limit_up && v.now >= v.limit_up - 1e-6)) return; // tencent_is_sealed
+    const pi = prevMap[c];
+    const board = pi ? pi.board + 1 : 1;
+    let sector = manual[name] || (pi && pi.sector) || dSector[c] || "[MISSING]";
+    if (sector === "新首板") sector = manual[name] || "[MISSING]";
+    const sealAmt = v.bid1_vol != null ? r2(v.bid1_vol * v.now / 1e8) : null;
+    zt.push({ code: c, name: name, board: board, pct: v.pct != null ? r2(v.pct) : null, sector: sector,
+      amount: v.amount_yi != null ? r2(v.amount_yi) : 0, turnover: v.turnover, vol_ratio: v.vol_ratio,
+      flow_mv: v.fmv != null ? r1(v.fmv) : null, seal_fund: sealAmt,
+      seal: (v.open >= v.limit_up - 1e-6 && v.high >= v.limit_up - 1e-6) ? "一字" : "换手" });
+  });
+  zt.sort(function(a, b) { return (b.board - a.board) || ((b.amount || 0) - (a.amount || 0)); });
+  const maxBoard = Math.max.apply(null, [0].concat(zt.map(function(x) { return x.board; })));
+  const ztSet = {}; zt.forEach(function(x) { ztSet[x.code] = x; });
+  const ladder = zt.filter(function(x) { return x.board >= 2; });
+  const first = zt.filter(function(x) { return x.board === 1; }).sort(function(a, b) { return (b.amount || 0) - (a.amount || 0); });
+  const broken = [];
+  Object.keys(prevMap).forEach(function(c) {
+    if (ztSet[c]) return; const v = liveOf(c); if (!v || v.pct == null) return;
+    const b = prevMap[c].board || 1; if (b < 2 && v.pct > -3) return;
+    broken.push({ code: c, name: prevMap[c].name, board: b, pct: r2(v.pct) });
+  });
+  broken.sort(function(a, b) { return a.pct - b.pct; });
+  const cross = zt.filter(function(x) { return prevMap[x.code] && x.board > prevMap[x.code].board; })
+    .map(function(x) { return { name: x.name, code: x.code, from: prevMap[x.code].board, to: x.board }; })
+    .sort(function(a, b) { return b.to - a.to; }).slice(0, 4);
+  const lt = state.liveTime || "--";
+  const pick = function(x) { return { code: x.code, name: x.name, pct: x.pct, board: x.board, sector: x.sector, _app: 1 }; };
+  // 守护名单被截断（first 只保留前 40）时，App 覆盖不到全部涨停：涨停家数沿用守护值并标注，不用 App 子集冒充全市场
+  const drb = state.daemonRb || null;
+  const dListed = drb ? ((drb.ladder || []).length + (drb.first || []).length) : 0;
+  const fullCover = !drb || (drb.limit_up || 0) <= dListed;
+  const luCount = fullCover ? zt.length : drb.limit_up;
+  d.realtime_boards = { _app: 1, updated_at: lt + (fullCover ? "" : "（涨停家数取守护 " + (drb.updated_at || "--") + "，App 实时封板 " + zt.length + " 只）"), limit_up: luCount, max_board: maxBoard,
+    ladder: ladder.map(pick), first: first.map(pick), broken: broken.slice(0, 12), cross_candidates: cross,
+    note: "App 秒级（腾讯精确封板）：覆盖昨日梯队/首板+守护最近涨停名单+盯盘池 共 " + uni.length + " 只；全市场新首板以守护推送为准；板数按上一交易日梯队推算" };
+  const top = zt[0] || { name: "-", board: 0, sector: "-", pct: 0 };
+  const nodeBreak = prevMax > maxBoard;
+  d.node_detect = nodeBreak ? { type: "断板节点", _app: 1,
+      broken: broken.slice(0, 2).map(function(b) { return { name: b.name, board: b.board }; }),
+      detail: "昨日最高" + prevMax + "板，今日实时最高" + maxBoard + "板（" + top.name + "）；高位断板，进入切换观察期（App 秒级 " + lt + "）",
+      sub_high: ladder.slice(0, 2).map(function(x) { return { name: x.name, board: x.board }; }),
+      advice: "断板日先观察，首分钟/竞价未确认前不追高；只做低位首板或最强核心的分歧转一致" }
+    : { type: "非节点", _app: 1, broken: [],
+      detail: "昨日最高" + prevMax + "板，今日实时最高" + maxBoard + "板，梯队未断（App 秒级 " + lt + "）",
+      sub_high: ladder.slice(0, 2).map(function(x) { return { name: x.name, board: x.board }; }),
+      advice: "按分化节奏只做最强核心，回避后排" };
+  const space = d.space_high || {};
+  d.space_high = Object.assign({}, space, { absolute_high: top.name + " " + (top.board || 0) + "板(" + (top.sector || "-") + ")",
+    cross_high: cross.length ? cross.slice(0, 2).map(function(x) { return x.name + "（" + x.from + "→" + x.to + "）"; }).join("、") : top.name,
+    note: "App 秒级：实时最高板与穿越候选（按上一交易日梯队推算）" });
+  const prevMaxNames = {};
+  pv.ladder.forEach(function(x) { if (parseInt(x.board || 0, 10) === prevMax) prevMaxNames[x.name || ""] = 1; });
+  const ceil = Math.max(1, prevMax - 1), tb = top.board || 0;
+  d.ceiling_calc = Object.assign({}, d.ceiling_calc || {}, { last_supply_leader: Object.keys(prevMaxNames).sort().join("、"), last_supply_height: prevMax,
+    formula: "本轮补涨天花板 = 上一轮最高板 − 1 板", result: ceil, current_supply: top.name, current_board: tb,
+    near_ceiling: tb >= ceil, zone: tb >= ceil ? "兑现区" : "预警区",
+    match_basis: "App 秒级：昨最高" + prevMax + "板−1=" + ceil + "板；当前龙头" + tb + "板",
+    fallback_note: "补涨高度用昨日最高板近似；历史多日不足时不做更强拟合" });
+  const hi = [], mid = [], midCodes = [];
+  pv.ladder.forEach(function(it) {
+    const c = String(it.code || ""), v = liveOf(c); if (!v || v.pct == null) return;
+    const b = parseInt(it.board || 0, 10);
+    if (b >= 4) hi.push(v.pct); else if (b === 2 || b === 3) { mid.push(v.pct); midCodes.push(c); }
+  });
+  const midPass = midCodes.filter(function(c) { return ztSet[c]; }).length, midTotal = midCodes.length;
+  const midRate = midTotal ? r1((midTotal - midPass) / midTotal * 100) : 0;
+  const ha = avgOf(hi), ma = avgOf(mid);
+  const rm = d.risk_metrics || {};
+  d.risk_metrics = Object.assign({}, rm, {
+    loss_conduction: { high_avg_drop: ha, mid_avg_drop: ma, state: (ha != null && ha <= -5 && ma != null && ma <= -3) ? "传导中" : "未传导" },
+    mid_fault_rate: { fault_count: midTotal - midPass, total_count: midTotal, rate: midRate, warn: midRate > 60 } });
+  const byBoard = {};
+  pv.ladder.concat(pv.first).forEach(function(it) { const b = parseInt(it.board || 1, 10); (byBoard[b] = byBoard[b] || []).push(it); });
+  const matrix = Object.keys(byBoard).map(Number).sort(function(a, b) { return a - b; }).map(function(b) {
+    const row = byBoard[b], promoted = [], failed = [];
+    row.forEach(function(it) { const c = String(it.code || ""); if (ztSet[c] && ztSet[c].board === b + 1) promoted.push(it.name || c); else failed.push(it.name || c); });
+    return { from: b, to: b + 1, total: row.length, pass: promoted.length, rate: row.length ? r1(promoted.length / row.length * 100) : 0, promoted: promoted, failed: failed };
+  });
+  d.promotion_matrix = Object.assign({}, d.promotion_matrix || {}, { prev_date: pv.date || "[MISSING]", date: d.date, status: "ok",
+    note: "App 秒级（" + lt + "）：昨日梯队对今日实时封板；未封板计失败", matrix: matrix });
+  // 异动红线：需 bundle 带 ≥10 个收盘存档（+今日实时 = 11 点，同 calc_yidong）
+  const yd = state.bundle && state.bundle.yidong;
+  if (yd && yd.days >= 10) {
+    const targets = [];
+    Object.keys(yd.base10 || {}).forEach(function(c) {
+      const v = liveOf(c), b10 = yd.base10[c]; if (!v || !b10 || !b10.close) return;
+      const d10 = r1((v.now / b10.close - 1) * 100);
+      const b20 = (yd.base20 || {})[c]; const d20 = b20 ? r1((v.now / b20 - 1) * 100) : null;
+      if (d10 >= 80 || (d20 != null && d20 >= 150)) targets.push({ name: b10.name || v.name, code: c, pattern: "App 秒级推算", d10_gain: d10, d20_gain: d20,
+        board: (prevMap[c] || {}).board || null, is_near_100: d10 >= 90 || (d20 != null && d20 >= 190) });
+    });
+    targets.sort(function(a, b) { return (b.d20_gain != null ? b.d20_gain : b.d10_gain) - (a.d20_gain != null ? a.d20_gain : a.d10_gain); });
+    d.yidong_calc = Object.assign({}, d.yidong_calc || {}, { status: "ok", date: d.date, note: "App 秒级：实时价对存档收盘；d10>=100% 或 d20>=200% 触发异动停牌风险", targets: targets.slice(0, 30) });
+  }
+  state.liveModulesAt = lt;
+}
+function renderLiveModules() {
+  const d = state.data; if (!d) return;
+  [renderRealtimeBoards, renderPromotionMatrix, renderSpaceHigh, renderCeiling, renderRiskMetrics, renderYidongCalc].forEach(function(fn) { try { fn(d); } catch (e) {} });
 }
 function renderLiveBadge() {
   const b = document.getElementById("live-badge"), t = document.getElementById("live-txt");
@@ -4506,6 +4670,7 @@ window.__ltLiveCb = function(txt) {
   state.liveErr = false;
   applyLive();
   try { renderIdx(state.data); renderLadder(state.data); renderFirstBoards(state.data); renderBroken(state.data); renderDragons(state.data); } catch (e) {}
+  try { renderLiveModules(); } catch (e) {}
   try { renderCoreWatch(); } catch (e) {}
   try { renderMainlineSignals(); } catch (e) {}
   renderLiveBadge();
@@ -4518,7 +4683,7 @@ function pollLive() {
   setTimeout(function() { liveInFlight = false; }, 15000);
   window.LTAndroid.fetchTencent(liveCodes().join(","), "__ltLiveCb");
 }
-function startLive() { if (!window.LTAndroid) return; pollLive(); setInterval(pollLive, LIVE_INTERVAL); }
+function startLive() { if (!window.LTAndroid) return; loadBundle(); setInterval(loadBundle, 30 * 60 * 1000); pollLive(); setInterval(pollLive, LIVE_INTERVAL); }
 
 // ===== 初始化 =====
 function init() {
