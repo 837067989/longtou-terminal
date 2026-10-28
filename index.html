@@ -432,6 +432,7 @@ input[type=checkbox]{accent-color:var(--gold);width:14px;height:14px;cursor:poin
     <span class="t-item"><span class="k">大面</span><span class="v down" id="t-dm">--</span></span>
     <span class="t-item"><span class="k">周期系数</span><span class="v" id="t-coef">--</span></span>
     <span class="sync" id="sync"><span class="dot"></span><span id="sync-txt">初始化</span></span>
+    <span class="t-item" id="live-badge" style="display:none" title="App 直连腾讯秒级行情；研判数据来自守护推送（约5分钟）"><span class="k">实时</span><span class="v" id="live-txt">--</span></span>
     <span class="cmd" id="t-cmd">--</span>
     <span id="alarm-light" class="alarm-light green">情绪正常</span>
     <span class="stale-badge" id="data-stale">数据延迟</span>
@@ -4150,6 +4151,7 @@ function loadCoreQuotes() {
     return r.json();
   }).then(function(d) {
     state.coreData = d;
+    if (typeof applyLive === "function") applyLive();
     renderCoreWatch();
   }).catch(function() {
     state.coreData = null;
@@ -4315,6 +4317,7 @@ function loadMainlineSignals() {
     return r.json();
   }).then(function(d) {
     state.mainlineData = d;
+    if (typeof applyLive === "function") applyLive();
     renderMainlineSignals();
   }).catch(function() {
     state.mainlineData = null;
@@ -4325,6 +4328,7 @@ function loadMainlineSignals() {
 function useData(d) {
   state.data = d;
   state.stale = false;
+  if (typeof applyLive === "function") applyLive();
   refreshAll();
   document.getElementById("sync").className = "sync ok";
   document.getElementById("sync-txt").textContent = "更新于 " + d.date + " " + d.timestamp;
@@ -4373,7 +4377,7 @@ function bindEvents() {
     sb.style.display = "inline-block";
     sb.addEventListener("click", function() {
       const cur = window.LTAndroid.getServer() || "";
-      const v = window.prompt("电脑数据服务地址（同一 Wi-Fi，例如 http://192.168.1.5:8765/ ；留空=只用内嵌快照）", cur);
+      const v = window.prompt("研判数据地址（默认 GitHub Pages；也可填电脑局域网 http://192.168.x.x:8765/ ；留空=只用内嵌快照）", cur);
       if (v === null) return;
       window.LTAndroid.setServer(v.trim());
       refreshNow();
@@ -4381,6 +4385,140 @@ function bindEvents() {
     });
   }
 }
+
+
+// ===== 安卓 App：直连腾讯秒级行情（原生 HTTP，无 CORS）覆盖到守护推送的 JSON 上 =====
+// 只覆盖 现价/涨跌幅/最高/最低/涨停价/封板状态；研判字段仍以守护数据为准。取不到的标的保持原值，不编造。
+const LIVE_INTERVAL = 3000; // 约等于交易所快照频率（3 秒）
+const IDX_SYM = { sh: "sh000001", sz: "sz399001", cyb: "sz399006", kc50: "sh000688" };
+state.live = {}; state.liveTime = null; state.liveErr = false; state.liveSeal = {}; state.liveEvents = [];
+function tcSym(c) {
+  c = String(c || "");
+  if (/^(sh|sz|bj)\d{6}$/.test(c)) return c;
+  if (!/^\d{6}$/.test(c)) return null;
+  if (/^[69]/.test(c)) return "sh" + c;
+  if (/^[03]/.test(c)) return "sz" + c;
+  if (/^[48]/.test(c)) return "bj" + c;
+  return null;
+}
+function bjNow() { const t = new Date(Date.now() + 8 * 3600 * 1000); return { wd: t.getUTCDay(), m: t.getUTCHours() * 60 + t.getUTCMinutes() }; }
+function inTradingHours() { const n = bjNow(); return n.wd >= 1 && n.wd <= 5 && n.m >= 9 * 60 + 15 && n.m <= 15 * 60; }
+function liveCodes() {
+  const set = {};
+  const add = function(c) { const s = tcSym(c); if (s) set[s] = 1; };
+  Object.keys(IDX_SYM).forEach(function(k) { set[IDX_SYM[k]] = 1; });
+  const d = state.data || {};
+  ["ladder", "first_boards", "broken_board", "dragon_cards"].forEach(function(k) { (d[k] || []).forEach(function(it) { add(it.code); }); });
+  if (state.coreData && state.coreData.quotes) Object.keys(state.coreData.quotes).forEach(add);
+  const m = state.mainlineData;
+  if (m) {
+    (m.signals || []).forEach(function(it) { add(it.code); });
+    (m.low_position || []).forEach(function(it) { add(it.code); });
+    (m.mainlines || []).forEach(function(ml) { (ml.candidates || []).forEach(function(it) { add(it.code); }); });
+  }
+  return Object.keys(set);
+}
+function parseTencent(txt) {
+  const out = {};
+  String(txt || "").split(";").forEach(function(line) {
+    const m = line.match(/v_((?:sh|sz|bj)\d{6})="([^"]*)"/);
+    if (!m) return;
+    const f = m[2].split("~");
+    if (f.length < 49) return;
+    const num = function(i) { const v = parseFloat(f[i]); return isFinite(v) ? v : null; };
+    const now = num(3);
+    if (!now || now <= 0) return; // 停牌/无报价：不覆盖
+    const lu = num(47);
+    out[m[1]] = { now: now, pct: num(32), high: num(33), low: num(34), limit_up: (lu && lu > 0) ? lu : null,
+                  ask1_vol: num(20), time: (f[30] || "").slice(8, 14) };
+  });
+  return out;
+}
+function liveOf(code) { const s = tcSym(code); return s ? state.live[s] : null; }
+function applyLive() {
+  const d = state.data;
+  if (!d || !Object.keys(state.live).length) return;
+  if (d.indices) Object.keys(IDX_SYM).forEach(function(k) {
+    const q = state.live[IDX_SYM[k]], it = d.indices[k];
+    if (q && it) { it.price = q.now; if (q.pct != null) it.pct = q.pct; }
+  });
+  ["ladder", "first_boards", "broken_board", "dragon_cards"].forEach(function(k) {
+    (d[k] || []).forEach(function(it) { const q = liveOf(it.code); if (q && q.pct != null && it.pct !== undefined) it.pct = q.pct; });
+  });
+  const cd = state.coreData;
+  if (cd && cd.quotes) Object.keys(cd.quotes).forEach(function(c) {
+    const q = liveOf(c), it = cd.quotes[c];
+    if (!q) return;
+    it.now = q.now; if (q.pct != null) it.pct = q.pct;
+    if (q.high != null) it.high = q.high; if (q.low != null) it.low = q.low;
+    if (q.limit_up != null) {
+      it.limit_up_price = q.limit_up;
+      const st = q.now >= q.limit_up - 1e-6 ? "封板" : "开板";
+      it.state = st;
+      // App 内秒级事件：封板->开板=炸板，开板->封板=回封（仅比较 App 自己连续两次真实报价）
+      const prev = state.liveSeal[c];
+      if (prev && prev !== st && q.time) {
+        const tm = q.time.slice(0, 2) + ":" + q.time.slice(2, 4) + ":" + q.time.slice(4, 6);
+        state.liveEvents.push({ time: tm, name: it.name, code: c, board: it.board, type: st === "开板" ? "炸板" : "回封", pct: q.pct, src: "app" });
+        if (state.liveEvents.length > 50) state.liveEvents.shift();
+      }
+      state.liveSeal[c] = st;
+    }
+  });
+  if (cd && state.liveEvents.length) {
+    cd.events = cd.events || [];
+    state.liveEvents.forEach(function(e) {
+      const dup = cd.events.some(function(x) { return x.time === e.time && x.name === e.name && x.type === e.type; });
+      if (!dup) cd.events.push(e);
+    });
+    cd.events.sort(function(x, y) { return String(x.time).localeCompare(String(y.time)); });
+  }
+  const m = state.mainlineData;
+  if (m) {
+    const upd = function(it) { const q = liveOf(it.code); if (!q) return; if (it.now !== undefined) it.now = q.now; if (q.pct != null && it.pct !== undefined) it.pct = q.pct;
+      if (it.sealed !== undefined && q.limit_up != null) it.sealed = q.now >= q.limit_up - 1e-6; };
+    (m.signals || []).forEach(upd); (m.low_position || []).forEach(upd);
+    (m.mainlines || []).forEach(function(ml) { (ml.candidates || []).forEach(upd); });
+  }
+}
+function renderLiveBadge() {
+  const b = document.getElementById("live-badge"), t = document.getElementById("live-txt");
+  if (!b || !t || !window.LTAndroid) return;
+  b.style.display = "inline-block";
+  const dt = state.data ? (state.data.timestamp || "--") : "--";
+  let lv;
+  if (!inTradingHours()) lv = "休市暂停";
+  else if (state.liveErr && !state.liveTime) lv = "[MISSING] 行情获取失败";
+  else lv = (state.liveTime || "--") + (state.liveErr ? "（最近一次失败）" : "");
+  t.textContent = lv + " · 研判 " + dt;
+}
+let liveInFlight = false;
+window.__ltLiveCb = function(txt) {
+  liveInFlight = false;
+  if (!txt) { state.liveErr = true; renderLiveBadge(); return; }
+  const got = parseTencent(txt);
+  const keys = Object.keys(got);
+  if (!keys.length) { state.liveErr = true; renderLiveBadge(); return; }
+  keys.forEach(function(k) { state.live[k] = got[k]; });
+  let tmax = "";
+  keys.forEach(function(k) { if (got[k].time > tmax) tmax = got[k].time; });
+  state.liveTime = tmax.length === 6 ? tmax.slice(0, 2) + ":" + tmax.slice(2, 4) + ":" + tmax.slice(4, 6) : null;
+  state.liveErr = false;
+  applyLive();
+  try { renderIdx(state.data); renderLadder(state.data); renderFirstBoards(state.data); renderBroken(state.data); renderDragons(state.data); } catch (e) {}
+  try { renderCoreWatch(); } catch (e) {}
+  try { renderMainlineSignals(); } catch (e) {}
+  renderLiveBadge();
+};
+function pollLive() {
+  if (!window.LTAndroid || !window.LTAndroid.fetchTencent) return;
+  renderLiveBadge();
+  if (!inTradingHours() || liveInFlight || document.hidden) return;
+  liveInFlight = true;
+  setTimeout(function() { liveInFlight = false; }, 15000);
+  window.LTAndroid.fetchTencent(liveCodes().join(","), "__ltLiveCb");
+}
+function startLive() { if (!window.LTAndroid) return; pollLive(); setInterval(pollLive, LIVE_INTERVAL); }
 
 // ===== 初始化 =====
 function init() {
@@ -4400,6 +4538,7 @@ function init() {
   setInterval(loadCoreQuotes, 10000);
   loadMainlineSignals();
   setInterval(loadMainlineSignals, 5000);
+  startLive();
 }
 
 window.addEventListener("DOMContentLoaded", init);
