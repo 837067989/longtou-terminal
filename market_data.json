@@ -1,6 +1,6 @@
 {
   "date": "2026-10-28",
-  "timestamp": "11:35:21",
+  "timestamp": "11:39:53",
   "mode": "A股短线龙头战法监控终端",
   "style": "连板接力",
   "session": "盘中",
@@ -53,33 +53,33 @@
     "zuot_lianban_premium": "+1.08%",
     "premium_red_rate": "51.9%",
     "big_face": 5,
-    "limit_down": 1,
+    "limit_down": 31,
     "sentiment_state": "高潮",
-    "sentiment_coef": 1.0
+    "sentiment_coef": 0.5
   },
   "emotion_score": {
-    "auction": 53,
+    "auction": 50,
     "noon": null,
     "close": null
   },
   "cycle": {
     "stage": "高潮",
-    "sub_stage": "昨最高4板→今实时5板，涨停40/跌停31，红盘557/绿盘4508",
-    "node": "否",
-    "node_type": "非节点（分化中继）",
-    "node_detail": "昨日最高4板→今日实时最高5板（上海九百，一般零售）；涨停40家、跌停31家",
-    "coefficient": 1.0,
-    "coefficient_label": "高潮进攻系数 1.0",
-    "stage_days": 36,
-    "repair_over_5": false,
-    "command": "高潮：实时涨停80家/跌停1家，最高4板；只做最强核心，回避后排"
+    "sub_stage": "午盘",
+    "node": "是",
+    "node_type": "断板节点",
+    "node_detail": "昨日最高 5 板 → 今日 4 板（高位断板/降级）",
+    "coefficient": 0.5,
+    "coefficient_label": "高潮",
+    "stage_days": null,
+    "repair_over_5": null,
+    "command": "只卖不买，去弱留强"
   },
   "liquidity": {
-    "total_turnover": 1.96,
-    "avg20": 1.55,
-    "ratio": 1.26,
+    "total_turnover": "约1.46万亿",
+    "avg20": null,
+    "ratio": null,
     "coef": 1.0,
-    "label": "充裕"
+    "label": "午盘成交 约1.46万亿"
   },
   "yidong_calc": {
     "status": "ok",
@@ -201,11 +201,11 @@
   },
   "inner_outer": {
     "old_leader": "上海九百",
-    "old_leader_pct": 10.0,
-    "new_theme_limitup": 11,
-    "direction": "真内切",
-    "hint": "资金聚焦汽车零部件/机器人产业链核心",
-    "detail": "核心票主力资金（当日）：汽车零部件/机器人产业链 +22.02亿；软件开发/信创 +16.51亿；零售/消费复苏 +11.85亿"
+    "old_leader_pct": 5.71,
+    "new_theme_limitup": 80,
+    "direction": "内切",
+    "hint": "今日涨停 80 家，最高 4 板；按身位优先聚焦核心",
+    "detail": "昨日总龙 上海九百 今日 涨5.71%；今日梯队最高 襄阳轴承（4板）"
   },
   "board_fund_flow": {
     "old_leader_outflow": false,
@@ -220,50 +220,47 @@
   },
   "risk_metrics": {
     "loss_conduction": {
-      "high_avg_drop": 10.0,
-      "mid_avg_drop": 0.39,
-      "state": "未传导"
+      "state": "未传导",
+      "high_avg_drop": 9.99,
+      "mid_avg_drop": 11.12,
+      "note": "今日实时：高位(4板+)均涨9.99，中位(2-3板)均涨11.12"
     },
     "mid_fault_rate": {
-      "fault_count": 10,
-      "total_count": 13,
-      "rate": 76.9,
-      "warn": true
+      "rate": null,
+      "note": "需收盘断板数据，盘中 MISSING"
     },
     "crowding": {
-      "count": 0,
-      "avg20": "—",
-      "crowded": false,
-      "ceiling_down": 0
+      "level": "中",
+      "note": "高位连板 1 家（今日实时）"
     }
   },
   "mainlines": [
     {
-      "name": "零售/消费复苏",
-      "count": 11,
-      "leader": "上海九百(5板)",
-      "has_height": true,
-      "tag": "低位启动",
-      "hint": "关注龙头",
-      "detail": "涨停：上海九百(5板)、胜通能源(2板)、青岛食品(2板)、深 赛 格(1板)、九牧王(1板)、广百股份(1板)、中谷物流(1板)、茂业商业(1板) 等"
-    },
-    {
       "name": "汽车零部件/机器人产业链",
-      "count": 11,
-      "leader": "襄阳轴承(4板)",
+      "count": 33,
+      "leader": "襄阳轴承",
       "has_height": true,
-      "tag": "主线爆发",
-      "hint": "格局持有核心",
-      "detail": "涨停：襄阳轴承(4板)、赛福天(4板)、光洋股份(2板)、沪光股份(2板)、大洋电机(1板)、亚太股份(1板)、东贝集团(1板)、凯中精密(1板) 等"
+      "tag": "有高度",
+      "hint": "聚焦该题材内身位最高、最主动的核心；不追后排杂毛（今日涨停统计）",
+      "detail": "今日该题材涨停 33 家，代表：襄阳轴承、万向钱潮、杰克科技、锋龙股份、沪光股份、光洋股份"
     },
     {
-      "name": "软件开发/信创",
-      "count": 4,
-      "leader": "多伦科技(4板)",
-      "has_height": true,
-      "tag": "高度接力",
-      "hint": "只做最强",
-      "detail": "涨停：多伦科技(4板)、国脉科技(2板)、科瑞思(2板)、天邑股份(1板)"
+      "name": "半导体/电子",
+      "count": 6,
+      "leader": "科森科技",
+      "has_height": false,
+      "tag": "待发酵",
+      "hint": "聚焦该题材内身位最高、最主动的核心；不追后排杂毛（今日涨停统计）",
+      "detail": "今日该题材涨停 6 家，代表：科森科技、光华科技、盈方微、五方光电、徕木股份、东南电子"
+    },
+    {
+      "name": "印制电路板",
+      "count": 3,
+      "leader": "方正科技",
+      "has_height": false,
+      "tag": "待发酵",
+      "hint": "聚焦该题材内身位最高、最主动的核心；不追后排杂毛（今日涨停统计）",
+      "detail": "今日该题材涨停 3 家，代表：方正科技、金安国纪、世运电路"
     }
   ],
   "ladder": [
@@ -560,11 +557,11 @@
   ],
   "hold_judgment": {
     "high_mark": "上海九百",
-    "high_mark_pct": 10.0,
-    "sub_high": "上海九百",
-    "sub_high_pct": 10.0,
+    "high_mark_pct": 5.71,
+    "sub_high": "襄阳轴承",
+    "sub_high_pct": 9.99,
     "cross_confirm": true,
-    "result": "昨日高标上海九百实时+10.00%，今日最高上海九百 +10.00%；高位延续，按梯队执行"
+    "result": "次高标 襄阳轴承 今日 4 板（扛住并晋级）"
   },
   "first_boards": [
     {
@@ -1910,95 +1907,75 @@
   ],
   "ceiling_calc": {
     "last_supply_leader": "上海九百",
-    "last_supply_height": 4,
+    "last_supply_height": 5,
     "formula": "本轮补涨天花板 = 上一轮补涨龙高度 − 1 板",
-    "result": 6,
-    "current_supply": "上海九百",
-    "current_board": 5,
-    "near_ceiling": false,
-    "zone": "突破·空间打开",
-    "match_basis": "突破：今日最高 5 板 > 昨日 4 板，旧天花板失效，空间打开",
-    "fallback_note": "高度锚=昨日总龙；幅度锚=上一轮补涨龙（存档不足时用昨日总龙近似，字幕第2期）"
+    "result": 4,
+    "current_supply": "襄阳轴承",
+    "current_board": 4,
+    "near_ceiling": true,
+    "zone": "兑现区",
+    "match_basis": "昨日最高 5 板 − 1 = 4 板；今日最高 4 板",
+    "fallback_note": "午盘按今日实时数据规则推断"
   },
   "dragon_cards": [
     {
-      "role": "前排总龙头",
-      "name": "上海九百",
-      "code": "600838",
-      "weight": 40,
-      "method": "打板",
+      "role": "前排总龙",
+      "name": "襄阳轴承",
+      "code": "000678",
+      "weight": "核心",
+      "method": "打板/分歧转一致",
       "is_near_100": false,
-      "shen_wei": "5板·一般零售·盘中实时",
-      "sector": "一般零售",
-      "trigger": "5板封死（封单1.50亿/换手7.49%），一般零售线；看能否继续晋级6板，只做分歧转一致",
+      "shen_wei": "4板",
+      "sector": "汽车零部件",
+      "trigger": "4板封死，汽车零部件线；看能否晋级5板，只做分歧转一致",
       "abort": "炸板不回封、板块退潮、竞价低开无承接",
-      "ceiling": "当前5板，若板块梯队延续看6板；跌破4板则降级",
+      "ceiling": "当前4板；跌破3板则降级",
       "premium_tier": "高溢价",
       "fault_tolerance": "高容错",
-      "fault_note": "封单较厚、换手可控，按纪律持有",
+      "fault_note": "封板质量与换手决定容错，按纪律持有（今日数据规则推断）",
       "auction_verdict": {
-        "qualified": true,
-        "text": "今日5板封死，封单1.50亿，一般零售线"
+        "qualified": null,
+        "note": "竞价锚定见竞价模块"
       }
     },
     {
       "role": "中排卡位龙",
-      "name": "襄阳轴承",
-      "code": "000678",
-      "weight": 30,
-      "method": "打板",
+      "name": "福莱新材",
+      "code": "605488",
+      "weight": "重要",
+      "method": "卡位/弱转强",
       "is_near_100": false,
-      "shen_wei": "4板·汽车零部件·盘中实时",
-      "sector": "汽车零部件",
-      "trigger": "4板封死（封单1.28亿/换手20.57%），汽车零部件线；看能否继续晋级5板，只做分歧转一致",
+      "shen_wei": "3板",
+      "sector": "塑料制品",
+      "trigger": "3板封死，塑料制品线；看能否晋级4板，只做分歧转一致",
       "abort": "炸板不回封、板块退潮、竞价低开无承接",
-      "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
-      "premium_tier": "高溢价",
-      "fault_tolerance": "高容错",
-      "fault_note": "封单较厚、换手可控，按纪律持有",
+      "ceiling": "当前3板；跌破2板则降级",
+      "premium_tier": "中溢价",
+      "fault_tolerance": "中容错",
+      "fault_note": "封板质量与换手决定容错，按纪律持有（今日数据规则推断）",
       "auction_verdict": {
-        "qualified": true,
-        "text": "今日4板封死，封单1.28亿，汽车零部件线"
+        "qualified": null,
+        "note": "竞价锚定见竞价模块"
       }
     },
     {
       "role": "后排补涨龙",
-      "name": "多伦科技",
-      "code": "603528",
-      "weight": 20,
-      "method": "打板",
+      "name": "上纬新材",
+      "code": "688585",
+      "weight": "观察",
+      "method": "低吸/补涨",
       "is_near_100": false,
-      "shen_wei": "4板·软件开发·盘中实时",
-      "sector": "软件开发",
-      "trigger": "4板封死（封单1.15亿/换手11.65%），软件开发线；看能否继续晋级5板，只做分歧转一致",
+      "shen_wei": "2板",
+      "sector": "塑料",
+      "trigger": "2板封死，塑料线；看能否晋级3板，只做分歧转一致",
       "abort": "炸板不回封、板块退潮、竞价低开无承接",
-      "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
-      "premium_tier": "高溢价",
-      "fault_tolerance": "高容错",
-      "fault_note": "封单较厚、换手可控，按纪律持有",
+      "ceiling": "当前2板；跌破1板则降级",
+      "premium_tier": "中溢价",
+      "fault_tolerance": "中容错",
+      "fault_note": "封板质量与换手决定容错，按纪律持有（今日数据规则推断）",
       "auction_verdict": {
-        "qualified": true,
-        "text": "今日4板封死，封单1.15亿，软件开发线"
-      }
-    },
-    {
-      "role": "穿越龙",
-      "name": "赛福天",
-      "code": "603028",
-      "weight": 10,
-      "method": "打板",
-      "is_near_100": false,
-      "shen_wei": "4板·通用设备·盘中实时",
-      "sector": "通用设备",
-      "trigger": "4板封死（封单0.25亿/换手10.31%），通用设备线；看能否继续晋级5板，只做分歧转一致",
-      "abort": "炸板不回封、板块退潮、竞价低开无承接",
-      "ceiling": "当前4板，若板块梯队延续看5板；跌破3板则降级",
-      "premium_tier": "正常溢价",
-      "fault_tolerance": "高容错",
-      "fault_note": "封单较厚、换手可控，按纪律持有",
-      "auction_verdict": {
-        "qualified": true,
-        "text": "今日4板封死，封单0.25亿，通用设备线"
+        "qualified": null,
+        "note": "竞价锚定见竞价模块"
       }
     }
   ],
@@ -2029,41 +2006,31 @@
   "tomorrow_scenarios": [
     {
       "type": "超预期",
-      "trigger": "最高板晋级6板且涨停家数回升至50家以上",
-      "strategy": "核心继续晋级，主线扩散，只做最强",
-      "watch": "上海九百、襄阳轴承、多伦科技",
-      "auto_match": {
-        "lu_min": 50,
-        "board_min": 6
-      }
+      "trigger": "明日竞价锚定多数超预期 + 主线核心高开带量",
+      "strategy": "修复日参与核心/弱转强，首仓≤半仓",
+      "watch": "锚定标的竞价",
+      "auto_match": null
     },
     {
       "type": "符合预期",
-      "trigger": "最高5板维持，涨停25-49家，主线内部分化",
-      "strategy": "只做核心抱团，后排不接",
-      "watch": "上海九百、襄阳轴承、多伦科技",
-      "auto_match": {
-        "lu_min": 25,
-        "lu_max": 49,
-        "board_min": 5
-      }
+      "trigger": "锚定分化、核心承接一般",
+      "strategy": "只做前排核心抱团，不碰后排",
+      "watch": "板块回流",
+      "auto_match": null
     },
     {
       "type": "不及预期",
-      "trigger": "涨停回落至24家以下或最高板断板",
-      "strategy": "防守为主，只处理持仓，不新开仓",
-      "watch": "—",
-      "auto_match": {
-        "lu_max": 24,
-        "board_max": 4
-      }
+      "trigger": "锚定多数不及预期 + 高标低开无承接",
+      "strategy": "空仓/处理持仓，不新开仓",
+      "watch": "高标是否崩",
+      "auto_match": null
     }
   ],
   "weak_strong_check": {
-    "turnover_threshold": 50,
+    "turnover_threshold": 44.2,
     "yesterday_burst_required": true,
-    "same_board_premium_1m": "+0.5%",
-    "rule": "前日烂板换手≥50%（充分换手）且 昨日爆量 且 竞价额≥昨日爆量额×3% 且 带量高开超预期 → 真弱转强"
+    "same_board_premium_1m": null,
+    "rule": "前日烂板换手≥44.2%（动态）且 昨日爆量 且 竞价额≥爆量×3% 且 带量高开超预期 → 真弱转强"
   },
   "fund_flow": {
     "source": "新浪实时资金流（核心票18只；超大单+大单净额，单位万元，盘中滚动更新）",
@@ -2906,7 +2873,7 @@
     "lhb_note": "2026-10-27 龙虎榜（东财，自动抓取）"
   },
   "fund_flow_one_line": "2026-10-27 15:48:43 盘中：涨停40/跌停31，最高5板（上海九百）；主线零售/消费复苏11家、汽车零部件/机器人产业链11家、软件开发/信创4家；最高板上海九百。",
-  "data_source": "盘中实时（easyquotation新浪+腾讯 + 新浪MoneyFlow）：指数/涨跌家数/涨停池/梯队=新浪快照；核心池/买点=腾讯精确封板；资金流=新浪实时超大单+大单净额；龙卡/主线/低位池=盘中自适应研判",
+  "data_source": "午盘全模块重建（2026-10-28）：全部模块=今日实时数据规则推断；资金流/龙虎榜=昨收或MISSING",
   "note": "盘中自动刷新：行情/情绪/梯队/主线/龙卡/异动/晋级率已更新；无免费行业、炸板次数的项按[MISSING]处理，不编造",
   "promotion_matrix": {
     "prev_date": "2026-10-26",
@@ -3014,7 +2981,7 @@
     "prev_node": null
   },
   "realtime_boards": {
-    "updated_at": "11:35:21",
+    "updated_at": "11:34:45",
     "limit_up": 77,
     "max_board": 4,
     "ladder": [
