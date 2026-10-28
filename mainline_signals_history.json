@@ -220,7 +220,7 @@
     },
     {
       "type": "封板排板",
-      "advice": "封板封单 3.4 亿，打板排板",
+      "advice": "封板封单 3.5 亿，打板排板",
       "reason": "封板+封单足+质量好（分歧·中性）",
       "code": "000678",
       "name": "襄阳轴承",
@@ -237,7 +237,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "09:35:33",
       "last_pct": 9.99,
-      "last_seen": "10:19:37",
+      "last_seen": "10:25:18",
       "status": "active",
       "kline_verdict": "突破20日高点 + 放量突破(确认)",
       "news_hit": "10条·000678，直线涨停，4连板！",
@@ -475,7 +475,7 @@
     },
     {
       "type": "封板排板",
-      "advice": "封板封单 6.6 亿，打板排板",
+      "advice": "封板封单 6.3 亿，打板排板",
       "reason": "封板+封单足+质量好（分歧·中性）",
       "code": "000559",
       "name": "万向钱潮",
@@ -492,7 +492,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "09:45:48",
       "last_pct": 10.02,
-      "last_seen": "10:19:37",
+      "last_seen": "10:25:18",
       "status": "active",
       "kline_verdict": "突破20日高点 + 放量突破(确认)",
       "news_hit": "10条·万向钱潮000559龙虎榜数据(10-2",
@@ -615,8 +615,8 @@
       "expired_time": "10:01:45",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:19:37",
-      "revived_time": "10:19:37"
+      "superseded_time": "10:25:18",
+      "revived_time": "10:25:18"
     },
     {
       "type": "放量突破",
@@ -733,8 +733,8 @@
       "expired_time": "10:07:54",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:19:37",
-      "revived_time": "10:19:37"
+      "superseded_time": "10:25:18",
+      "revived_time": "10:25:18"
     },
     {
       "type": "放量突破",
@@ -763,8 +763,8 @@
       "expired_time": "10:12:12",
       "exit_reason": "新买点覆盖",
       "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:19:37",
-      "revived_time": "10:19:37"
+      "superseded_time": "10:25:18",
+      "revived_time": "10:25:18"
     },
     {
       "type": "回封",
@@ -781,14 +781,15 @@
       "first_time": "10:13:05",
       "last_pct": 10.0,
       "last_seen": "10:13:05",
-      "status": "superseded",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·6天4板！605488，2分钟涨停",
       "fund_main": -1.267,
       "expired_time": "10:14:52",
-      "exit_reason": "已回封",
-      "exit_advice": "已重新封板，原卖出建议作废",
-      "superseded_time": "10:15:45"
+      "exit_reason": "回封后再炸板",
+      "exit_advice": "回封后再度走坏，明日开盘止损",
+      "superseded_time": "10:15:45",
+      "revived_time": "10:25:18"
     },
     {
       "type": "回封",
@@ -805,10 +806,13 @@
       "first_time": "10:15:45",
       "last_pct": 10.0,
       "last_seen": "10:15:45",
-      "status": "active",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·6天4板！605488，2分钟涨停",
-      "fund_main": -1.267
+      "fund_main": -1.267,
+      "expired_time": "10:25:18",
+      "exit_reason": "炸板",
+      "exit_advice": "炸板，明日开盘反抽即卖/破位清仓"
     },
     {
       "type": "放量突破",
@@ -852,14 +856,14 @@
       "turnover": 6.9,
       "board": 1,
       "role": "首板",
-      "now": 14.38,
+      "now": 14.25,
       "action": "半路上车",
-      "stop_loss": 14.06,
+      "stop_loss": 14.07,
       "stop_note": "跌破均价止损",
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "10:16:42",
-      "last_pct": 5.89,
-      "last_seen": "10:19:37",
+      "last_pct": 4.93,
+      "last_seen": "10:25:18",
       "status": "active",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
