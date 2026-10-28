@@ -51,8 +51,8 @@
       "news_hit": null,
       "fund_main": null,
       "expired_time": "09:31:11",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -105,8 +105,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": -0.432,
       "expired_time": "09:31:33",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -163,8 +163,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": -0.432,
       "expired_time": "09:32:37",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -213,8 +213,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": null,
       "expired_time": "09:34:19",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -237,7 +237,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "09:35:33",
       "last_pct": 9.99,
-      "last_seen": "10:53:24",
+      "last_seen": "10:59:06",
       "status": "active",
       "kline_verdict": "突破20日高点 + 放量突破(确认)",
       "news_hit": "10条·000678，直线涨停，4连板！",
@@ -268,8 +268,8 @@
       "news_hit": null,
       "fund_main": null,
       "expired_time": "09:35:44",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -298,8 +298,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": null,
       "expired_time": "09:38:09",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -328,8 +328,8 @@
       "news_hit": null,
       "fund_main": null,
       "expired_time": "09:40:23",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -358,8 +358,8 @@
       "news_hit": null,
       "fund_main": null,
       "expired_time": "09:40:40",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -388,8 +388,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": -0.432,
       "expired_time": "09:43:14",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -418,8 +418,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": null,
       "expired_time": "09:44:55",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -468,14 +468,14 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": -0.432,
       "expired_time": "09:45:37",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
     {
       "type": "封板排板",
-      "advice": "封板封单 5.8 亿，打板排板",
+      "advice": "封板封单 5.4 亿，打板排板",
       "reason": "封板+封单足+质量好（分歧·中性）",
       "code": "000559",
       "name": "万向钱潮",
@@ -492,7 +492,7 @@
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "09:45:48",
       "last_pct": 10.02,
-      "last_seen": "10:53:24",
+      "last_seen": "10:59:06",
       "status": "active",
       "kline_verdict": "突破20日高点 + 放量突破(确认)",
       "news_hit": "10条·万向钱潮000559龙虎榜数据(10-2",
@@ -523,8 +523,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": null,
       "expired_time": "09:46:59",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -553,8 +553,8 @@
       "news_hit": null,
       "fund_main": null,
       "expired_time": "09:47:10",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -583,8 +583,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": null,
       "expired_time": "09:49:02",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -608,15 +608,15 @@
       "first_time": "09:53:37",
       "last_pct": 4.42,
       "last_seen": "10:01:39",
-      "status": "superseded",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
       "fund_main": 0.136,
       "expired_time": "10:01:45",
-      "exit_reason": "新买点覆盖",
-      "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:53:24",
-      "revived_time": "10:53:24"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
+      "superseded_time": "10:55:14",
+      "revived_time": "10:55:19"
     },
     {
       "type": "放量突破",
@@ -643,8 +643,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": -0.432,
       "expired_time": "10:13:05",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -726,15 +726,15 @@
       "first_time": "10:03:49",
       "last_pct": 4.79,
       "last_seen": "10:07:48",
-      "status": "superseded",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
       "fund_main": 0.136,
       "expired_time": "10:07:54",
-      "exit_reason": "新买点覆盖",
-      "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:53:24",
-      "revived_time": "10:53:24"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
+      "superseded_time": "10:55:14",
+      "revived_time": "10:55:19"
     },
     {
       "type": "放量突破",
@@ -756,15 +756,15 @@
       "first_time": "10:10:29",
       "last_pct": 4.49,
       "last_seen": "10:12:03",
-      "status": "superseded",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
       "fund_main": 0.136,
       "expired_time": "10:12:12",
-      "exit_reason": "新买点覆盖",
-      "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:53:24",
-      "revived_time": "10:53:24"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
+      "superseded_time": "10:55:14",
+      "revived_time": "10:55:19"
     },
     {
       "type": "回封",
@@ -788,8 +788,8 @@
       "expired_time": "10:14:52",
       "exit_reason": "已回封",
       "exit_advice": "已重新封板，原卖出建议作废",
-      "superseded_time": "10:48:26",
-      "revived_time": "10:47:17"
+      "superseded_time": "10:53:58",
+      "revived_time": "10:53:53"
     },
     {
       "type": "回封",
@@ -813,8 +813,8 @@
       "expired_time": "10:25:18",
       "exit_reason": "已回封",
       "exit_advice": "已重新封板，原卖出建议作废",
-      "superseded_time": "10:48:26",
-      "revived_time": "10:47:17"
+      "superseded_time": "10:53:58",
+      "revived_time": "10:53:53"
     },
     {
       "type": "放量突破",
@@ -841,8 +841,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": null,
       "expired_time": "10:16:42",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -866,15 +866,15 @@
       "first_time": "10:16:42",
       "last_pct": 4.79,
       "last_seen": "10:28:55",
-      "status": "superseded",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
       "fund_main": 0.136,
       "expired_time": "10:29:05",
-      "exit_reason": "新买点覆盖",
-      "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:53:24",
-      "revived_time": "10:53:24"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
+      "superseded_time": "10:55:14",
+      "revived_time": "10:55:19"
     },
     {
       "type": "放量突破",
@@ -901,8 +901,8 @@
       "news_hit": "10条·600838，5连板！",
       "fund_main": -0.432,
       "expired_time": "10:17:04",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈",
       "superseded_time": "10:17:09",
       "revived_time": "10:17:20"
     },
@@ -931,8 +931,8 @@
       "news_hit": null,
       "fund_main": null,
       "expired_time": "10:17:20",
-      "exit_reason": "跌破均价",
-      "exit_advice": "跌破均价，明日开盘止损"
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
     },
     {
       "type": "回封",
@@ -1156,7 +1156,8 @@
       "expired_time": "10:47:17",
       "exit_reason": "已回封",
       "exit_advice": "已重新封板，原卖出建议作废",
-      "superseded_time": "10:48:26"
+      "superseded_time": "10:53:58",
+      "revived_time": "10:53:53"
     },
     {
       "type": "放量突破",
@@ -1206,15 +1207,15 @@
       "first_time": "10:31:13",
       "last_pct": 5.38,
       "last_seen": "10:47:23",
-      "status": "superseded",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
       "fund_main": null,
       "expired_time": "10:47:48",
-      "exit_reason": "新买点覆盖",
-      "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:53:24",
-      "revived_time": "10:53:24"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
+      "superseded_time": "10:55:14",
+      "revived_time": "10:55:19"
     },
     {
       "type": "回封",
@@ -1231,10 +1232,14 @@
       "first_time": "10:48:32",
       "last_pct": 10.0,
       "last_seen": "10:48:32",
-      "status": "active",
+      "status": "superseded",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·6天4板！605488，2分钟涨停",
-      "fund_main": -1.267
+      "fund_main": -1.267,
+      "expired_time": "10:53:53",
+      "exit_reason": "已回封",
+      "exit_advice": "已重新封板，原卖出建议作废",
+      "superseded_time": "10:53:58"
     },
     {
       "type": "放量突破",
@@ -1301,15 +1306,15 @@
       "first_time": "10:51:44",
       "last_pct": 5.96,
       "last_seen": "10:52:16",
-      "status": "superseded",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
       "fund_main": 0.136,
       "expired_time": "10:52:22",
-      "exit_reason": "新买点覆盖",
-      "exit_advice": "已有新买点，原卖出建议作废",
-      "superseded_time": "10:53:24",
-      "revived_time": "10:53:24"
+      "exit_reason": "条件破坏",
+      "exit_advice": "条件破坏，明日开盘按纪律离场",
+      "superseded_time": "10:55:14",
+      "revived_time": "10:55:19"
     },
     {
       "type": "放量突破",
@@ -1323,18 +1328,41 @@
       "turnover": 8.08,
       "board": 1,
       "role": "首板",
-      "now": 14.48,
+      "now": 14.49,
       "action": "半路上车",
       "stop_loss": 14.1,
       "stop_note": "跌破均价止损",
       "position": "标准仓·单笔止损≤总资金3%",
       "first_time": "10:52:33",
-      "last_pct": 6.63,
-      "last_seen": "10:53:24",
-      "status": "active",
+      "last_pct": 6.7,
+      "last_seen": "10:55:14",
+      "status": "expired",
       "kline_verdict": "无历史K线",
       "news_hit": "10条·模塑科技000700龙虎榜数据(10-2",
-      "fund_main": 0.136
+      "fund_main": 0.136,
+      "expired_time": "10:55:19",
+      "exit_reason": "冲高回落",
+      "exit_advice": "冲高回落，明日减仓止盈"
+    },
+    {
+      "type": "回封",
+      "code": "605488",
+      "name": "福莱新材",
+      "mainline": "",
+      "pct": 10.0,
+      "now": 48.61,
+      "advice": "炸板后回封，打板买点",
+      "reason": "炸板后重新封板（回封）",
+      "action": "回封打板",
+      "stop_loss": 47.15,
+      "stop_note": "炸板破价止损",
+      "first_time": "10:53:58",
+      "last_pct": 10.0,
+      "last_seen": "10:53:58",
+      "status": "active",
+      "kline_verdict": "无历史K线",
+      "news_hit": "10条·6天4板！605488，2分钟涨停",
+      "fund_main": -1.267
     }
   ]
 }
